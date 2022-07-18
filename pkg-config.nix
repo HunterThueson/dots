@@ -22,36 +22,38 @@
   environment.systemPackages = with pkgs; [
 
     # Utilities
-      gnome-keyring				# dependency for mailspring
       libsecret					# dependency for mailspring
       wget
-      neofetch
-      gtop
-      unclutter
+      neofetch					# display system info
+      gtop					# graphical `top`
+      unclutter					# hides desktop cursor after n amount of time
 
     # Tools
-      vim
-      alacritty
-      speedcrunch
-      git
+      vim					# text editor
+      alacritty					# terminal emulator
+      speedcrunch				# Calculator
+      git					# version control
+      gh					# GitHub CLI
 
     # Programs
-      firefox
-      spotify
-      mailspring
-      discord
+      firefox					# web browser
+      spotify					# music
+      mailspring				# email client
+      discord					# chat client
 
     # Media Playback/Editing
-      mpv
-      ffmpeg
-      imagemagick
-      yt-dlp
-      gimp
+      mpv					# video playback
+      ffmpeg					# video transcoding utility
+      imagemagick				# image editing tools
+      yt-dlp					# youtube-dl fork
+      gimp					# image editor
 
     # Games
-      runelite
-      cmatrix
+      runelite					# Old School Runescape
+      cmatrix					# look like a freakin' hacker
 
   ];
 
+  # Enable gnome keyring (mailspring dependency)
+  services.gnome3.gnome-keyring.enable = true;
 }
