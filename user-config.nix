@@ -8,17 +8,27 @@
 {
   users.users = {
 
+  # Primary user account
     hunter = {
       isNormalUser = true;
       home = "/home/hunter";
       description = "Hunter";
-      extraGroups = [ "wheel" "networkmanager" ]; 	# Enable `sudo` for the user.
+      extraGroups = [ "wheel" "networkmanager" ]; 		# Enable `sudo` for the user.
     };
 
+  # Secondary user account
     ash = {
       isNormalUser = true;
       home = "/home/ash";
       description = "Ash";
+      extraGroups = [ "networkmanager" ];
+    };
+
+  # Work account
+    hthueson = {
+      isNormalUser = true;
+      home = "/home/hthueson";
+      description = "hthueson";
       extraGroups = [ "networkmanager" ];
     };
 
