@@ -90,9 +90,6 @@
 
   # List services that you want to enable:
 
-  # Enable Gnome Keyring (for libsecret library, for mailspring)
-  services.gnome.gnome-keyring.enable = true;
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
