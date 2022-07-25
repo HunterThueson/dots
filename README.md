@@ -34,7 +34,7 @@ chances are good you already know how to do this (and if you don't, well... good
 <h4>5. Clone this repository</h4>
 
 ```
-$ git clone https://github.com/HunterThueson/nixos-dotfiles.git dotfiles-dir
+$ git clone git@github.com/HunterThueson/nixos-dotfiles.git output-dir
 ```
 
 <h4>6. Copy into /etc/nixos</h4>
@@ -50,7 +50,7 @@ a) mount them manually after each time you boot, or
 b) mount them before generating the hardware scan, letting NixOS take care of mounting
 the drive(s) for you automatically during startup.
 
-To mount a drive, use the syntaxt `# mount [/dev/your-drive] [mount-point]`. In my case,
+To mount a drive, use the syntax `# mount [/dev/your-drive] [mount-point]`. In my case,
 I want to mount a few SATA SSDs at mount points in `/mnt/*`, so my commands look like
 this:
 
