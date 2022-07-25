@@ -38,12 +38,15 @@
       speedcrunch				# calculator
       git					# version control utility
       gh					# GitHub CLI
+      parted					# CLI partition management
+      gparted					# GUI partition management
 
     # Programs
       firefox					# web browser
       spotify					# music
       mailspring				# email client
       discord					# chat client
+      kate					# KDE text editor
 
     # Media Playback/Editing
       mpv					# video playback
