@@ -45,9 +45,33 @@ $ git clone https://github.com/HunterThueson/nixos-dotfiles.git dotfiles-dir
 
 <h4>7. Generate hardware scan</h4>
 
+If you have multiple drives that you'd like to mount to your system, you can either
+a) mount them manually after each time you boot, or
+b) mount them before generating the hardware scan, letting NixOS take care of mounting
+the drive(s) for you automatically during startup.
+
+To mount a drive, use the syntaxt `# mount [/dev/your-drive] [mount-point]`. In my case,
+I want to mount a few SATA SSDs at mount points in `/mnt/*`, so my commands look like
+this:
+
+```
+# mount /dev/sda1 /mnt/sda/
+# mount /dev/sdb1 /mnt/sdb/
+```
+There's no requirement to use `/mnt` or to name your mount points in any specific way,
+it's just personal preference.
+
+After you've mounted all drives you want auto-mounted during startup, simply run
+
 ```
 # nixos-generate-config
 ```
+
+This will overwrite `/etc/nixos/hardware-configuration.nix`, so it many be worth making a
+backup, but unless you use the `--force` option, it will leave `/etc/nixos/configuration.nix`
+(and all other \*.nix files) alone.
+
+<h4>8. Celebrate!</h4>
 Congratulations! You have reached the end of the installation instructions, at least
 for now. I plan on expanding these instructions once I get acquainted with Nix Flakes,
 Home Manager, etc. and write myself an automated system builder, but for now this should
