@@ -3,36 +3,48 @@
 { config, pkgs, ... }:
 
 {
-  imports = 
-    [
-      ./hardware-configuration.nix	# include the results of the hardware scan
-      ./pkg-config.nix			# separate file for package management
-      ./user-config.nix			# separate file for user definitions
-    ];
+    imports = 
+        [
+            ./hardware-configuration.nix					# include the results of the hardware scan
+            ./pkg-config.nix							# separate file for package management
+            ./user-config.nix							# separate file for user definitions
+        ];
 
-  # Use the GRUB 2 boot loader
-    boot.loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        version = 2;
-        useOSProber = true;
-      };
+    boot = {
 
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+        kernelParams =
+            [
+                "acpi_rev_override"
+                "mem_sleep_default=deep"
+                "intel_iommu=igfx_off"
+                "nvidia-drm.modeset=1"
+            ];
+
+        kernelPackages = pkgs.linuxPackages_latest;				# Use the latest LTS Linux kernel
+        extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+
+        loader = {
+            grub = {								# Use the GRUB 2 boot loader
+                enable = true;
+                device = "nodev";
+                efiSupport = true;
+                version = 2;
+                useOSProber = true;
+            };
+            efi = {
+                canTouchEfiVariables = true;
+                efiSysMountPoint = "/boot/efi";
+            };
+        };
     };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.hostName = "nixos"; # Define your hostname.
+    networking.networkmanager.enable = true;					# Enables networking via NetworkManager
+    networking.hostName = "nixos"; 						# (note: NetworkManager & wpa_supplicant are not compatible)
 
-  # Set your time zone.
-  time.timeZone = "America/Denver";
+    time = {
+        timeZone = "America/Denver";						# Set your time zone.
+        hardwareClockInLocalTime = true;					# Keep the hardware clock in local time instead of UTC
+    };										# for compatibility with Windows Dual Boot
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -56,7 +68,38 @@
   services.xserver.enable = true;
 
   # Enable proprietary NVIDIA drivers
-  # services.xserver.videoDrivers = [ "nvidia" ];
+    environment.systemPackages = with pkgs; [
+        pciutils
+        file
+        
+        gnumake
+        gcc
+        
+        cudatoolkit
+    ]; 
+    nixpkgs.config.allowUnfree = true;
+    services.xserver.videoDrivers = [ "nvidia" ];
+    hardware.opengl = {
+        enable = true;
+        driSupport = true;
+        extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+        driSupport32Bit = true;
+        extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+    };
+    hardware.nvidia = {
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        modesetting.enable = true;						# Should fix screen tearing w/ Optimus via PRIME
+        prime = {
+            intelBusId = "PCI:0:2:0";
+            nvidiaBusId = "PCI:1:0:0";
+            sync.enable = true;
+            sync.allowExternalGpu = true;
+        };
+    };
+    systemd.services.nvidia-control-devices = {
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
+    };
 
   # Enable and configure lightdm
   #  services.xserver.displayManager.lightdm = {
@@ -74,13 +117,13 @@
 
   # Enable SDDM
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.autoNumlock = true;
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.desktopManager.plasma5.enable = true;
   
   # Configure keymap in X11
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

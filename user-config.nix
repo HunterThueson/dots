@@ -13,7 +13,7 @@
       isNormalUser = true;
       home = "/home/hunter";
       description = "Hunter";
-      extraGroups = [ "wheel" "networkmanager" ]; 		# Enable `sudo` for the user.
+      extraGroups = [ "wheel" "video" "networkmanager" ]; 		# Enable `sudo` for the user.
     };
 
   # Secondary user account
@@ -21,7 +21,7 @@
       isNormalUser = true;
       home = "/home/ash";
       description = "Ash";
-      extraGroups = [ "networkmanager" ];
+      extraGroups = [ "video" "networkmanager" ];
     };
 
   # Work account
@@ -29,7 +29,7 @@
       isNormalUser = true;
       home = "/home/hthueson";
       description = "hthueson";
-      extraGroups = [ "networkmanager" ];
+      extraGroups = [ "video" "networkmanager" ];
     };
 
   };
