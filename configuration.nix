@@ -6,8 +6,8 @@
     imports = 
         [
             ./hardware-configuration.nix					# include the results of the hardware scan
-            ./pkg-config.nix							# separate file for package management
-            ./user-config.nix							# separate file for user definitions
+            ./users.nix								# for user definitions
+            ./packages.nix							# for package management
         ];
 
     boot = {
@@ -100,6 +100,11 @@
         wantedBy = [ "multi-user.target" ];
         serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
     };
+
+  # Fix screen tearing with Nvidia proprietary drivers
+    services.xserver.screenSection = ''
+        Option		"metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
+    '';
 
   # Enable and configure lightdm
   #  services.xserver.displayManager.lightdm = {
