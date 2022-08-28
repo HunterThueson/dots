@@ -6,10 +6,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./user-configurations/ash.nix
-  ];
-
   users.users = {
 
   # Primary user account
