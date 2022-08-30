@@ -1,1 +1,5 @@
-hardware-configuration.nix
+*
+!README.md
+!configuration.nix
+!packages.nix
+!users.nix
