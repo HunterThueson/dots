@@ -34,21 +34,17 @@ chances are good you already know how to do this (and if you don't, well... good
 <h4>5. Clone this repository</h4>
 
 ```
-$ git clone git@github.com/HunterThueson/nixos-dotfiles.git output-dir
+# git clone git@github.com/HunterThueson/nixos-dotfiles.git /etc/nixos/
 ```
 
-<h4>6. Copy into /etc/nixos</h4>
-
-```
-# cp -r dotfiles-dir/* /etc/nixos/*
-```
-
-<h4>7. Generate hardware scan</h4>
+<h4>6. Mount your drives and filesystems</h4>
 
 If you have multiple drives that you'd like to mount to your system, you can either
-a) mount them manually after each time you boot, or
-b) mount them before generating the hardware scan, letting NixOS take care of mounting
-the drive(s) for you automatically during startup.
+
+    a) mount them manually after each time you boot, or
+
+    b) mount them before generating the hardware scan, letting NixOS take care of mounting
+    the drive(s) for you automatically during startup.
 
 To mount a drive, use the syntax `# mount [/dev/your-drive] [mount-point]`. In my case,
 I want to mount a few SATA SSDs at mount points in `/mnt/*`, so my commands look like
@@ -61,6 +57,28 @@ this:
 There's no requirement to use `/mnt` or to name your mount points in any specific way,
 it's just personal preference.
 
+There is an optional (but in my opinion very useful) step we can take here, for those of you
+who edit `/etc/nixos/*` rather frequently (like me). Create a new directory within your home
+directory (I like to use `~/.config/nixos/`). Leave it empty for now. Then (replacing "hunter"
+with your username), run:
+
+```
+$ sudo chown -R hunter /etc/nixos/
+$ sudo chmod -R 700 /etc/nixos/
+$ sudo mount --bind /etc/nixos/ ~/.config/nixos/
+```
+
+This will basically trick the system into thinking /etc/nixos/\* and ~/.config/\* are the
+exact same thing, and give your user full permissions to read, write and execute without
+needing to use `sudo`. This bind mount will go away if you reboot, so make sure to do the next
+step before rebooting if you want it to be permanent.
+
+*(Speaking of `sudo`, you could run the aforementioned commands as root instead of using `sudo`,
+but if you do it that way, make sure to change `~/.config/nixos/` to
+`/home/[yourUser]/.config/nixos/`, since `~` will now point to the root user's home directory.)*
+
+<h4>7. Generate the hardware scan</h4>
+
 After you've mounted all drives you want auto-mounted during startup, simply run
 
 ```
@@ -71,7 +89,23 @@ This will overwrite `/etc/nixos/hardware-configuration.nix`, so it many be worth
 backup, but unless you use the `--force` option, it will leave `/etc/nixos/configuration.nix`
 (and all other \*.nix files) alone.
 
-<h4>8. Celebrate!</h4>
+If you used a bind mount in the previous step, check the newly generated `hardware-configuration.nix`
+file for a section that looks like the following:
+
+```
+fileSystems."/home/hunter/.config/nixos" =
+  { device = "/etc/nixos";
+    fsType = "none";
+    options = [ "bind" ];
+  };
+```
+
+I'm not sure why it generates it this way, but that little `fstype = "none";` will screw things
+up and throw errors on the next `nixos-rebuild` for some reason. Simply delete that line and
+you should be good to go. If you have multiple bind mounts on your system, make sure to do this
+for each one.
+
+<h4>7. Celebrate!</h4>
 Congratulations! You have reached the end of the installation instructions, at least
 for now. I plan on expanding these instructions once I get acquainted with Nix Flakes,
 Home Manager, etc. and write myself an automated system builder, but for now this should
