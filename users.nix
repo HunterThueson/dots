@@ -24,14 +24,6 @@
       extraGroups = [ "video" "networkmanager" "wizard" ];
     };
 
-  # Work account
-    hthueson = {
-      isNormalUser = true;
-      home = "/home/hthueson";
-      description = "hthueson";
-      extraGroups = [ "video" "networkmanager" ];
-    };
-
   };
 
 }
