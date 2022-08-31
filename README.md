@@ -109,7 +109,7 @@ for each one.
 Congratulations! You have reached the end of the installation instructions, at least
 for now. I plan on expanding these instructions once I get acquainted with Nix Flakes,
 Home Manager, etc. and write myself an automated system builder, but for now this should
-do nicely. **Don't forget to run `passwd` for each user!**
+do nicely. <b>Don't forget to run `passwd` for each user!</b>
 
 Note: as of 2022.07.21, there may be a few additional steps that need to be followed
 post-install to make sure the system is up and running properly. I am currently
