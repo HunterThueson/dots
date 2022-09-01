@@ -63,10 +63,23 @@
         keyMap = "us";
     };
 
-  # Enable the X11 windowing system.
-    services.xserver.enable = true;
+  # XServer settings
+    services.xserver = {
+        enable = true;				# Enable the X11 windowing system
+        layout = "us";				# Configure X11 keymap layout
+        libinput.enable = true;			# Enable touchpad support
+
+        displayManager = {
+            sddm.enable = true;			# Enable SDDM display manager
+            autoNumlock = true;			# Enable Numlock on startup
+        };
+
+        desktopManager.plasma5.enable = true;	# Enable the KDE Plasma 5 desktop environment
+    };
 
   # Enable proprietary NVIDIA drivers
+    services.xserver.videoDrivers = [ "nvidia" ];
+    nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
         pciutils
         file
@@ -74,8 +87,6 @@
         gcc
         cudatoolkit
     ]; 
-    nixpkgs.config.allowUnfree = true;
-    services.xserver.videoDrivers = [ "nvidia" ];
     hardware.opengl = {
         enable = true;
         driSupport = true;
@@ -103,25 +114,12 @@
         Option		"metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
     '';
 
-  # Enable SDDM
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.displayManager.sddm.autoNumlock = true;
-
-  # Enable the Plasma 5 Desktop Environment.
-    services.xserver.desktopManager.plasma5.enable = true;
-  
-  # Configure keymap in X11
-    services.xserver.layout = "us";
-
   # Enable CUPS to print documents.
     services.printing.enable = true;
 
   # Enable sound.
     sound.enable = true;
     hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktop managers).
-    services.xserver.libinput.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
