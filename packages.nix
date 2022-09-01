@@ -35,6 +35,7 @@
       gtop					# graphical `top`
       unclutter					# hides desktop cursor after n amount of time
       iw					# show & manipulate wireless devices
+      pciutils
 
     # Tools
       vim					# text editor
