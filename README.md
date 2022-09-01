@@ -105,7 +105,35 @@ up and throw errors on the next `nixos-rebuild` for some reason. Simply delete t
 you should be good to go. If you have multiple bind mounts on your system, make sure to do this
 for each one.
 
-<h4>8. Celebrate!</h4>
+<h4>8. Update your system</h4>
+
+Make sure you're using the correct Nix channel (currently 22.05):
+```
+$ nixos-version
+> 22.05.2807.067d5d5b891 (Quokka) # should return something like this, the '22.05' portion is what matters
+```
+
+Add a Home Manager channel:
+```
+# nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
+# nix-channel --update
+```
+
+If you don't add the Home Manager channel, the following line in `configuration.nix` won't work correctly
+and we won't be able to use any of our Home Manager-related configuration:
+```
+imports = [ <home-manager/nixos>];
+```
+
+Run the following as `root` (or using `sudo -i`) to update your system:
+```
+# nixos-rebuild boot --upgrade 		# Note: the 'boot' argument means the system configuration will
+					# only take effect once we reboot the system.
+```
+
+Finally, reboot your system.
+
+<h4>9. Celebrate!</h4>
 Congratulations! You have reached the end of the installation instructions, at least
 for now. I plan on expanding these instructions once I get acquainted with Nix Flakes,
 Home Manager, etc. and write myself an automated system builder, but for now this should

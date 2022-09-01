@@ -5,6 +5,7 @@
 {
     imports = 
         [
+            <home-manager/nixos>						# Enable the NixOS Home Manager Module
             ./hardware-configuration.nix					# include the results of the hardware scan
             ./users.nix								# for user definitions
             ./packages.nix							# for package management
