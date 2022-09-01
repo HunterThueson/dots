@@ -105,7 +105,7 @@ up and throw errors on the next `nixos-rebuild` for some reason. Simply delete t
 you should be good to go. If you have multiple bind mounts on your system, make sure to do this
 for each one.
 
-<h4>7. Celebrate!</h4>
+<h4>8. Celebrate!</h4>
 Congratulations! You have reached the end of the installation instructions, at least
 for now. I plan on expanding these instructions once I get acquainted with Nix Flakes,
 Home Manager, etc. and write myself an automated system builder, but for now this should
