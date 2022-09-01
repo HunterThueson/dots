@@ -67,7 +67,7 @@
     services.xserver = {
         enable = true;				# Enable the X11 windowing system
         layout = "us";				# Configure X11 keymap layout
-        libinput.enable = true;			# Enable touchpad support
+        # libinput.enable = true;		# Enable touchpad support (if necessary)
 
         displayManager = {
             sddm.enable = true;			# Enable SDDM display manager
