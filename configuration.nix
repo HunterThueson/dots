@@ -71,7 +71,7 @@
 
         displayManager = {
             sddm.enable = true;			# Enable SDDM display manager
-            autoNumlock = true;			# Enable Numlock on startup
+            sddm.autoNumlock = true;		# Enable Numlock on startup
         };
 
         desktopManager.plasma5.enable = true;	# Enable the KDE Plasma 5 desktop environment
