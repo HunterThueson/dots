@@ -1,4 +1,4 @@
-# /etc/nixos/packages.nix
+# ~/.config/nixos/packages.nix
 
 # This configuration file is imported by /etc/nixos/configuration.nix, and should contain
 # all of the package management logic used in the NixOS system configuration. Packages
