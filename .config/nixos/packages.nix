@@ -68,6 +68,8 @@
       killall
       unzip
 
+    # Books
+      calibre
   ];
 
 }
