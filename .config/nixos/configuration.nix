@@ -78,7 +78,6 @@
 
 # Enable proprietary NVIDIA drivers
     services.xserver.videoDrivers = [ "nvidia" ];
-    nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
         pciutils
         file
