@@ -13,7 +13,7 @@
       isNormalUser = true;
       home = "/home/hunter";
       description = "Hunter";
-      extraGroups = [ "wheel" "video" "networkmanager" "wizard" ]; 		# Enable `sudo` for the user.
+      extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];      # Enable `sudo` for the user.
     };
 
   # Secondary user account

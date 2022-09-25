@@ -36,39 +36,39 @@
       cudatoolkit
 
   # Utilities
-      libsecret					# dependency for mailspring
-      wget					    # download files from the command line
-      neofetch					# display system info
-      gtop					    # graphical `top`
-      unclutter					# hides desktop cursor after n amount of time
-      iw					    # show & manipulate wireless devices
+      libsecret                 # dependency for mailspring
+      wget                      # download files from the command line
+      neofetch                  # display system info
+      gtop                      # graphical `top`
+      unclutter                 # hides desktop cursor after n amount of time
+      iw                        # show & manipulate wireless devices
 
   # Tools
-      vim					    # text editor
-      alacritty					# GPU-accelerated terminal emulator
-      speedcrunch				# calculator
-      git					    # version control utility
-      gh					    # GitHub CLI
-      parted					# CLI partition management
-      gparted					# GUI partition management
+      vim                       # text editor
+      alacritty                 # GPU-accelerated terminal emulator
+      speedcrunch               # calculator
+      git                       # version control utility
+      gh                        # GitHub CLI
+      parted                    # CLI partition management
+      gparted                   # GUI partition management
 
   # Programs
-      firefox					# web browser
-      spotify					# music
-      mailspring				# email client
-      discord					# chat client
-      kate					    # KDE text editor
+      firefox                   # web browser
+      spotify                   # music
+      mailspring                # email client
+      discord                   # chat client
+      kate                      # KDE text editor
 
   # Media Playback/Editing
-      mpv					    # video playback
-      ffmpeg					# video transcoding utility
-      imagemagick				# image editing tools
-      yt-dlp					# youtube-dl fork
-      gimp					    # image editor
+      mpv                       # video playback
+      ffmpeg                    # video transcoding utility
+      imagemagick               # image editing tools
+      yt-dlp                    # youtube-dl fork
+      gimp                      # image editor
 
   # Games
-      runelite					# Old School Runescape semi-official client
-      cmatrix					# look like a freakin' hacker
+      runelite                  # Old School Runescape semi-official client
+      cmatrix                   # look like a freakin' hacker
 
   # New
       killall
