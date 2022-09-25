@@ -78,13 +78,6 @@
 
 # Enable proprietary NVIDIA drivers
     services.xserver.videoDrivers = [ "nvidia" ];
-    environment.systemPackages = with pkgs; [
-        pciutils
-        file
-        gnumake
-        gcc
-        cudatoolkit
-    ]; 
     hardware.opengl = {
         enable = true;
         driSupport = true;
