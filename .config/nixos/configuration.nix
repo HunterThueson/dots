@@ -55,6 +55,22 @@
         };
     };
 
+# Font configuration
+    fonts.fontDir.enable = true;                                                # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
+    fonts.fonts = with pkgs; [
+        (nerdfonts.override {
+            fonts = [
+                "FiraCode"
+                "DroidSansMono"
+                "FiraMono"
+                "Hack"
+                "Arimo"
+                "iA-Writer"                                                     # AKA iM-Writing
+            ]; 
+        })
+    ];
+    fonts.fontconfig.defaultFonts.monospace = [ "FiraCode Nerd Font" ];
+
 # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
