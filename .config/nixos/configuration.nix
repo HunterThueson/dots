@@ -57,7 +57,7 @@
 
 # Font configuration
   fonts = {
-    fontDir.enable = true;                                                # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
+    fontDir.enable = true;                                                      # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
     fonts = with pkgs; [
         (nerdfonts.override {
             fonts = [
@@ -120,7 +120,8 @@
         serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
     };
 
-    services.xserver.screenSection = ''                                         # Fix screen tearing with Nvidia proprietary drivers (?)
+    # Fix screen tearing with Nvidia proprietary drivers (?)
+    services.xserver.screenSection = ''
         Option      "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
     '';
 
