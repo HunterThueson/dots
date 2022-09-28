@@ -35,7 +35,7 @@
                 efiSupport = true;
                 version = 2;
                 useOSProber = true;
-                configurationLimit = 5;                                         # Limit the number of GRUB menu entries
+                configurationLimit = 10;                                        # Limit the number of GRUB menu entries
             };
         };
     };
