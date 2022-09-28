@@ -22,13 +22,19 @@
 # Enable gnome keyring (mailspring dependency)
   services.gnome.gnome-keyring.enable = true;
 
+# Set default editor
+  environment.variables = { EDITOR = "vim"; };
+
 ##############
 ## Packages ##
 ##############
 
   environment.systemPackages = with pkgs; [
 
-  # NVIDIA
+  # Import Vim/Neovim configuration file:
+      git wget (import ./vim.nix)
+
+  # NVIDIA driver configuration dependencies
       pciutils
       file
       gnumake
@@ -44,7 +50,6 @@
       iw                        # show & manipulate wireless devices
 
   # Tools
-      vim                       # text editor
       alacritty                 # GPU-accelerated terminal emulator
       speedcrunch               # calculator
       git                       # version control utility
