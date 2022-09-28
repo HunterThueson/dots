@@ -25,3 +25,5 @@ colors:
     magenta: '0xed83e2'
     cyan:    '0x52e9e9'
     white:   '0xeeeeec'
+
+draw_bold_text_with_bright_colors: true                         # bold text is drawn using the bright color variants
