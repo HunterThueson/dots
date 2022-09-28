@@ -1,0 +1,50 @@
+# ~/.config/alacritty/alacritty.yml
+
+# This has to be done to make sure colors show up correctly
+env:
+  TERM: xterm-256color
+
+# Font Configuration
+font:
+  size: 9
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+
+# Window Configuration
+window:
+  padding:
+    x: 5
+    y: 5
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+# Color Configuration
+draw_bold_text_with_bright_colors: true                         # bold text is drawn using the bright color variants
+
+schemes:
+  hunter_colors: &hunterbuns
+    primary:
+      background: '#181A1B'
+      foreground: '0xbbc2cf'
+    normal:
+      magenta: '0xc678dd'
+      cyan: '0x5699af'
+      blue: '0x2257a0'
+      yellow:   '#BD8C33'
+    bright:
+      cyan:     '0x46d9ff'
+      blue:     '0x51afef'
+
+######################
+## Set Color Scheme ##
+######################
+colors: *hunterbuns
