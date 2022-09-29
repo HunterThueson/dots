@@ -88,6 +88,7 @@
         enable = true;                                                          # Enable the X11 windowing system
         layout = "us";                                                          # Configure X11 keymap layout
         libinput.enable = true;                                                 # Enable touchpad support
+        libinput.mouse.accelProfile = "flat";                                   # Disable pesky mouse acceleration
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
 
         displayManager = {
