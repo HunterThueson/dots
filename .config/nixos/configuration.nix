@@ -123,14 +123,6 @@
         serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
     };
 
-# Enable unclutter-xfixes to automatically hide the cursor after a period of inactivity
-    services.unclutter-xfixes = {
-        enable = true;
-        timeout = 1;                                                # number of seconds before the cursor is marked inactive
-        threshold = 1;                                              # minimum number of pixels considered to be cursor movement
-        extraOptions = [ "ignore-scrolling" "fork" ];               # ignore scrolling and fork to background
-    };
-
 # Enable CUPS to print documents
     services.printing.enable = true;
 

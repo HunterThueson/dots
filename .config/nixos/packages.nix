@@ -47,6 +47,7 @@
       neofetch                  # display system info
       gtop                      # graphical `top`
       iw                        # show & manipulate wireless devices
+      unclutter-xfixes          # auto-hide cursor with `unclutter` (but better!)
 
   # Tools
       alacritty                 # GPU-accelerated terminal emulator
