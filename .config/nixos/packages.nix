@@ -46,7 +46,6 @@
       wget                      # download files from the command line
       neofetch                  # display system info
       gtop                      # graphical `top`
-      unclutter                 # hides desktop cursor after n amount of time
       iw                        # show & manipulate wireless devices
 
   # Tools
