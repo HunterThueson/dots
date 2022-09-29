@@ -9,6 +9,7 @@
             ./hardware-configuration.nix                                        # include the results of the hardware scan
             ./users.nix                                                         # for user definitions
             ./packages.nix                                                      # for package management
+            ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
 
     boot = {
@@ -86,7 +87,8 @@
     services.xserver = {
         enable = true;                                                          # Enable the X11 windowing system
         layout = "us";                                                          # Configure X11 keymap layout
-        # libinput.enable = true;                                               # Enable touchpad support (if necessary)
+        libinput.enable = true;                                                 # Enable touchpad support
+        exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
 
         displayManager = {
             sddm.enable = true;                                                 # Enable SDDM display manager
@@ -119,11 +121,6 @@
         wantedBy = [ "multi-user.target" ];
         serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
     };
-
-    # Fix screen tearing with Nvidia proprietary drivers (?)
-    services.xserver.screenSection = ''
-        Option      "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On}"
-    '';
 
 # Enable CUPS to print documents
     services.printing.enable = true;
