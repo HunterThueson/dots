@@ -50,10 +50,6 @@
         networkmanager.enable = true;                                           # Enables networking via NetworkManager
         hostName = "the-glass-tower";
         useDHCP = false;
-        interfaces = {
-            enp4s0f1.useDHCP = true;
-            wlp3s0.useDHCP = true;
-        };
     };
 
 # Font configuration
