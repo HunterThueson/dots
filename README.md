@@ -144,11 +144,6 @@ post-install to make sure the system is up and running properly. I am currently
 compiling a list of exactly which steps still need to be automated, which will be
 available soon.
 
-Also, I probably don't have to say this, but just in case: this repository is simply
-a publicly-available copy of my personal dotfiles. As such, I make no guarantees that
-this will work on your system, or that using these files in any way (including following
-the installation instructions here in the README) will not completely and utterly
-destroy everything on your computer. Basically, don't be surprised if you run into
-issues, don't expect any help from me if you do, and don't hold me responsible for any
-data loss or damage you do to your computer. *(I'll pick out a more official license with
-terms along these lines in the future, but for now, this paragraph should do nicely.)*
+<h2>License</h2>
+Nix is released under the [LGPL v2.1](./LICENSE). Most of this project is derivative of Nix, so I'm required
+to license it the same way (which I'm more than happy to do as it makes choosing a license much simpler).
