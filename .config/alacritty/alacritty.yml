@@ -4,10 +4,6 @@
 import:
   - ~/.config/alacritty/colors/electro-swing.yml
 
-# This has to be done to make sure colors show up correctly
-#env:
-  #  TERM: xterm-256color
-
 # Font Configuration
 font:
   size: 9
