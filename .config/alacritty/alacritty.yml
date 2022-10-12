@@ -39,4 +39,6 @@ cursor:
     shape: Block
     blinking: Off
   blink_interval: 600           # set blink interval in milliseconds
-  blink_timeout: 0              # disable timeout for cursor blinking
+  blink_timeout: 30             # time after cursor stops blinking (in seconds)
+  unfocused_hollow: true        # render cursor as a hollow box when the window is out of focus
+  thickness: 0.10               # thickness of cursor relative to cell width as a float
