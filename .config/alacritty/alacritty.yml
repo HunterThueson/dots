@@ -30,3 +30,13 @@ window:
   opacity: 0.925
   decorations: none
 
+# Cursor Configuration
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+  vi_mode_style:
+    shape: Block
+    blinking: Off
+  blink_interval: 600           # set blink interval in milliseconds
+  blink_timeout: 0              # disable timeout for cursor blinking
