@@ -27,3 +27,6 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
+  opacity: 0.925
+  decorations: none
+
