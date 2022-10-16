@@ -41,13 +41,13 @@
       gcc
       cudatoolkit
 
-  # Utilities
+  # Quality of Life
+      starship                  # blazing fast, highly customizable prompt for any shell
       tldr                      # quickly summarize command usage
-      libsecret                 # dependency for mailspring
-      wget                      # download files from the command line
+      exa                       # modern replacement for `ls` written in Rust
+      fd                        # simple, fast and user-friendly alternative to `find`
       neofetch                  # display system info
       gtop                      # graphical `top`
-      iw                        # show & manipulate wireless devices
       unclutter-xfixes          # auto-hide cursor with `unclutter` (but better!)
 
   # Tools
@@ -57,6 +57,10 @@
       gh                        # GitHub CLI
       parted                    # CLI partition management
       gparted                   # GUI partition management
+      wget                      # download files from the command line
+      iw                        # show & manipulate wireless devices
+      killall                   # kill programs with ease
+      unzip                     # extract stuff / unzip file archives
 
   # Programs
       firefox                   # web browser
@@ -64,24 +68,23 @@
       mailspring                # email client
       discord                   # chat client
       kate                      # KDE text editor
+      calibre                   # ebook client
 
   # Media Playback/Editing
+      ffmpeg                    # video transcoding utility (and a dependency for many other programs)
       mpv                       # video playback
-      ffmpeg                    # video transcoding utility
-      imagemagick               # image editing tools
-      yt-dlp                    # youtube-dl fork
-      gimp                      # image editor
+      imagemagick               # image editing tools for the command line
+      yt-dlp                    # youtube-dl fork; download videos from websites like YouTube
+      gimp                      # GNU Image Manipulation Program
 
   # Games
       runelite                  # Old School Runescape semi-official client
       cmatrix                   # look like a freakin' hacker
+      neo-cowsay                # `cowsay` rewritten in Go (with extra features)
 
-  # New
-      killall
-      unzip
+  # Misc dependencies
+      libsecret                 # dependency for mailspring
 
-  # Books
-      calibre
   ];
 
 }
