@@ -27,7 +27,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.925
+  opacity: 0.97
   decorations: none
 
 # Cursor Configuration
