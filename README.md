@@ -1,4 +1,4 @@
-# nixos-dotfiles
+# Dotfiles
 For backing up, managing, and (potentially) sharing my personal NixOS configuration files.
 
 <h2>Installation</h2>
