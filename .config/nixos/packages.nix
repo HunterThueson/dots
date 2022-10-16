@@ -42,6 +42,7 @@
       cudatoolkit
 
   # Utilities
+      tldr                      # quickly summarize command usage
       libsecret                 # dependency for mailspring
       wget                      # download files from the command line
       neofetch                  # display system info
