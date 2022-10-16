@@ -63,6 +63,12 @@
       unzip                     # extract stuff / unzip file archives
       openrgb                   # open source RGB lighting control utility
 
+  # the Rust Programming Language
+      cargo                     # downloads your Rust project's dependencies and builds your project
+      rustup                    # the Rust toolchain installer
+      rustc                     # the Rust language itself
+      rustfmt                   # a tool for formatting Rust code according to style guidelines
+
   # Programs
       firefox                   # web browser
       spotify                   # music
