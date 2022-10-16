@@ -106,13 +106,14 @@
     };
     hardware.nvidia = {
         package = config.boot.kernelPackages.nvidiaPackages.stable;
-        modesetting.enable = true;                                              # Should fix screen tearing w/ Optimus via PRIME
         prime = {
             intelBusId = "PCI:0:2:0";
             nvidiaBusId = "PCI:1:0:0";
             sync.enable = true;
             sync.allowExternalGpu = true;
         };
+        modesetting.enable = true;                      # Should fix screen tearing w/ Optimus via PRIME
+        nvidiaSettings = true;                          # Add `nvidia-settings`, NVIDIA's GUI configuration tool, to system packages
     };
     systemd.services.nvidia-control-devices = {
         wantedBy = [ "multi-user.target" ];
