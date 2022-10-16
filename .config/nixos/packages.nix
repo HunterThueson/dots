@@ -61,6 +61,7 @@
       iw                        # show & manipulate wireless devices
       killall                   # kill programs with ease
       unzip                     # extract stuff / unzip file archives
+      openrgb                   # open source RGB lighting control utility
 
   # Programs
       firefox                   # web browser
