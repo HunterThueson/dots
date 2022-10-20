@@ -16,3 +16,6 @@
 
 !.config/vim.nix
 !.config/ffmpegthumbsrc
+
+!.config/mpv/
+!.config/mpv/mpv.conf
