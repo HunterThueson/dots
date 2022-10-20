@@ -11,6 +11,7 @@
 
 !.config/alacritty/
 !.config/alacritty/alacritty.yml
-
 !.config/alacritty/colors/
 !.config/alacritty/colors/electro-swing.yml
+
+!.config/vim.nix
