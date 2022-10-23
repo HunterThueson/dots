@@ -91,6 +91,7 @@
 
   # Misc dependencies
       libsecret                 # dependency for mailspring
+      binutils                  # dependency for `make` -- `objcopy` doesn't work without this
 
   ];
 
