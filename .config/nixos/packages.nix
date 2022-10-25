@@ -32,7 +32,7 @@
   environment.systemPackages = with pkgs; [
 
   # Import Vim/Neovim configuration file:
-      (import ../vim.nix)
+      (import ./vim.nix)
 
   # NVIDIA driver configuration dependencies
       pciutils
