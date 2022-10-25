@@ -13,7 +13,6 @@ alias visudo='sudo -i vim'
 alias find='fd'                                                         # replace `find` with `fd` (faster, written in -- you guessed it -- Rust)
 
 # Navigation
-alias gs='git status'
 alias lt='exa =TL 2'
 alias lsa='exa -alu --git --time-style long-iso'                        # more info about hidden files (w/ git status)
 alias lsd='exa -D'                                                      # list only directories
