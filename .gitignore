@@ -20,7 +20,8 @@
 !.config/alacritty/colors/
 !.config/alacritty/colors/electro-swing.yml
 
-!.config/vim.nix
+!.config/starship.toml
+
 !.config/ffmpegthumbsrc
 
 !.config/mpv/

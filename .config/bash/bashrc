@@ -3,3 +3,6 @@
 # ~/.config/bash/bashrc
 
 [[ -f ~/.config/bash/aliases ]] && . ~/.config/bash/aliases
+
+# Enable Starship prompt
+eval "$(starship init bash)"
