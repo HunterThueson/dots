@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# ~/.config/bash/bashrc
+
+[[ -f ~/.config/bash/aliases ]] && . ~/.config/bash/aliases
+
+export PATH="$HOME/bin/:$PATH"

@@ -1,13 +1,19 @@
 *
 
+!.config/
+
 !docs/
 !docs/README.md
 !docs/LICENSE
 
-!.config/
 !.config/nixos/
 !.config/nixos/*
 .config/nixos/hardware-configuration.nix
+
+!.bash_profile
+!.config/bash/
+!.config/bash/bashrc
+!.config/bash/aliases
 
 !.config/alacritty/
 !.config/alacritty/alacritty.yml
