@@ -22,7 +22,7 @@
                 "nvidia-drm.modeset=1"
             ];
 
-        kernelPackages = pkgs.linuxPackages_latest;                             # Use the latest LTS Linux kernel
+        kernelPackages = pkgs.linuxPackages;                                    # Use the default, stable Linux kernel
         extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
         loader = {
