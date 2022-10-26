@@ -5,11 +5,11 @@
 {
     imports = 
         [
-            <home-manager/nixos>                                                # Enable the NixOS Home Manager Module
             ./hardware-configuration.nix                                        # include the results of the hardware scan
             ./users.nix                                                         # for user definitions
-            ./packages.nix                                                      # for package management
+            ./packages.nix                                                      # for system-wide package management
             ./xorg.nix                                                          # for managing XRandR & X Server settings
+            ./home-config.nix                                                   # for per-user package management and $HOME configuration(s)
         ];
 
     boot = {
