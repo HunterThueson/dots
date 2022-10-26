@@ -21,7 +21,7 @@
       isNormalUser = true;
       home = "/home/ash";
       description = "Ash";
-      extraGroups = [ "video" "networkmanager" "wizard" ];
+      extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];      # Enable `sudo` for the user.
     };
 
   };
