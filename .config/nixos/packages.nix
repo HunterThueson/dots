@@ -51,11 +51,9 @@
       fd                        # simple, fast and user-friendly alternative to `find`
       neofetch                  # display system info
       gtop                      # graphical `top`
-      unclutter-xfixes          # auto-hide cursor with `unclutter` (but better!)
 
   # Tools
       alacritty                 # GPU-accelerated terminal emulator
-      speedcrunch               # calculator
       git                       # version control utility
       gh                        # GitHub CLI
       parted                    # CLI partition management
@@ -71,26 +69,6 @@
       rustup                    # the Rust toolchain installer
       rustc                     # the Rust language itself
       rustfmt                   # a tool for formatting Rust code according to style guidelines
-
-  # Programs
-      firefox                   # web browser
-      spotify                   # music
-      mailspring                # email client
-      discord                   # chat client
-      kate                      # KDE text editor
-      calibre                   # ebook client
-
-  # Media Playback/Editing
-      ffmpeg                    # video transcoding utility (and a dependency for many other programs)
-      mpv                       # video playback
-      imagemagick               # image editing tools for the command line
-      yt-dlp                    # youtube-dl fork; download videos from websites like YouTube
-      gimp                      # GNU Image Manipulation Program
-
-  # Games
-      runelite                  # Old School Runescape semi-official client
-      cmatrix                   # look like a freakin' hacker
-      neo-cowsay                # `cowsay` rewritten in Go (with extra features)
 
   # Misc dependencies
       libsecret                 # dependency for mailspring

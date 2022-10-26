@@ -9,7 +9,6 @@
             ./users.nix                                                         # for user definitions
             ./packages.nix                                                      # for system-wide package management
             ./xorg.nix                                                          # for managing XRandR & X Server settings
-            ./home-config.nix                                                   # for per-user package management and $HOME configuration(s)
         ];
 
     boot = {
