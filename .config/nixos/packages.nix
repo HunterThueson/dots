@@ -25,6 +25,9 @@
 # Set default editor
   environment.variables = { EDITOR = "vim"; };
 
+# Add shell(s) to /etc/shells
+  environment.shells = with pkgs; [ bash ];
+
 ##############
 ## Packages ##
 ##############

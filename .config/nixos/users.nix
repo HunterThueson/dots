@@ -26,4 +26,6 @@
 
   };
 
+  users.defaultUserShell = pkgs.bash;
+
 }
