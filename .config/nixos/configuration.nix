@@ -33,6 +33,17 @@
                 enable = true;
                 device = "nodev";
                 efiSupport = true;
+
+                # Enable Memtest86 (unfree) EFI-compatible system diagnostics utility
+                extraFiles = {
+                    "memtest86.efi" = "${pkgs.memtest86-efi}/BOOTX64.efi";
+                };
+                extraEntries = ''
+                    menuentry "Memtest86" {
+                        chainloader @bootRoot@/memtest86.efi
+                    }
+                '';
+
                 version = 2;
                 useOSProber = true;
                 configurationLimit = 25;                                        # Limit the number of GRUB menu entries
