@@ -14,7 +14,7 @@ alias find='fd'                                                         # replac
 
 # Navigation
 alias lt='exa =TL 2'
-alias lsa='exa -alu --git --time-style long-iso'                        # more info about hidden files (w/ git status)
+alias lsa='exa -Galu --git --time-style long-iso'                        # more info about hidden files (w/ git status)
 alias lsd='exa -D'                                                      # list only directories
 
 # Terminal clearing
