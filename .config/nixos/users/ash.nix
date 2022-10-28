@@ -19,7 +19,16 @@ home.packages = with pkgs; [
     imagemagick             # image editing tools for the command line
     yt-dlp                  # `youtube-dl` fork; download videos from websites like YouTube
     speedcrunch             # calculator
-    unclutter-xfixes        # auto-hide cursor with `unclutter` (but better!)
 ];
+
+################
+##  Services  ##
+################
+services = {
+    unclutter = {
+        enable = true;
+        extraOptions = [ "timeout 1" "ignore-scrolling" ];
+    };
+};
 
 }
