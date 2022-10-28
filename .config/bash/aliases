@@ -8,8 +8,6 @@
 
 # Drop-in program replacements
 alias ls='exa -G --color=always --icons'                                # replace `ls` with `exa` (faster, written in Rust)
-alias vi='nvim'                                                         # replace `vi` with `nvim` (because `vi` is for grandpas and hipsters)
-alias visudo='sudo -i vim'
 alias find='fd'                                                         # replace `find` with `fd` (faster, written in -- you guessed it -- Rust)
 
 # Navigation
