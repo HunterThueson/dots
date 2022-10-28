@@ -71,21 +71,21 @@ programs.bash = {
             cd $HOME
             clear
             sleep 0.01
-            exa -xDG
+            exa -xDG --icons
         }
 
         # Teleport to ~/.config
         cdc () {
             cd $HOME/.config
             clear
-            exa -D
+            exa -D --icons
         }
 
         # Teleport to NixOS configuration directory
         cdn () {
             cd $HOME/.config/nixos/
             clear
-            exa
+            exa --icons
         }
     '';
 
