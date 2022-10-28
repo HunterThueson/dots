@@ -16,6 +16,25 @@ alias lsd='exa -D'                                                      # list o
 
 # Terminal clearing
 alias cl='clear'                                                        # because typing `clear` just takes too long
-alias cdd='cd; clear; sleep 0.01; exa -xDG'                             # teleport to $HOME
-alias cdc='cd ~/.config; clear; exa -D'                                 # teleport to $HOME/.config/
-alias cdn='cd ~/.config/nixos; clear; exa'                              # teleport to $HOME/.config/nixos/ (NixOS config directory)
+
+# Teleport to $HOME
+cdd () {
+    cd $HOME
+    clear
+    sleep 0.01
+    exa -xDG
+}
+
+# Teleport to ~/.config
+cdc () {
+    cd $HOME/.config
+    clear
+    exa -D
+}
+
+# Teleport to NixOS configuration directory
+cdn () {
+    cd $HOME/.config/nixos/
+    clear
+    exa
+}
