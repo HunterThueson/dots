@@ -49,6 +49,7 @@
       tldr                      # quickly summarize command usage
       exa                       # modern replacement for `ls` written in Rust
       fd                        # simple, fast and user-friendly alternative to `find`
+      polybarFull               # a fast and easy-to-use tool for creating status bars
       neofetch                  # display system info
       gtop                      # graphical `top`
 
@@ -74,7 +75,6 @@
       libsecret                 # dependency for mailspring
       binutils                  # dependency for `make`
       xorriso                   # dependency for `make iso`
-
   ];
 
 }
