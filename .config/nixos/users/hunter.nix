@@ -13,6 +13,14 @@ home.sessionPath = [
     "$HOME/lib/bash-tome"
 ];
 
+############################
+## Keyboard Configuration ##
+############################
+home.keyboard = {
+    layout = "us";
+    options = [ "caps:backspace" ];
+};
+
 ###########################
 ## Package Configuration ##
 ###########################
