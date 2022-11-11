@@ -140,7 +140,7 @@ programs.bash = {
 services = {
     unclutter = {
         enable = true;
-        extraOptions = [ "timeout 1" "ignore-scrolling" ];
+        extraOptions = [ "timeout 3" "ignore-scrolling" ];
     };
 };
 
