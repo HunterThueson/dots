@@ -75,6 +75,9 @@
       libsecret                 # dependency for mailspring
       binutils                  # dependency for `make`
       xorriso                   # dependency for `make iso`
+
+  # Kvantum (for KDE themes)
+      libsForQt5.qtstyleplugin-kvantum
   ];
 
 }
