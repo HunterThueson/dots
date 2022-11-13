@@ -4,9 +4,11 @@
 ## X Server Configuration ##
 ############################
 
-# This file configures a two-monitor mixed-DPI setup with a Dell S2417DG 24" 1440p 144hz monitor on the left side
-# and a Gigabyte M28U 28" 4k 144hz monitor on the right. They are aligned based on the middle of each screen (vertically)
-# and they are each connected to a DisplayPort connector on an EVGA GeForce RTX 3090 FTW3 graphics card.
+# This file configures a two-monitor mixed-DPI setup with a Dell S2417DG 24" 1440p 144hz monitor on the right side
+# and a Gigabyte M28U 28" 4k 144hz monitor on the left. They are aligned based on the middle of each screen (vertically)
+# and they are each connected to a DisplayPort connector on an EVGA GeForce RTX 3090 FTW3 graphics card. The 1440p
+# monitor is rotated 90 degrees, such that the top edge of the screen is touching the right edge of the 4k monitor.
+# The image output is therefore rotated 90 degrees counter-clockwise.
 
 { config, pkgs, ... }:
 
@@ -21,11 +23,11 @@
             Option        "Primary" "true"
             Option        "DPMS" "true"
             Option        "PreferredMode" "3840x2160_144.00"
-            Option        "Position" "2560 0"
+            Option        "Position" "0 200"
         '';
 
         screenSection = ''
-            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +2560+0 {ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On}, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 @2560x1440 +0+360 {ViewPortIn=2560x1440, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=On, AllowGSYNC=On}"
+            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+200 {ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On}, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 @2560x1440 +3840+0 {ViewPortIn=2560x1440, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=On, AllowGSYNC=On}"
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
             Option        "nvidiaXineramaInfo" "false"
@@ -44,7 +46,8 @@
                 Modeline      "2560x1440_144.00"  808.75  2560 2792 3072 3584  1440 1443 1448 1568 -hsync +vsync
                 Option        "DPMS" "true"
                 Option        "PreferredMode" "2560x1440_144.00"
-                Option        "Position" "0 360"
+                Option        "Position" "3840 0"
+                Option        "Rotate" "left"
             EndSection
         '';
     };
