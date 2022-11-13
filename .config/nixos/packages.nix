@@ -63,6 +63,7 @@
       iw                        # show & manipulate wireless devices
       killall                   # kill programs with ease
       unzip                     # extract stuff / unzip file archives
+      pcmanfm                   # lightweight graphical file manager
       openrgb                   # open source RGB lighting control utility
 
   # the Rust Programming Language
