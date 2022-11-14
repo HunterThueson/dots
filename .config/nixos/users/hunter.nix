@@ -66,6 +66,25 @@ programs.bash = {
         STARSHIP_CACHE = "$XDG_CACHE_HOME/starship";
     };
 
+    ###################
+    ## Shell Options ##
+    ###################
+
+    shellOptions = [
+        # Append to history file rather than replacing it
+        "histappend"
+
+        # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
+        "checkwinsize"
+
+        # Extended globbing
+        "extglob"
+        "globstar"
+
+        # Warn if closing shell with running jobs
+        "checkjobs"
+    ];
+
     ###############
     ## ~/.bashrc ##
     ###############
@@ -99,25 +118,6 @@ programs.bash = {
             exa --icons
         }
     '';
-
-    ###################
-    ## Shell Options ##
-    ###################
-
-    shellOptions = [
-        # Append to history file rather than replacing it
-        "histappend"
-
-        # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
-        "checkwinsize"
-
-        # Extended globbing
-        "extglob"
-        "globstar"
-
-        # Warn if closing shell with running jobs
-        "checkjobs"
-    ];
 
     #####################
     ## ~/.bash_aliases ##
