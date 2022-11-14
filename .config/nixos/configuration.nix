@@ -7,7 +7,7 @@
         [
             ./hardware-configuration.nix                                        # include the results of the hardware scan
             ./users.nix                                                         # for user definitions
-            ./packages.nix                                                      # for system-wide package management
+            ./environment.nix                                                   # for system-wide package management and environment configuration
             ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
 

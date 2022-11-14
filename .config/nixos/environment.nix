@@ -1,20 +1,17 @@
-# ~/.config/nixos/packages.nix
-
+# ~/.config/nixos/environment.nix
+#
 # This configuration file is imported by /etc/nixos/configuration.nix, and should contain
-# all of the package management logic used in the NixOS system configuration. Packages
-# imported in this file will be available to all users (including root) by default.
-
-####################################################################################################################################
-# TODO: separate system-level package configuration from per-user package configuration. For instance, root doesn't need RuneLite! #
-####################################################################################################################################
+# all of the environment configuration and package management logic used in the NixOS
+# system configuration. Packages imported in this file will be available to all users
+# (including root) by default. User-specific packages should be declared elsewhere.
 
 { config, pkgs, ... }:
 
 {
 
-###################
-## Configuration ##
-###################
+###############################
+#  Environment configuration  #
+###############################
 
 # Enable proprietary/unfree software
   nixpkgs.config.allowUnfree = true;
@@ -22,11 +19,10 @@
 # Enable gnome keyring (mailspring dependency)
   services.gnome.gnome-keyring.enable = true;
 
-# Set default editor
-  environment.variables = { EDITOR = "vim"; };
-
-# Add shell(s) to /etc/shells
-  environment.shells = with pkgs; [ bash ];
+  environment = {
+      variables = { EDITOR = "vim"; };
+      shells = with pkgs; [ bash ];
+  };
 
 ##############
 ## Packages ##
