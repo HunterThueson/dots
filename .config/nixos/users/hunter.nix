@@ -71,6 +71,9 @@ programs.bash = {
     ###############
 
     bashrcExtra = ''
+        # Source session variables file
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
         # Enable Starship prompt
         eval "$(starship init bash)"
 
