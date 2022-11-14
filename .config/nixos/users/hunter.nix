@@ -51,7 +51,6 @@ home.packages = with pkgs; [
 
 programs.bash = {
     enable = true;
-    enableCompletion;
     historyFile = "$HOME/docs/.bash_history";         # Location of the bash history file
     historyIgnore = [                                 # List of commands that should not be saved to the history list
         "ls"
