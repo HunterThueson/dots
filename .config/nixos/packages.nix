@@ -12,9 +12,9 @@
 
 {
 
-###################
-## Configuration ##
-###################
+###############################
+#  Environment configuration  #
+###############################
 
 # Enable proprietary/unfree software
   nixpkgs.config.allowUnfree = true;
@@ -28,9 +28,12 @@
 # Add shell(s) to /etc/shells
   environment.shells = with pkgs; [ bash ];
 
-##############
-## Packages ##
-##############
+# This line is required to enable bash completion via home-manager
+  environment.pathsToLink = [ "/share/bash-completion" ];
+
+#####################
+#  System packages  #
+#####################
 
   environment.systemPackages = with pkgs; [
 
