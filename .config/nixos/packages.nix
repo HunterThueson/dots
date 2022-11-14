@@ -72,6 +72,10 @@
       rustc                     # the Rust language itself
       rustfmt                   # a tool for formatting Rust code according to style guidelines
 
+  # Support for Bluetooth
+      bluez                     # API/Software suite for Bluetooth on Linux
+      blueman                   # GTK+ Bluetooth management frontend
+
   # Misc dependencies
       libsecret                 # dependency for mailspring
       binutils                  # dependency for `make`
