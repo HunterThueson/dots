@@ -81,4 +81,7 @@
       libsForQt5.qtstyleplugin-kvantum
   ];
 
+  # Enable all bluez plugins
+  hardware.bluetooth.package = pkgs.bluezFull;
+
 }
