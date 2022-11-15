@@ -7,6 +7,14 @@
 
 nixpkgs.config.allowUnfree = true;
 
+# Extra directories to add to PATH
+home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/bin/"
+    "$HOME/bin/nail-clipper"
+    "$HOME/lib/bash-tome"
+];
+
 home.packages = with pkgs; [
     firefox                 # web browser
     spotify                 # music
@@ -47,6 +55,9 @@ programs.bash = {
     ###############
 
     bashrcExtra = ''
+        # Source session variables file
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
         # Enable Starship prompt
         eval "$(starship init bash)"
 
@@ -121,3 +132,4 @@ services = {
 };
 
 }
+
