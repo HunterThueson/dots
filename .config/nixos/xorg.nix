@@ -65,16 +65,15 @@
             Modeline      "2560x1440_144.00"  808.75  2560 2792 3072 3584  1440 1443 1448 1568 -hsync +vsync
             Option        "DPMS" "true"
             Option        "PreferredMode" "2560x1440_144.00"
-            Option        "Rotate" "right"
             Option        "Position" "3840 0"
        '';
 
     # Screen configuration
         screenSection = ''
-            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+200 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 1440x2560_144 @1440x2560 +3840+0 { Rotation=right, ViewPortIn=1440x2560, ViewPortOut=1440x2560+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
+            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+200 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 +3840+0 { Rotation=right, ViewPortIn=1440x2560, ViewPortOut=1440x2560+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
-            Option        "nvidiaXineramaInfo" "false"
+            Option        "nvidiaXineramaInfo" "true"
             SubSection    "Display"
                 Depth      24
                 Virtual    5280 2560
@@ -84,19 +83,27 @@
     };
 }
 
-######################
-#  My Monitor EDIDs  #
-######################
+#####################
+#  My Monitor Info  #
+#####################
 
-# Gigabyte M28U 4k monitor EDID:
+# Gigabyte M28U 4k monitor info:
+    # DFP-3
     # DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603
+    # DPY-3
+    # DP-2
+    # Connector-1
 
-# Dell Ultrasharp S2417DG 1440p monitor EDID:
+# Dell Ultrasharp S2417DG 1440p monitor info:
+    # DFP-1
     # DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4
+    # DPY-1
+    # DP-0
+    # Connector-2
 
-####################################################
-#  How to find the name of a given display device  #
-####################################################
+###################
+#  Tips & Tricks  #
+###################
 
 # run `nvidia-settings -q dpys` to get output like the following:
     #
@@ -169,4 +176,8 @@
 # This method won't give you the EDID or other types of names, but the advantage of doing it this way
 # is that `xrandr` will give you modelines, which are located the line beneath where it says
 # (for example) "DP-0 Connected..." for each respective monitor.
+
+# Modeline calculation can be simplified with the `cvt` command. For instance, `cvt 1440 2560` gives:
+    # # 1440x2560 59.98 Hz (CVT) hsync: 159.00 kHz; pclk: 318.00 MHz
+    # Modeline "1440x2560_60.00"  318.00  1440 1568 1720 2000  2560 2563 2573 2651 -hsync +vsync
 
