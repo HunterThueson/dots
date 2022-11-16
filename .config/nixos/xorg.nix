@@ -74,6 +74,7 @@
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
             Option        "nvidiaXineramaInfo" "true"
+            Option        "ConnectedMonitor" "DFP-1, DFP-3"
             SubSection    "Display"
                 Depth      24
                 Virtual    5280 2560
