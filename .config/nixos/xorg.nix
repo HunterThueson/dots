@@ -42,6 +42,11 @@
     # Enable verbose X logs
         verbose = 7;
 
+    # When enabled, this option disallows the use of Ctrl+Alt+F(n) sequences to switch to virtual terminals
+        serverFlagsSection = ''
+            Option "DontVTSwitch" "off"
+        '';
+
     # Monitor configuration
         monitorSection = ''
             VendorName    "Gigabyte"
