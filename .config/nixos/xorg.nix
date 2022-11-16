@@ -14,26 +14,6 @@
 #  Important Notes  #
 #####################
 
-# The below configuration doesn't work properly.
-# Worse, I've just realized that this is the wrong way to approach xserver configuration. Instead of trying to add
-# everything to the first monitor section via `services.xserver.monitorSection`, I should be using `services.xserver...
-# `.xrandrHeads`, `.resolutions`, etc.
-# You know, the Nix way.
-# It's possible I might even be better off replacing `services.xserver.config` entirely. It's normally generated via
-# a combination of all the other `services.xserver.*` options, but I should be able to override it somehow in order to
-# use my own `xorg.conf` instead. That would probably be better for portability anyways. The NixOS options manual
-# mentions the `lib.mkAfter` option, so that'll be my starting point when I continue my Xorg adventures at a later date.
-
-# I should also look into setting the `video=` and/or `vga=` kernel parameters. I just barely scratched the surface of
-# my research into that approach, but it sounds like I would be able to set the resolution(s) of the bootloader and
-# the Linux console/TTY instead of just the X server. Requires further research.
-
-# Final note: I should migrate the Nvidia driver settings, keyboard layout, and all other sub-options of
-# `services.xserver` that are currently in my `configuration.nix` file into this file instead, just to keep all the
-# X11-related options in one place. No sense having them scattered all over the place.
-
-# For now, though, I'm dead tired. I've been working on this for hours. It's time for bed.
-
 { config, pkgs, ... }:
 
 {
