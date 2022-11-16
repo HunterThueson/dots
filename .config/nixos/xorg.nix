@@ -8,11 +8,16 @@
 # and a Gigabyte M28U 28" 4k 144hz monitor on the left. They are aligned based on the middle of each screen (vertically)
 # and they are each connected to a DisplayPort connector on an EVGA GeForce RTX 3090 FTW3 graphics card. The 1440p
 # monitor is rotated 90 degrees, such that the top edge of the screen is touching the right edge of the 4k monitor.
-# The image output is therefore rotated 90 degrees counter-clockwise.
+# The image output is therefore rotated 90 degrees counter-clockwise to compensate.
 
 #####################
 #  Important Notes  #
 #####################
+
+# In order to prevent KDE Plasma from resetting `xrandr` settings when logging in, go to
+# System Settings -> Startup and Shutdown -> Background Services and disable 'Kscreen 2'. I'll eventually try to
+# figure out how to automate that setting, but since I'm planning to switch to a different WM soon anyway it's not
+# a very high priority at the moment.
 
 { config, pkgs, ... }:
 
