@@ -55,14 +55,14 @@
 
     # Screen configuration
         screenSection = ''
-            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+200 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 +3840+0 { Rotation=right, ViewPortIn=1440x2560, ViewPortOut=1440x2560+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
+            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+517 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 +3840+0 { Rotation=right, ViewPortIn=1796x3193, ViewPortOut=1440x2560+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
             Option        "nvidiaXineramaInfo" "true"
             Option        "ConnectedMonitor" "DFP-1, DFP-3"
             SubSection    "Display"
                 Depth      24
-                Virtual    5280 2560
+                Virtual    5636 3193
             EndSubSection
         '';
 
@@ -96,6 +96,19 @@
     #   DPY-1
     #   DP-0
     #   Connector-2
+
+###############################
+#  Fixing DPI/Scaling Issues  #
+###############################
+
+# Target DPI: 153.9
+# 123.38 * 1.24736586156589398606 = 153.9
+# Scaling factor (f) = 1.24736586156589398606
+# 2560 * f = ~3193.26 rounded to 3193
+# 1440 * f = ~1796.21 rounded to 1796
+# New X Screen Virtual Resolution: 5636x3193
+# 3193 - 2160 = 1033 -1 = 1032 / 2 = 516
+# New vertical offset for 4k monitor: +0+517
 
 ###################
 #  Tips & Tricks  #
