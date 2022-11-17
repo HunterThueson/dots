@@ -16,6 +16,9 @@
 # Enable proprietary/unfree software
   nixpkgs.config.allowUnfree = true;
 
+# Enable Nix Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 # Enable gnome keyring (mailspring dependency)
   services.gnome.gnome-keyring.enable = true;
 
