@@ -74,18 +74,28 @@
 #####################
 
 # Gigabyte M28U 4k monitor info:
-    # DFP-3
-    # DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603
-    # DPY-3
-    # DP-2
-    # Connector-1
+    # 631.928 mm x 359.78 mm, 727.169 mm diagonal
+    # 3840 x 2160
+    # DPI = 153.9
+
+    # Identifiers:
+    #   DFP-3
+    #   DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603
+    #   DPY-3
+    #   DP-2
+    #   Connector-1
 
 # Dell Ultrasharp S2417DG 1440p monitor info:
-    # DFP-1
-    # DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4
-    # DPY-1
-    # DP-0
-    # Connector-2
+    # 526.85 mm x 296.35 mm (when in landscape mode), 604.7 mm diagonal
+    # 2560 x 1440
+    # DPI = 123.38
+
+    # Identifiers:
+    #   DFP-1
+    #   DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4
+    #   DPY-1
+    #   DP-0
+    #   Connector-2
 
 ###################
 #  Tips & Tricks  #
