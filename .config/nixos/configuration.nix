@@ -96,12 +96,6 @@
         libinput.enable = true;                                                 # Enable touchpad support
         libinput.mouse.accelProfile = "flat";                                   # Disable pesky mouse acceleration
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
-
-        displayManager = {
-            sddm.enable = true;                                                 # Enable SDDM display manager
-            sddm.autoNumlock = true;                                            # Enable Numlock on startup
-        };
-
         desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
     };
 

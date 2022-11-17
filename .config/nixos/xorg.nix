@@ -66,6 +66,14 @@
             EndSubSection
         '';
 
+        displayManager = {
+            sddm = {
+                enable = true;
+                enableHidpi = true;
+                autoNumlock = true;
+            };
+            xserverArgs = [ "-dpi 154" ];
+        };
     };
 }
 
