@@ -5,6 +5,8 @@
 !docs/
 !docs/README.md
 !docs/LICENSE
+!docs/nixos/
+!docs/nixos/*
 
 !.config/nixos/
 !.config/nixos/*
