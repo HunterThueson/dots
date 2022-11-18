@@ -44,7 +44,7 @@
         EndSection
 
         Section "Monitor"
-            Identifier    "DP-2"
+            Identifier    "Monitor-1440p"
             VendorName    "Dell Ultrasharp"
             ModelName     "S2417DG"
             Modeline      "2560x1440_144.00"  808.75  2560 2792 3072 3584  1440 1443 1448 1568 -hsync +vsync
@@ -59,7 +59,6 @@
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
             Option        "nvidiaXineramaInfo" "true"
-            Option        "ConnectedMonitor" "DFP-1, DFP-3"
             SubSection    "Display"
                 Depth      24
                 Virtual    5636 3193
@@ -73,6 +72,7 @@
                 autoNumlock = true;
             };
             xserverArgs = [ "-dpi 154" ];
+            setupCommands = "home-manager-generation";
         };
     };
 }
@@ -87,11 +87,11 @@
     # DPI = 153.9
 
     # Identifiers:
-    #   DFP-3
+    #   DFP-5
     #   DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603
-    #   DPY-3
-    #   DP-2
-    #   Connector-1
+    #   DPY-5
+    #   DP-4
+    #   Connector-0
 
 # Dell Ultrasharp S2417DG 1440p monitor info:
     # 526.85 mm x 296.35 mm (when in landscape mode), 604.7 mm diagonal
@@ -99,11 +99,11 @@
     # DPI = 123.38
 
     # Identifiers:
-    #   DFP-1
+    #   DFP-3
     #   DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4
-    #   DPY-1
-    #   DP-0
-    #   Connector-2
+    #   DPY-3
+    #   DP-2
+    #   Connector-1
 
 ###############################
 #  Fixing DPI/Scaling Issues  #
