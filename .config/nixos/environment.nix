@@ -5,13 +5,13 @@
 # system configuration. Packages imported in this file will be available to all users
 # (including root) by default. User-specific packages should be declared elsewhere.
 
-{ config, pkgs, ... }:
-
-{
-
 ###############################
 #  Environment configuration  #
 ###############################
+
+{ config, pkgs, ... }:
+
+{
 
 # Enable proprietary/unfree software
   nixpkgs.config.allowUnfree = true;
