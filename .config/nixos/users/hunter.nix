@@ -35,7 +35,8 @@ home.packages = with pkgs; [
     discord                     # chat client
     kate                        # KDE graphical text editor
     calibre                     # ebook client
-    gimp                        # GNU Image Manipulation Program
+    gimp-with-plugins           # GNU Image Manipulation Program
+        gimpPlugins.gmic        # GIMP plugin for the G'MIC image processing framework
     cmatrix                     # look like freakin' HACKERMAN (so powerful he could hack time itself)
     neo-cowsay                  # `cowsay` rewritten in Go (with bonus features!)
     mpv                         # video playback

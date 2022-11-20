@@ -20,7 +20,8 @@ home.packages = with pkgs; [
     spotify                 # music
     mailspring              # email client
     kate                    # KDE graphical text editor
-    gimp                    # GNU Image Manipulation Program
+    gimp-with-plugins       # GNU Image Manipulation Program
+        gimpPlugins.gmic    # GIMP plugin for the G'MIC image processing framework
     cmatrix                 # look like freakin' HACKERMAN (so powerful he could hack time itself)
     mpv                     # video playback
     ffmpeg                  # video transcoding utility (and a dependency for many other programs)
