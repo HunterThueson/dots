@@ -33,6 +33,10 @@
 
   environment.systemPackages = with pkgs; [
 
+  # Version control
+      git                       # version control utility
+      gh                        # GitHub CLI
+
   # Import Vim/Neovim configuration file:
       (import ./vim.nix)
 
@@ -43,21 +47,22 @@
       gcc
       cudatoolkit
 
-  # Quality of Life
+  # X11 tools
+      xclip                     # using `xclip -selection c` adds standard input to the clipboard
+      xorg.xdpyinfo             # get information about X display(s)
+
+  # Quality of life
       starship                  # blazing fast, highly customizable prompt for any shell
       tldr                      # quickly summarize command usage
       exa                       # modern replacement for `ls` written in Rust
       ripgrep                   # modern replacement for `grep` written in Rust
       fd                        # modern replacement for `find` written in Rust
       polybarFull               # a fast and easy-to-use tool for creating status bars
-      xclip                     # using `xclip -selection c` adds standard input to the clipboard
       neofetch                  # display system info
       gtop                      # graphical `top`
 
   # Tools
       alacritty                 # GPU-accelerated terminal emulator
-      git                       # version control utility
-      gh                        # GitHub CLI
       parted                    # CLI partition management
       gparted                   # GUI partition management
       wget                      # download files from the command line
@@ -67,7 +72,7 @@
       pcmanfm                   # lightweight graphical file manager
       openrgb                   # open source RGB lighting control utility
 
-  # the Rust Programming Language
+  # the Rust programming language
       cargo                     # downloads your Rust project's dependencies and builds your project
       rustup                    # the Rust toolchain installer
       rustc                     # the Rust language itself
