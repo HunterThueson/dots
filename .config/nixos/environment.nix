@@ -47,7 +47,8 @@
       starship                  # blazing fast, highly customizable prompt for any shell
       tldr                      # quickly summarize command usage
       exa                       # modern replacement for `ls` written in Rust
-      fd                        # simple, fast and user-friendly alternative to `find`
+      ripgrep                   # modern replacement for `grep` written in Rust
+      fd                        # modern replacement for `find` written in Rust
       polybarFull               # a fast and easy-to-use tool for creating status bars
       xclip                     # using `xclip -selection c` adds standard input to the clipboard
       neofetch                  # display system info
