@@ -54,6 +54,10 @@ neovim.override {
             set expandtab                       " Convert tabs to corresponding number of spaces
             set tabstop=4                       " Set width of tabs by number of columns
             set shiftwidth=4                    " Manage indentation width when using `>>` or `<<`
+
+            " System Integration Options
+            set clipboard+=unnamedplus          " Always use the clipboard for ALL operations (instead of
+                                                " interacting with the '+' and '*' registers explicitly)
         '';
     };
 }
