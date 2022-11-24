@@ -58,8 +58,11 @@
       ripgrep                   # modern replacement for `grep` written in Rust
       fd                        # modern replacement for `find` written in Rust
       polybarFull               # a fast and easy-to-use tool for creating status bars
+
+  # System info/monitoring
       neofetch                  # display system info
       gtop                      # graphical `top`
+      btop                      # another fancy `top`
 
   # Tools
       alacritty                 # GPU-accelerated terminal emulator
