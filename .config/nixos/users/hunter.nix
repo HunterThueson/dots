@@ -5,6 +5,9 @@
 
 {
 
+# Must be declared per user and changed for each new version of NixOS (per guy on Discord)
+home.stateVersion = "22.11";
+
 # Extra directories to add to PATH
 home.sessionPath = [
     "$HOME/.cargo/bin"
@@ -153,3 +156,4 @@ services = {
 };
 
 }
+
