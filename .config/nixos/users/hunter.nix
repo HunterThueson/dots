@@ -25,26 +25,29 @@ home.keyboard = {
 ## Package Configuration ##
 ###########################
 
-nixpkgs.config.allowUnfree = true;
+# Temporarily disabled because I'm sick of running `home-manager-generation`, logging out, and logging
+# back in every time I start up / reboot the computer:
 
-home.packages = with pkgs; [
-    firefox                     # web browser
-    spotify                     # music
-    mailspring                  # email client
-    runelite                    # game for masochists
-    discord                     # chat client
-    kate                        # KDE graphical text editor
-    calibre                     # ebook client
-    gimp-with-plugins           # GNU Image Manipulation Program
-        gimpPlugins.gmic        # GIMP plugin for the G'MIC image processing framework
-    cmatrix                     # look like freakin' HACKERMAN (so powerful he could hack time itself)
-    neo-cowsay                  # `cowsay` rewritten in Go (with bonus features!)
-    mpv                         # video playback
-    ffmpeg                      # video transcoding utility (and a dependency for many other programs)
-    imagemagick                 # image editing tools for the command line
-    yt-dlp                      # `youtube-dl` fork; download videos from websites like YouTube
-    speedcrunch                 # calculator
-];
+    # nixpkgs.config.allowUnfree = true;
+
+    # home.packages = with pkgs; [
+    #     firefox                     # web browser
+    #     spotify                     # music
+    #     mailspring                  # email client
+    #     runelite                    # game for masochists
+    #     discord                     # chat client
+    #     kate                        # KDE graphical text editor
+    #     calibre                     # ebook client
+    #     gimp-with-plugins           # GNU Image Manipulation Program
+    #         gimpPlugins.gmic        # GIMP plugin for the G'MIC image processing framework
+    #     cmatrix                     # look like freakin' HACKERMAN (so powerful he could hack time itself)
+    #     neo-cowsay                  # `cowsay` rewritten in Go (with bonus features!)
+    #     mpv                         # video playback
+    #     ffmpeg                      # video transcoding utility (and a dependency for many other programs)
+    #     imagemagick                 # image editing tools for the command line
+    #     yt-dlp                      # `youtube-dl` fork; download videos from websites like YouTube
+    #     speedcrunch                 # calculator
+    # ];
 
 ########################
 ## Bash Configuration ##

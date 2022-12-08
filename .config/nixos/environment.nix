@@ -61,6 +61,13 @@
       fd                                                # modern replacement for `find` written in Rust
       parted                                            # CLI partition management
       unzip                                             # extract stuff / unzip file archive
+      ffmpeg                                            # video transcoding utility (and a dependency for many other programs)
+
+  # Terminal: Media/Entertainment
+      cmatrix                                           # look like freakin' HACKERMAN (so powerful he could hack time itself)
+      neo-cowsay                                        # `cowsay` rewritten in Go (with bonus features!)
+      imagemagick                                       # image editing tools for the command line
+      yt-dlp                                            # `youtube-dl` fork; download videos from websites like YouTube
 
   # System info/monitoring
       neofetch                                          # display system info
@@ -71,6 +78,19 @@
       polybarFull                                       # a fast and easy-to-use tool for creating status bars
       gparted                                           # GUI partition management
       pcmanfm                                           # lightweight graphical file manager
+      firefox                                           # web browser
+      mailspring                                        # email client
+      discord                                           # chat client
+      kate                                              # KDE graphical text editor
+      speedcrunch                                       # calculator
+
+  # GUI: Media/Entertainment
+      mpv                                               # video playback
+      spotify                                           # music
+      gimp-with-plugins                                 # GNU Image Manipulation Program
+          gimpPlugins.gmic                              # GIMP plugin for the G'MIC image processing framework
+      runelite                                          # old-ass game for nostalgic masochists with nothing better to do (like me)
+      calibre                                           # ebook client
 
   # the Rust programming language
       cargo                                             # downloads your Rust project's dependencies and builds your project
@@ -101,3 +121,4 @@
   hardware.bluetooth.package = pkgs.bluezFull;
 
 }
+
