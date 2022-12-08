@@ -34,10 +34,10 @@
   environment.systemPackages = with pkgs; [
 
   # Version control
-      git                       # version control utility
-      gh                        # GitHub CLI
+      git                                               # version control utility
+      gh                                                # GitHub CLI
 
-  # Import Vim/Neovim configuration file:
+  # Vim/Neovim configuration file:
       (import ./vim.nix)
 
   # NVIDIA driver configuration dependencies
@@ -48,50 +48,53 @@
       cudatoolkit
 
   # X11 tools
-      xclip                     # using `xclip -selection c` adds standard input to the clipboard
-      xorg.xdpyinfo             # get information about X display(s)
+      xclip                                             # using `xclip -selection c` adds standard input to the clipboard
+      xorg.xdpyinfo                                     # get information about X display(s)
 
-  # Quality of life
-      starship                  # blazing fast, highly customizable prompt for any shell
-      tldr                      # quickly summarize command usage
-      exa                       # modern replacement for `ls` written in Rust
-      ripgrep                   # modern replacement for `grep` written in Rust
-      fd                        # modern replacement for `find` written in Rust
-      polybarFull               # a fast and easy-to-use tool for creating status bars
+  # Terminal
+      alacritty                                         # GPU-accelerated terminal emulator
+      starship                                          # blazing fast, highly customizable prompt for any shell
+      tldr                                              # quickly summarize command usage
+      exa                                               # modern replacement for `ls` written in Rust
+      ripgrep                                           # modern replacement for `grep` written in Rust
+      killall                                           # kill programs with ease
+      fd                                                # modern replacement for `find` written in Rust
+      parted                                            # CLI partition management
+      unzip                                             # extract stuff / unzip file archive
 
   # System info/monitoring
-      neofetch                  # display system info
-      gtop                      # graphical `top`
-      btop                      # another fancy `top`
+      neofetch                                          # display system info
+      gtop                                              # graphical `top`
+      btop                                              # another fancy `top`
 
-  # Tools
-      alacritty                 # GPU-accelerated terminal emulator
-      parted                    # CLI partition management
-      gparted                   # GUI partition management
-      wget                      # download files from the command line
-      iw                        # show & manipulate wireless devices
-      killall                   # kill programs with ease
-      unzip                     # extract stuff / unzip file archives
-      pcmanfm                   # lightweight graphical file manager
-      openrgb                   # open source RGB lighting control utility
+  # GUI
+      polybarFull                                       # a fast and easy-to-use tool for creating status bars
+      gparted                                           # GUI partition management
+      pcmanfm                                           # lightweight graphical file manager
 
   # the Rust programming language
-      cargo                     # downloads your Rust project's dependencies and builds your project
-      rustup                    # the Rust toolchain installer
-      rustc                     # the Rust language itself
-      rustfmt                   # a tool for formatting Rust code according to style guidelines
+      cargo                                             # downloads your Rust project's dependencies and builds your project
+      rustup                                            # the Rust toolchain installer
+      rustc                                             # the Rust language itself
+      rustfmt                                           # a tool for formatting Rust code according to style guidelines
+
+  # Networking
+      wget                                              # download files from the command line
+      iw                                                # show & manipulate wireless devices
+
+  # Hardware utilities
+      openrgb                                           # open source RGB lighting control utility
 
   # Support for Bluetooth
-      bluez                     # API/Software suite for Bluetooth on Linux
-      blueman                   # GTK+ Bluetooth management frontend
+      bluez                                             # API/Software suite for Bluetooth on Linux
+      blueman                                           # GTK+ Bluetooth management frontend
 
   # Misc dependencies
-      libsecret                 # dependency for mailspring
-      binutils                  # dependency for `make`
-      xorriso                   # dependency for `make iso`
+      libsecret                                         # dependency for mailspring
+      binutils                                          # dependency for `make`
+      xorriso                                           # dependency for `make iso`
+      libsForQt5.qtstyleplugin-kvantum                  # dependency for Kvantum (KDE themes)
 
-  # Kvantum (for KDE themes)
-      libsForQt5.qtstyleplugin-kvantum
   ];
 
   # Enable all bluez plugins
