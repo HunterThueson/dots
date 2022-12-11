@@ -83,6 +83,7 @@
       discord                                           # chat client
       kate                                              # KDE graphical text editor
       speedcrunch                                       # calculator
+      libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu
 
   # GUI: Media/Entertainment
       mpv                                               # video playback
