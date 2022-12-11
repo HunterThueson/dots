@@ -12,10 +12,10 @@ home.stateVersion = "22.11";
 
 # Extra directories to add to PATH
 home.sessionPath = [
-    "$HOME/.cargo/bin"
+    "$HOME/.cargo/bin/"
     "$HOME/bin/"
-    "$HOME/bin/nail-clipper"
-    "$HOME/lib/bash-tome"
+    "$HOME/bin/nail-clipper/"
+    "$HOME/lib/bash-tome/"
 ];
 
 home.packages = with pkgs; [
