@@ -118,7 +118,8 @@ programs.bash = {
         # Navigation
         lsa = "exa -Gau --git --time-style long-iso --color=always --icons"; # more info about hidden files (w/ git status)
         lsd = "exa -D --color=always --icons";                               # list only directories
-        
+        ghs = "git status";       
+
         # Terminal clearing
         cl = "clear";                                                        # because typing `clear` just takes too long
     };
