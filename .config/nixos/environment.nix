@@ -61,7 +61,7 @@
       fd                                                # modern replacement for `find` written in Rust
       parted                                            # CLI partition management
       unzip                                             # extract stuff / unzip file archive
-      ffmpeg                                            # video transcoding utility (and a dependency for many other programs)
+      ffmpeg_5-full                                     # video transcoding utility (and a dependency for many other programs)
 
   # Terminal: Media/Entertainment
       cmatrix                                           # look like freakin' HACKERMAN (so powerful he could hack time itself)
