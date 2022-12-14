@@ -1,4 +1,4 @@
-# ~/.config/nixos/configuration.nix
+# ~/.nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -7,7 +7,14 @@
   ###############################
   #  Nix/Nixpkgs/NixOS options  #
   ###############################
-    
+
+     # Change where `nixos-rebuild` looks for configuration files
+     nix.nixPath = [
+        "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+        "nixos-config=/home/hunter/.nixos/configuration.nix"                    # this is the only line that doesn't match default `nix.nixPath` value
+        "/nix/var/nix/profiles/per-user/root/channels"
+    ];
+   
     # Allow unfree/proprietary software
     nixpkgs.config.allowUnfree = true;
 

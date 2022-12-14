@@ -1,4 +1,4 @@
-# ~/.config/nixos/xorg.nix
+# ~/.nixos/xorg.nix
 
 ############################
 ## X Server Configuration ##

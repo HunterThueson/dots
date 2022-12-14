@@ -1,4 +1,4 @@
-# ~/.config/nixos/environment.nix
+# ~/.nixos/environment.nix
 #
 # This configuration file is imported by /etc/nixos/configuration.nix, and should contain
 # all of the environment configuration and package management logic used in the NixOS
@@ -88,9 +88,7 @@
       davinci-resolve                                   # high quality NLE + industry-standard color grading software
       runelite                                          # old-ass game for nostalgic masochists with nothing better to do (like me)
       calibre                                           # ebook client
-
-  # the Rust programming language
-      cargo                                             # downloads your Rust project's dependencies and builds your project
+# the Rust programming language cargo                                             # downloads your Rust project's dependencies and builds your project
       rustup                                            # the Rust toolchain installer
       rustc                                             # the Rust language itself
       rustfmt                                           # a tool for formatting Rust code according to style guidelines

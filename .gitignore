@@ -8,6 +8,11 @@
 !docs/nixos/
 !docs/nixos/*
 
+!.nixos/
+!.nixos/*
+!.nixos/users/
+!.nixos/users/*
+
 !.config/nixos/
 !.config/nixos/*
 !.config/nixos/users/

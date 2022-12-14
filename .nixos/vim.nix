@@ -1,4 +1,4 @@
-# ~/.config/nixos/vim.nix
+# ~/.nixos/vim.nix
 
 ###################################
 ## Vim/Neovim Configuration File ##

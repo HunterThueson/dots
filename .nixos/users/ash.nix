@@ -1,5 +1,7 @@
-# ~/.config/nixos/users/ash.nix
+# ~/.nixos/users/ash.nix
+#
 # User configuration file for: Ash
+#
 
 { config, pkgs, ... }:
 

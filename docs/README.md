@@ -57,26 +57,6 @@ this:
 There's no requirement to use `/mnt` or to name your mount points in any specific way,
 it's just personal preference.
 
-There is an optional (but in my opinion very useful) step we can take here, for those of you
-who edit `/etc/nixos/*` rather frequently (like me). Create a new directory within your home
-directory (I like to use `~/.config/nixos/`). Leave it empty for now. Then (replacing "hunter"
-with your username), run:
-
-```
-$ sudo chown -R hunter /etc/nixos/
-$ sudo chmod -R 700 /etc/nixos/
-$ sudo mount --bind /etc/nixos/ ~/.config/nixos/
-```
-
-This will basically trick the system into thinking /etc/nixos/\* and ~/.config/\* are the
-exact same thing, and give your user full permissions to read, write and execute without
-needing to use `sudo`. This bind mount will go away if you reboot, so make sure to do the next
-step before rebooting if you want it to be permanent.
-
-*(Speaking of `sudo`, you could run the aforementioned commands as root instead of using `sudo`,
-but if you do it that way, make sure to change `~/.config/nixos/` to
-`/home/[yourUser]/.config/nixos/`, since `~` will now point to the root user's home directory.)*
-
 <h4>7. Generate the hardware scan</h4>
 
 After you've mounted all drives you want auto-mounted during startup, simply run
@@ -85,53 +65,15 @@ After you've mounted all drives you want auto-mounted during startup, simply run
 # nixos-generate-config
 ```
 
-This will overwrite `/etc/nixos/hardware-configuration.nix`, so it many be worth making a
-backup, but unless you use the `--force` option, it will leave `/etc/nixos/configuration.nix`
-(and all other \*.nix files) alone.
-
-If you used a bind mount in the previous step, check the newly generated `hardware-configuration.nix`
-file for a section that looks like the following:
-
-```
-fileSystems."/home/hunter/.config/nixos" =
-  { device = "/etc/nixos";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-```
-
-I'm not sure why it generates it this way, but that little `fstype = "none";` will screw things
-up and throw errors on the next `nixos-rebuild` for some reason. Simply delete that line and
-you should be good to go. If you have multiple bind mounts on your system, make sure to do this
-for each one.
-
 <h4>8. Update your system</h4>
-
-Make sure you're using the correct Nix channel (currently 22.05):
-```
-$ nixos-version
-> 22.05.2807.067d5d5b891 (Quokka) # should return something like this, the '22.05' portion is what matters
-```
-
-Add a Home Manager channel:
-```
-# nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
-# nix-channel --update
-```
-
-If you don't add the Home Manager channel, the following line in `configuration.nix` won't work correctly
-and we won't be able to use any of our Home Manager-related configuration:
-```
-imports = [ <home-manager/nixos>];
-```
 
 Run the following as `root` (or using `sudo -i`) to update your system:
 ```
 # nixos-rebuild boot --upgrade 		# Note: the 'boot' argument means the system configuration will
-					# only take effect once we reboot the system.
+                					# only take effect once we reboot the system.
 ```
 
-Finally, reboot your system.
+Reboot your system.
 
 <h4>9. Celebrate!</h4>
 Congratulations! You have reached the end of the installation instructions, at least

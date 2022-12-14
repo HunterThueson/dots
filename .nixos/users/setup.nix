@@ -1,4 +1,4 @@
-# ~/.config/nixos/users/setup.nix
+# ~/.nixos/users/setup.nix
 #
 # This file is for separating user management logic from the main configuration.nix file.
 # Don't forget to run `passwd` for each user during initialization.
@@ -8,6 +8,7 @@
 # Packages should only be declared here if they're supposed to be BOTH accessible to all
 # regular (non-root) users AND should not be accessible to system-level/root users (for
 # instance, if there are security concerns).
+#
 
 ################
 #  User setup  #

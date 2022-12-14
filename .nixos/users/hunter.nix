@@ -1,5 +1,7 @@
-# ~/.config/nixos/users/hunter.nix
+# ~/.nixos/users/hunter.nix
+#
 # User configuration file for: Hunter
+#
 
 { config, pkgs, ... }:
 
