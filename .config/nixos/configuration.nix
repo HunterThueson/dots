@@ -3,6 +3,11 @@
 { config, pkgs, ... }:
 
 {
+
+  #############
+  #  Imports  #
+  #############
+
     imports = 
         [
             ./hardware-configuration.nix                                        # include the results of the hardware scan
@@ -10,6 +15,10 @@
             ./environment.nix                                                   # for system-wide package management and environment configuration
             ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
+
+  ########################
+  #  Bootloader options  #
+  ########################
 
     boot = {
 
@@ -51,10 +60,18 @@
         };
     };
 
+  ##############################
+  #  Time/clock configuration  #
+  ##############################
+
     time = {
         timeZone = "America/Denver";                                            # Set your time zone.
         hardwareClockInLocalTime = true;                                        # Keep the hardware clock in local time instead of UTC
     };                                                                          # for compatibility with Windows Dual Boot
+
+  ########################
+  #  Networking options  #
+  ########################
 
     networking = {
         networkmanager.enable = true;                                           # Enables networking via NetworkManager
@@ -62,34 +79,43 @@
         useDHCP = false;
     };
 
-# Font configuration
-  fonts = {
-    fontDir.enable = true;                                                      # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
-    fonts = with pkgs; [
-        (nerdfonts.override {
-            fonts = [
-                "FiraCode"
-                "DroidSansMono"
-                "FiraMono"
-                "Hack"
-                "Arimo"
-                "iA-Writer"                                                     # AKA iM-Writing
-            ]; 
-        })
-    ];
-    fontconfig.defaultFonts = {
-        monospace = [ "FiraCode Nerd Font" ];
-    };
-  };
+  ########################
+  #  Font configuration  #
+  ########################
 
-# Select internationalisation properties.
+    fonts = {
+        fontDir.enable = true;                                                  # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
+        fonts = with pkgs; [
+            (nerdfonts.override {
+                fonts = [
+                    "FiraCode"
+                    "DroidSansMono"
+                    "FiraMono"
+                    "Hack"
+                    "Arimo"
+                    "iA-Writer"                                                 # AKA iM-Writing
+                ]; 
+            })
+        ];
+        fontconfig.defaultFonts = {
+            monospace = [ "FiraCode Nerd Font" ];
+        };
+    };
+
+  #####################################
+  #  Internationalisation properties  #
+  #####################################
+
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
         font = "Lat2-Terminus16";
         keyMap = "us";
     };
 
-# XServer settings
+  ######################
+  #  XServer settings  #
+  ######################
+
     services.xserver = {
         enable = true;                                                          # Enable the X11 windowing system
         layout = "us";                                                          # Configure X11 keymap layout
@@ -99,7 +125,10 @@
         desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
     };
 
-# Enable proprietary NVIDIA drivers
+  #######################################
+  #  Enable proprietary NVIDIA drivers  #
+  #######################################
+
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.opengl = {
         enable = true;
@@ -108,6 +137,7 @@
         driSupport32Bit = true;
         extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
     };
+
     hardware.nvidia = {
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         prime = {
@@ -116,20 +146,27 @@
             sync.enable = true;
             sync.allowExternalGpu = true;
         };
-        modesetting.enable = true;                      # Should fix screen tearing w/ Optimus via PRIME
-        nvidiaSettings = true;                          # Add `nvidia-settings`, NVIDIA's GUI configuration tool, to system packages
+        modesetting.enable = true;                                              # Fix screen tearing w/ Optimus via PRIME
+        nvidiaSettings = true;                                                  # Add `nvidia-settings`, NVIDIA's GUI configuration tool, to system packages
     };
+
     systemd.services.nvidia-control-devices = {
         wantedBy = [ "multi-user.target" ];
         serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
     };
 
-# Enable CUPS to print documents
-    services.printing.enable = true;
+  ###################
+  #  Sound options  #
+  ###################
 
-# Enable sound
     sound.enable = true;
     hardware.pulseaudio.enable = true;
+
+  #####################
+  #  Printer options  #
+  #####################
+
+    services.printing.enable = true;
 
 # This value determines the NixOS release from which the default
 # settings for stateful data, like file locations and database versions
