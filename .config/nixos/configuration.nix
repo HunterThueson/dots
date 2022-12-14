@@ -4,6 +4,16 @@
 
 {
 
+  ###############################
+  #  Nix/Nixpkgs/NixOS options  #
+  ###############################
+    
+    # Allow unfree/proprietary software
+    nixpkgs.config.allowUnfree = true;
+
+    # Enable Nix Flakes
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   #############
   #  Imports  #
   #############
