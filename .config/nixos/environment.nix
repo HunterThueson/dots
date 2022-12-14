@@ -4,6 +4,7 @@
 # all of the environment configuration and package management logic used in the NixOS
 # system configuration. Packages imported in this file will be available to all users
 # (including root) by default. User-specific packages should be declared elsewhere.
+#
 
 ###############################
 #  Environment configuration  #
