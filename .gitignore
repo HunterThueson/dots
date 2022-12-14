@@ -12,7 +12,6 @@
 !.config/nixos/*
 !.config/nixos/users/
 !.config/nixos/users/*
-.config/nixos/hardware-configuration.nix
 
 !.config/alacritty/
 !.config/alacritty/alacritty.yml
