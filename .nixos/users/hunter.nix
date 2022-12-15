@@ -126,6 +126,16 @@ programs.bash = {
             clear
             exa --icons
         }
+
+        # `gh` wrapper to make listing issues easier
+        gh () {
+            if [[ $@ == "issue list" ]]; then
+                command gh issue list -L 100
+            else
+                command gh "$@"
+            fi
+        }
+
     '';
 
     #####################
