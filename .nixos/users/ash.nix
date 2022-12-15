@@ -84,7 +84,7 @@ programs.bash = {
 
         # Teleport to NixOS configuration directory
         cdn () {
-            cd $HOME/.config/nixos/
+            cd $HOME/.nixos/
             clear
             exa --icons
         }
