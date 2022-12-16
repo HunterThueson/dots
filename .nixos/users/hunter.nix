@@ -1,4 +1,4 @@
-# ~/.nixos/users/hunter.nix
+# $nixos-config/users/hunter.nix
 #
 # User configuration file for: Hunter
 #

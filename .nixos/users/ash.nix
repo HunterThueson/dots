@@ -1,4 +1,4 @@
-# ~/.nixos/users/ash.nix
+# $nixos-config/users/ash.nix
 #
 # User configuration file for: Ash
 #

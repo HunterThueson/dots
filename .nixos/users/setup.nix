@@ -1,4 +1,4 @@
-# ~/.nixos/users/setup.nix
+# $nixos-config/users/setup.nix
 #
 # This file is for separating user management logic from the main configuration.nix file.
 # Don't forget to run `passwd` for each user during initialization.

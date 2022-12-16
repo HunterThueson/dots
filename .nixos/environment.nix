@@ -1,4 +1,4 @@
-# ~/.nixos/environment.nix
+# $nixos-config/environment.nix
 #
 # This configuration file is imported by /etc/nixos/configuration.nix, and should contain
 # all of the environment configuration and package management logic used in the NixOS

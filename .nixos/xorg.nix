@@ -1,7 +1,7 @@
-# ~/.nixos/xorg.nix
+# $nixos-config/xorg.nix
 
 ############################
-## X Server Configuration ##
+#  X Server Configuration  #
 ############################
 
 # This file configures a two-monitor mixed-DPI setup with a Dell S2417DG 24" 1440p 144hz monitor on the right side

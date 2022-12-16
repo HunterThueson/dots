@@ -1,4 +1,4 @@
-# ~/.nixos/configuration.nix
+# $nixos-config/configuration.nix
 
 { config, pkgs, ... }:
 
