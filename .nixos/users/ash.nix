@@ -18,6 +18,7 @@ home.sessionPath = [
     "$HOME/.cargo/bin/"
     "$HOME/bin/nail-clipper/"
     "$HOME/lib/bash-tome/"
+    "/usr/local/bin/"
 ];
 
 home.packages = with pkgs; [

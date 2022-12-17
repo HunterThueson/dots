@@ -7,6 +7,9 @@
 !docs/LICENSE
 !docs/archive/
 !docs/archive/*
+!docs/notes/
+!docs/notes/nixos/
+!docs/notes/nixos/*
 
 !.nixos/
 !.nixos/*
