@@ -22,10 +22,10 @@
       fsType = "ext4";
     };
 
-  fileSystems."/media" =
-    { device = "/dev/disk/by-uuid/af34ac85-e6a7-47a1-bb37-c16b48b3d35d";
-      fsType = "ext4";
-    };
+#   fileSystems."/media" =
+#     { device = "/dev/disk/by-uuid/af34ac85-e6a7-47a1-bb37-c16b48b3d35d";
+#       fsType = "ext4";
+#     };
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/CC5D-BE8A";
