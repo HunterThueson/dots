@@ -100,10 +100,6 @@
   # Hardware utilities
       openrgb                                           # open source RGB lighting control utility
 
-  # Support for Bluetooth
-      bluez                                             # API/Software suite for Bluetooth on Linux
-      blueman                                           # GTK+ Bluetooth management frontend
-
   # Misc dependencies
       libsecret                                         # dependency for mailspring
       binutils                                          # dependency for `make`
