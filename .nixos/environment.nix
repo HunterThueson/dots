@@ -85,9 +85,9 @@
       spotify                                           # music
       gimp-with-plugins                                 # GNU Image Manipulation Program
           gimpPlugins.gmic                              # GIMP plugin for the G'MIC image processing framework
-      davinci-resolve                                   # high quality NLE + industry-standard color grading software
       runelite                                          # old-ass game for nostalgic masochists with nothing better to do (like me)
       calibre                                           # ebook client
+
 # the Rust programming language cargo                                             # downloads your Rust project's dependencies and builds your project
       rustup                                            # the Rust toolchain installer
       rustc                                             # the Rust language itself
