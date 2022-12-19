@@ -30,19 +30,12 @@ in
     ######################
     #  User definitions  #
     ######################
+
         users = {
             hunter = {
               isNormalUser = true;
               home = "/home/hunter";
               description = "Hunter";
-              extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];      # Enable `sudo` for the user.
-            };
-        
-          # Secondary user account
-            ash = {
-              isNormalUser = true;
-              home = "/home/ash";
-              description = "Ash";
               extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];      # Enable `sudo` for the user.
             };
         };
@@ -61,7 +54,6 @@ in
 
     home-manager.users = { 
         hunter = (import ./hunter.nix);
-        ash = (import ./ash.nix);
     };
 
 }
