@@ -2,6 +2,9 @@
 
 !.config/
 
+!.nixos/
+!.nixos/**
+
 !docs/
 !docs/README.md
 !docs/LICENSE
@@ -9,17 +12,7 @@
 !docs/archive/*
 !docs/notes/
 !docs/notes/nixos/
-!docs/notes/nixos/*
-
-!.nixos/
-!.nixos/*
-!.nixos/users/
-!.nixos/users/*
-
-!.config/nixos/
-!.config/nixos/*
-!.config/nixos/users/
-!.config/nixos/users/*
+!docs/notes/nixos/**
 
 !.config/alacritty/
 !.config/alacritty/alacritty.yml
