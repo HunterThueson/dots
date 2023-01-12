@@ -29,7 +29,7 @@
         [
             (import "${home-manager}/nixos")                                    # enable Home Manager as a NixOS module
             ./hardware-configuration.nix                                        # include the results of the hardware scan
-            ./environment.nix                                 # for system-wide package management and environment configuration
+            ./environment.nix                                                   # for system-wide package management and environment configuration
             ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
 
