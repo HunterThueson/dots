@@ -1,18 +1,18 @@
 # $nixos-config/configuration.nix
 
+{ nixpkgs, home-manager, ... }:
 { config, pkgs, ... }:
-
 {
 
   ###############################
   #  Nix/Nixpkgs/NixOS options  #
   ###############################
 
-     # Change where `nixos-rebuild` looks for configuration files
-     nix.nixPath = [
-        "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-        "nixos-config=/home/hunter/.nixos/configuration.nix"                    # this is the only line that doesn't match default `nix.nixPath` value
-        "/nix/var/nix/profiles/per-user/root/channels"
+    # Change where `nixos-rebuild` looks for configuration files
+    nix.nixPath = [
+       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+       "nixos-config=/home/hunter/.nixos/configuration.nix"                    # this is the only line that doesn't match default `nix.nixPath` value
+       "/nix/var/nix/profiles/per-user/root/channels"
     ];
    
     # Allow unfree/proprietary software
@@ -27,9 +27,9 @@
 
     imports = 
         [
+            (import "${home-manager}/nixos")                                    # enable Home Manager as a NixOS module
             ./hardware-configuration.nix                                        # include the results of the hardware scan
-            ./users/setup.nix                                                   # for user definitions
-            ./environment.nix                                                   # for system-wide package management and environment configuration
+            ./environment.nix                                 # for system-wide package management and environment configuration
             ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
 
@@ -141,6 +141,24 @@
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
         desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
     };
+
+  ###################
+  #  User settings  #
+  ###################
+  users = {
+      users = {
+          hunter = {
+              isNormalUser = true;
+              home = "/home/hunter";
+              description = "Hunter";
+              extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];
+          };
+      };
+  };
+
+  home-manager.users = {
+      hunter = (import ./users/hunter.nix);
+  };
 
   #######################################
   #  Enable proprietary NVIDIA drivers  #
