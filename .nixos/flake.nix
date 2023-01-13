@@ -55,7 +55,6 @@
 
             the-glass-tower = lib.nixosSystem {
                 inherit system;
-                specialArgs = inputs;
                 modules = [
                     (import ./configuration.nix inputs)
                 ];
