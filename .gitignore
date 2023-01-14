@@ -25,3 +25,5 @@
 
 !.config/mpv/
 !.config/mpv/mpv.conf
+
+**/.directory
