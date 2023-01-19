@@ -65,6 +65,7 @@
       neofetch                                          # display system info
       gtop                                              # graphical `top`
       btop                                              # another fancy `top`
+      upower                                            # command line util for monitoring mouse battery life
 
   # GUI
       polybarFull                                       # a fast and easy-to-use tool for creating status bars
