@@ -10,11 +10,6 @@
 #
 
 {
-
-#################
-#  Description  #
-#################
-
     description = "Hunter Thueson's NixOS System Configuration";
 
 ############
