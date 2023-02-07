@@ -26,4 +26,7 @@
 !.config/mpv/
 !.config/mpv/mpv.conf
 
+!.config/yt-dlp/
+!.config/yt-dlp/config
+
 **/.directory
