@@ -1,5 +1,4 @@
 #  ~/.nixos/flake.nix
-#  SPDX License Identifier: MIT
 #
 #  ####################################################
 #  #  Hunter Thueson's NixOS System Configuration(s)  #
@@ -47,15 +46,12 @@
 
     {
         nixosConfigurations = {
-
             the-glass-tower = lib.nixosSystem {
                 inherit system;
                 modules = [
                     (import ./configuration.nix inputs)
                 ];
             };
-
         };
     };
-
 }
