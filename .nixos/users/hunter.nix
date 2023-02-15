@@ -3,7 +3,7 @@
 # User configuration file for: Hunter
 #
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -31,12 +31,7 @@ home.keyboard = {
 ## Package Configuration ##
 ###########################
 
-# Temporarily disabled because I'm sick of running `home-manager-generation`, logging out, and logging
-# back in every time I start up / reboot the computer:
-
-    # nixpkgs.config.allowUnfree = true;
-
-    # home.packages = with pkgs; [
+    home.packages = with pkgs; [
     #     firefox                     # web browser
     #     spotify                     # music
     #     mailspring                  # email client
@@ -53,7 +48,7 @@ home.keyboard = {
     #     imagemagick                 # image editing tools for the command line
     #     yt-dlp                      # `youtube-dl` fork; download videos from websites like YouTube
     #     speedcrunch                 # calculator
-    # ];
+    ];
 
 ########################
 ## Bash Configuration ##
@@ -100,9 +95,6 @@ programs.bash = {
     ###############
 
     bashrcExtra = ''
-        # Source session variables file
-        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
         # Enable Starship prompt
         eval "$(starship init bash)"
 
