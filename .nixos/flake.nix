@@ -60,6 +60,7 @@
                             # User configuration(s)
                             users = {
                                 hunter = import ./users/hunter.nix;
+                                ash = import ./users/ash.nix;
                             };
                         };
                     }

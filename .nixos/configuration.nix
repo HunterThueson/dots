@@ -145,12 +145,23 @@
   #  User settings  #
   ###################
   users = {
+      mutableUsers = false;
       users = {
           hunter = {
+              description = "Hunter";
               isNormalUser = true;
               home = "/home/hunter";
-              description = "Hunter";
+              createHome = true;
               extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];
+              hashedPassword = "$6$rounds=9999999$D0Q/CrIW78S4..io$FWKqStB6upQM4yZqm/UcKjyuSMpaR9lvor2QSjxt1q.34AgQ3p8VrthX0JbN.6GpUJVVXyK6MhV9FNqIV/mBp0";
+          };
+          ash = {
+              description = "Ash";
+              isNormalUser = true;
+              home = "/home/ash";
+              createHome = true;
+              extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];
+              hashedPassword = "$6$rounds=9999999$FThVWftaj3S0ShgC$C2HOgr7dst7/rnTy2NhLt5aiOOifhZ4cvg1XZ513VBMvxNg3fUGdH/ajdlnSHSKoxSpfoN84EqD3f6cOSL2/y.";
           };
       };
   };
@@ -209,3 +220,5 @@
     system.stateVersion = "21.11";
 
 }
+
+
