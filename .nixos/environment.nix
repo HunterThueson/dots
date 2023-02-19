@@ -55,12 +55,6 @@
       unzip                                             # extract stuff / unzip file archive
       ffmpeg_5-full                                     # video transcoding utility (and a dependency for many other programs)
 
-  # Terminal: Media/Entertainment
-      cmatrix                                           # look like freakin' HACKERMAN (so powerful he could hack time itself)
-      neo-cowsay                                        # `cowsay` rewritten in Go (with bonus features!)
-      imagemagick                                       # image editing tools for the command line
-      yt-dlp                                            # `youtube-dl` fork; download videos from websites like YouTube
-
   # System info/monitoring
       neofetch                                          # display system info
       gtop                                              # graphical `top`
@@ -71,20 +65,7 @@
       polybarFull                                       # a fast and easy-to-use tool for creating status bars
       gparted                                           # GUI partition management
       pcmanfm                                           # lightweight graphical file manager
-      firefox                                           # web browser
-      mailspring                                        # email client
-      discord                                           # chat client
-      kate                                              # KDE graphical text editor
-      speedcrunch                                       # calculator
       libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu
-
-  # GUI: Media/Entertainment
-      mpv                                               # video playback
-      spotify                                           # music
-      gimp-with-plugins                                 # GNU Image Manipulation Program
-          gimpPlugins.gmic                              # GIMP plugin for the G'MIC image processing framework
-      runelite                                          # old-ass game for nostalgic masochists with nothing better to do (like me)
-      calibre                                           # ebook client
 
 # the Rust programming language cargo                                             # downloads your Rust project's dependencies and builds your project
       rustup                                            # the Rust toolchain installer
