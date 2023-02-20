@@ -153,7 +153,7 @@
               home = "/home/hunter";
               createHome = true;
               extraGroups = [ "wheel" "video" "networkmanager" "wizard" ];
-              hashedPassword = "$6$rounds=9999999$D0Q/CrIW78S4..io$FWKqStB6upQM4yZqm/UcKjyuSMpaR9lvor2QSjxt1q.34AgQ3p8VrthX0JbN.6GpUJVVXyK6MhV9FNqIV/mBp0";
+              hashedPassword = "$6$rounds=500000$ilzR8OoFwfvEOzfO$iJ9QJzjIINDW8ON33jTIIxe/B2XcB3MnCR7/qaA6NC2Sw6efZvX2HJ4l3vif8/ggmAv/4GutT8Xt4/wAgLW0H.";
           };
           ash = {
               description = "Ash";
@@ -220,5 +220,4 @@
     system.stateVersion = "21.11";
 
 }
-
 
