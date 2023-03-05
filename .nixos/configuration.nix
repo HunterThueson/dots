@@ -11,7 +11,7 @@
     # Change where `nixos-rebuild` looks for configuration files
     nix.nixPath = [
        "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-       "nixos-config=/home/hunter/.nixos/configuration.nix"                    # this is the only line that doesn't match default `nix.nixPath` value
+       "nixos-config=/home/hunter/.nixos/configuration.nix"                     # this is the only line that doesn't match default `nix.nixPath` value
        "/nix/var/nix/profiles/per-user/root/channels"
     ];
    
@@ -27,9 +27,9 @@
 
     imports = 
         [
-            ./hardware-configuration.nix                                        # include the results of the hardware scan
+            ./modules/hardware-configuration.nix                                # include the results of the hardware scan
+            ./modules/xorg.nix                                                  # for managing XRandR & X Server settings
             ./environment.nix                                                   # for system-wide package management and environment configuration
-            ./xorg.nix                                                          # for managing XRandR & X Server settings
         ];
 
   ########################
