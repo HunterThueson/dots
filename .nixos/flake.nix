@@ -48,14 +48,10 @@
                 modules = [
                     (import ./configuration.nix inputs)
                     home-manager.nixosModules.home-manager {
+
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
-
-                            # Arguments to be passed to each `[user].nix` file
-                            extraSpecialArgs = {
-                                inherit pkgs;
-                            };
 
                             # User configuration(s)
                             users = {
@@ -63,6 +59,7 @@
                                 ash = import ./users/ash.nix;
                             };
                         };
+
                     }
                 ];
             };
