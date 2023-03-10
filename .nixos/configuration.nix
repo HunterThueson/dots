@@ -71,7 +71,7 @@
 
                 version = 2;
                 useOSProber = true;
-                configurationLimit = 25;                                        # Limit the number of GRUB menu entries
+                configurationLimit = 10;                                        # Limit the number of GRUB menu entries
             };
         };
     };
