@@ -40,16 +40,16 @@
 #  Network Options  #
 #####################
 --retries 50
---buffer-size 16K                   # Should help speed up download process
+--buffer-size 16K                                       # Should help speed up download process
 
 # Path
---paths "home:~/videos/"
+--paths "home:~/downloads/yt-dlp/"
 --paths "thumbnail:~/videos/thumbnails/"
 --paths "temp:~/.temp/yt-dlp/"
 
 # Record the IDs of all downloaded videos in an archive file and only download
 # videos not listed in the archive
---download-archive "~/videos/.archive"
+--download-archive "~/docs/archive/yt-dlp"
 --no-write-playlist-metafiles
 
 # Output format(s)
