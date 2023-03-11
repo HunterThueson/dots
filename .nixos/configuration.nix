@@ -8,18 +8,30 @@
   #  Nix/Nixpkgs/NixOS options  #
   ###############################
 
-    # Change where `nixos-rebuild` looks for configuration files
-    nix.nixPath = [
-       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-       "nixos-config=/home/hunter/.nixos/configuration.nix"                     # this is the only line that doesn't match default `nix.nixPath` value
-       "/nix/var/nix/profiles/per-user/root/channels"
-    ];
-   
     # Allow unfree/proprietary software
     nixpkgs.config.allowUnfree = true;
 
-    # Enable Nix Flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        settings = {
+            experimental-features = [ "nix-command" "flakes" ];                 # Enable Flakes
+            auto-optimise-store = true;                                         # Automatically optimise nix-store
+        };
+
+        # Change where NixOS looks for configuration.nix
+        nixPath = [
+            "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+            "nixos-config=/home/hunter/.nixos/configuration.nix"                     # this is the only line that doesn't match default `nix.nixPath` value
+            "/nix/var/nix/profiles/per-user/root/channels"
+        ];
+
+        # Automatic garbage collection
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "--delete-older-than 14d";
+        };
+    };
+
 
   #############
   #  Imports  #
