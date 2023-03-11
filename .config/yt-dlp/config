@@ -1,11 +1,14 @@
 # ~/.config/yt-dlp/config
 #
-# general yt-dlp configuration
+##########################
+#  yt-dlp Configuration  #
+##########################
 #
-
 #########################
 #  Filename Sanitation  #
 #########################
+#
+
 --restrict-filenames
 
 --replace-in-metadata "title,uploader" "[ _]" "-"
@@ -42,7 +45,7 @@
 # Path
 --paths "home:~/videos/"
 --paths "thumbnail:~/videos/thumbnails/"
---paths "temp:~/.temp/"
+--paths "temp:~/.temp/yt-dlp/"
 
 # Record the IDs of all downloaded videos in an archive file and only download
 # videos not listed in the archive
@@ -50,6 +53,7 @@
 --no-write-playlist-metafiles
 
 # Output format(s)
--o "%(uploader_id)s/raw/%(title)s_%(height)sp-%(fps)02d.%(ext)s"
+-o "%(uploader_id)s/%(title)s_%(height)sp-%(fps)02d.%(ext)s"
 -o "thumbnail:%(uploader_id)s/%(title)s_%(height)sp.%(ext)s"
+-o "temp:%(title)s_%(height)sp-%(fps)02d.%(ext)s"
 
