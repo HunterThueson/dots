@@ -132,5 +132,28 @@ programs.bash = {
 
 };
 
+#########################
+#  Emacs Configuration  #
+#########################
+programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+    extraConfig = "";               # Configure Emacs here
+};
+
+services.emacs = {                  # Run Emacs as a daemon accessible through `emacsclient`
+    enable = true;
+    extraOptions = [];              # (this is the default value for services.emacs.extraOptions)
+    defaultEditor = false;          # whether to set `emacsclient` as default editor
+    client = {
+        enable = true;              # enable generation of Emacs client desktop file
+
+        # Arguments to pass to `emacsclient` -- (this is the default value)
+        arguments = [
+            "-c"
+        ];
+    };
+};
+
 }
 
