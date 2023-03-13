@@ -45,11 +45,11 @@ programs.bash = {
         "exit"
         "clear"
     ];
-    sessionVariables = {                              # Environment variables that will be set for the Bash session
+    sessionVariables = rec {                          # Environment variables that will be set for the Bash session
         XDG_CONFIG_HOME = "$HOME/.config";
         XDG_CACHE_HOME = "$HOME/.cache";
-        STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship.toml";
-        STARSHIP_CACHE = "$XDG_CACHE_HOME/starship";
+        STARSHIP_CONFIG = "${XDG_CONFIG_HOME}/starship.toml";
+        STARSHIP_CACHE = "${XDG_CACHE_HOME}/starship";
     };
 
     ###################
@@ -87,9 +87,9 @@ programs.bash = {
             exa -xDG --icons
         }
 
-        # Teleport to ~/.config
+        # Teleport to ${XDG_CONFIG_HOME}
         cdc () {
-            cd $HOME/.config
+            cd ${XDG_CONFIG_HOME}
             clear
             exa -D --icons
         }
