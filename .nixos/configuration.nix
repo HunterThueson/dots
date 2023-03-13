@@ -1,4 +1,4 @@
-# $nixos-config/configuration.nix
+# ./.nixos/configuration.nix
 
 { nixpkgs, home-manager, ... }:
 { config, pkgs, ... }:
