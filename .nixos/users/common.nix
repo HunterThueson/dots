@@ -36,7 +36,7 @@ home.keyboard = {
 #     programs.bash.enable = true;
 #
 
-programs.bash = {
+programs.bash = rec {
     historyFile = "$HOME/docs/.bash_history";         # Location of the bash history file
     historyIgnore = [                                 # List of commands that should not be saved to the history list
         "ls"
@@ -87,9 +87,9 @@ programs.bash = {
             exa -xDG --icons
         }
 
-        # Teleport to ${XDG_CONFIG_HOME}
+        # Teleport to config directory
         cdc () {
-            cd ${XDG_CONFIG_HOME}
+            cd $XDG_CONFIG_HOME
             clear
             exa -D --icons
         }
