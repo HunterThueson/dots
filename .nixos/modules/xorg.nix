@@ -72,7 +72,6 @@
                 autoNumlock = true;
             };
             xserverArgs = [ "-dpi 154" ];
-            setupCommands = "home-manager-generation";
         };
     };
 }
