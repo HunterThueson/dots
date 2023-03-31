@@ -57,7 +57,19 @@
 (setq use-package-always-ensure t)
 
 ;; Enable keyboard command logging (shows what keys you're pressing on screen)
+;;
+;; - Usage:
+;;      `M-x clm/toggle-command-log-buffer`
+;;      `M-x global-command-log-mode`
+;;
 (use-package command-log-mode)
+
+;;  --------------
+;;  |  Keybinds  |
+;;  --------------
+
+; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Ivy
 (use-package ivy
@@ -87,11 +99,4 @@
            ("C-r" . 'counsel-minibuffer-history))
     :config
     (setq ivy-initial-inputs-alist nil))    ;; Don't start searches with ^
-
-;;  --------------
-;;  |  Keybinds  |
-;;  --------------
-
-; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
