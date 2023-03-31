@@ -22,7 +22,7 @@
 (scroll-bar-mode -1)                ; Disable visible scrollbar
 (tool-bar-mode -1)                  ; Disable the toolbar
 (tooltip-mode -1)                   ; Disable tooltips
-(set-fringe-mode 10)                ; Give some breathing room
+(set-fringe-mode -1)                ; Give some breathing room
 (menu-bar-mode -1)                  ; Disable the menubar
 
 ;;  -------------------------
@@ -34,6 +34,28 @@
 
 ;; Set theme
 (load-theme 'misterioso)
+
+;;  Enable line numbers
+(require 'display-line-numbers)
+
+;; Don't resize number column when scrolling
+(setq display-line-numbers-width-start 1)
+
+(defcustom display-line-numbers-exempt-modes
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode)
+  "Major modes on which to disable line numbers."
+  :group 'display-line-numbers
+  :type 'list
+  :version "green")
+
+(defun display-line-numbers--turn-on ()
+  "Turn on line numbers except for certain major modes.
+Exempt major modes are defined in `display-line-numbers-exempt-modes'."
+  (unless (or (minibufferp)
+              (member major-mode display-line-numbers-exempt-modes))
+    (display-line-numbers-mode)))
+
+(global-display-line-numbers-mode)
 
 ;;  ------------------------
 ;;  |  Package Management  |
@@ -57,12 +79,10 @@
 (setq use-package-always-ensure t)
 
 ;; Enable keyboard command logging (shows what keys you're pressing on screen)
-;;
-;; - Usage:
-;;      `M-x clm/toggle-command-log-buffer`
-;;      `M-x global-command-log-mode`
-;;
 (use-package command-log-mode)
+;; Usage:
+;;    `M-x clm/toggle-command-log-buffer`
+;;    `M-x global-command-log-mode`
 
 ;;  --------------
 ;;  |  Keybinds  |
