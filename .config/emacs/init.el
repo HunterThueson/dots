@@ -22,7 +22,7 @@
 (scroll-bar-mode -1)                ; Disable visible scrollbar
 (tool-bar-mode -1)                  ; Disable the toolbar
 (tooltip-mode -1)                   ; Disable tooltips
-(set-fringe-mode -1)                ; Give some breathing room
+(set-fringe-mode ( . 0))            ; Set margins
 (menu-bar-mode -1)                  ; Disable the menubar
 
 ;;  -------------------------
@@ -39,7 +39,10 @@
 (require 'display-line-numbers)
 
 ;; Don't resize number column when scrolling
-(setq display-line-numbers-width-start 1)
+(setq display-line-numbers-width-start t)
+
+;; Use absolute line numbers
+(setq display-line-numbers-type t)
 
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode)
@@ -56,6 +59,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
     (display-line-numbers-mode)))
 
 (global-display-line-numbers-mode)
+
+;; Enable column number indicator
+(column-number-mode)
 
 ;;  ------------------------
 ;;  |  Package Management  |
