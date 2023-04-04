@@ -91,6 +91,10 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 ;;    `M-x clm/toggle-command-log-buffer`
 ;;    `M-x global-command-log-mode`
 
+;; Enable rainbow delimiters
+(use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+
 ;;  --------------
 ;;  |  Keybinds  |
 ;;  --------------
