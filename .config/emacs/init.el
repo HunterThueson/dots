@@ -95,6 +95,13 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
+;; Enable which-key to show available commands upon using a keybind
+(use-package which-key
+    :init (which-key-mode)
+    :diminish which-key-mode
+    :config
+    (setq which-key-idle-delay 0.05))
+
 ;;  --------------
 ;;  |  Keybinds  |
 ;;  --------------
