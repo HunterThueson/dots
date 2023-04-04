@@ -41,8 +41,9 @@
 ;; Don't resize number column when scrolling
 (setq display-line-numbers-width-start t)
 
-;; Use absolute line numbers
-(setq display-line-numbers-type t)
+;; Use relative visual line numbers
+(setq display-line-numbers-type 'visual)
+(setq display-line-numbers-current-absolute 1)
 
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode)
