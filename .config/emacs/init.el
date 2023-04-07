@@ -32,9 +32,6 @@
 ;; Set font
 (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 92)
 
-;; Set theme
-(load-theme 'misterioso)
-
 ;;  Enable line numbers
 (require 'display-line-numbers)
 
@@ -149,3 +146,18 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
+
+;;--------------------;;
+;;  Theme Management  ;;
+;;--------------------;;
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t)
+  :init (load-theme 'doom-vibrant t))     ; This is where you change the theme
+
