@@ -102,10 +102,6 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
     :config
     (setq which-key-idle-delay 0.05))
 
-;;  --------------
-;;  |  Keybinds  |
-;;  --------------
-
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -137,4 +133,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
            ("C-r" . 'counsel-minibuffer-history))
     :config
     (setq ivy-initial-inputs-alist nil))    ;; Don't start searches with ^
+
+;; Enable ivy-rich
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
 
