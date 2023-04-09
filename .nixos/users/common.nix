@@ -37,7 +37,7 @@ home.keyboard = {
 #
 
 programs.bash = {
-    historyFile = "$HOME/docs/.bash_history";         # Location of the bash history file
+    historyFile = "$HOME/docs/archive/.bash_history"; # Location of the bash history file
     historyIgnore = [                                 # List of commands that should not be saved to the history list
         "ls"
         "exa"
