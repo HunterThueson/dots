@@ -212,3 +212,6 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   :config
   (evil-collection-init))
 
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
