@@ -39,8 +39,8 @@
 
     imports = 
         [
-            ./modules/hardware-configuration.nix                                # include the results of the hardware scan
-            ./modules/xorg.nix                                                  # for managing XRandR & X Server settings
+            ./sys/hardware-configuration.nix                                    # include the results of the hardware scan
+            ./sys/xorg.nix                                                      # for managing XRandR & X Server settings
             ./sys/nvidia.nix                                                    # enable NVIDIA proprietary drivers
             ./environment.nix                                                   # for system-wide package management and environment configuration
         ];

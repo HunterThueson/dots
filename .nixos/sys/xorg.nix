@@ -1,4 +1,4 @@
-# ./modules/xorg.nix
+# ./sys/xorg.nix
 
 ############################
 #  X Server Configuration  #
