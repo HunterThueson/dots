@@ -157,3 +157,11 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   (setq doom-themes-enable-italic t)
   :init (load-theme 'doom-vibrant t))     ; This is where you change the theme
 
+;;------------------------;;
+;;  General Key Bindings  ;;
+;;------------------------;;
+
+(use-package general)
+(general-define-key
+  "C-M-j" 'counsel-switch-buffer)           ;; Switch buffers w/ `Ctrl+Alt+j`
+
