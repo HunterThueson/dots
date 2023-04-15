@@ -151,10 +151,6 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 ;;  Theme Management  ;;
 ;;--------------------;;
 
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
-
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t)
