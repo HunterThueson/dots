@@ -6,3 +6,35 @@
 
 # Enable Starship prompt
 eval "$(starship init bash)"
+
+# Teleport to $HOME
+cdd () {
+    cd ${HOME}
+    clear
+    sleep 0.01
+    command exa -xDG --icons
+}
+
+# Teleport to config directory
+cdc () {
+    cd ${XDG_CONFIG_HOME}
+    clear
+    command exa -D --icons
+}
+
+# Teleport to NixOS configuration directory
+cdn () {
+    cd ${NIXOS_CONFIG_HOME}
+    clear
+    command exa --icons
+}
+
+# `gh` wrapper to make listing issues easier
+gh () {
+    if [[ $@ == "issue list" ]]; then
+        command gh issue list -L 100
+    else
+        command gh "$@"
+    fi
+}
+
