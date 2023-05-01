@@ -232,3 +232,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   :after evil
   :config
   (evil-collection-init))
+
+;;  --------------
+;;  |  Org Mode  |
+;;  --------------
+
+(use-package org)
