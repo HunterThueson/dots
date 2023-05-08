@@ -75,6 +75,7 @@
   # Networking
       wget                                              # download files from the command line
       iw                                                # show & manipulate wireless devices
+      openvpn                                           # connect to VPN
 
   # Hardware utilities
       openrgb                                           # open source RGB lighting control utility
