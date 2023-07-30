@@ -118,7 +118,7 @@ programs.bash = {
 
     shellAliases = {
         # Drop-in program replacements
-        ls = "exa -G --color=always --icons";                                # replace `ls` with `exa` (faster, written in Rust)
+        ls = "exa -G --color=always --icons --group-directories-first";      # replace `ls` with `exa` (faster, written in Rust)
         find = "fd";                                                         # replace `find` with `fd` (faster, written in -- you guessed it -- Rust)
         
         # Navigation
