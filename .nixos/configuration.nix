@@ -15,6 +15,11 @@
         settings = {
             experimental-features = [ "nix-command" "flakes" ];                 # Enable Flakes
             auto-optimise-store = true;                                         # Automatically optimise nix-store
+            allowed-users = [
+                "@wheel"
+                "hunter"
+                "ash"
+            ];
         };
 
         # Change where NixOS looks for configuration.nix
@@ -28,7 +33,7 @@
         gc = {
             automatic = true;
             dates = "weekly";
-            options = "--delete-older-than 14d";
+            options = "--delete-older-than 365d";
         };
     };
 
@@ -127,7 +132,8 @@
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
         font = "Lat2-Terminus16";
-        keyMap = "us";
+        #keyMap = "us";
+        useXkbConfig = true;                                                    # Use X keyboard config in TTY, etc. (for disabling CAPS)
     };
 
   ######################
@@ -141,6 +147,7 @@
         libinput.mouse.accelProfile = "flat";                                   # Disable pesky mouse acceleration
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
         desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
+        xkbOptions = "ctrl:nocaps";                                             # Disable CAPS Lock & replace with Ctrl
     };
 
   ###################
