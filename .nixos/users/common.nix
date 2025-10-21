@@ -10,6 +10,9 @@
 # Must be declared per user and changed for each new version of NixOS (per guy on Discord)
 home.stateVersion = "22.11";
 
+# Let home-manager install and manage itself
+programs.home-manager.enable = true;
+
 # Extra directories to add to PATH
 home.sessionPath = [
     "/usr/local/bin/"
@@ -23,7 +26,7 @@ home.sessionPath = [
 
 home.keyboard = {
     layout = "us";
-    options = [ "caps:backspace" ];
+    options = [ "ctrl:nocaps" ];
 };
 
 ########################
@@ -84,21 +87,30 @@ programs.bash = {
             cd $HOME
             clear
             sleep 0.01
-            exa -xDG --icons
+            exa -xDG --icons --group-directories-first
         }
 
         # Teleport to config directory
         cdc () {
             cd $XDG_CONFIG_HOME
             clear
-            exa -D --icons
+            exa -D --icons --group-directories-first
         }
 
         # Teleport to NixOS configuration directory
         cdn () {
-            cd $HOME/.nixos/
+            cd /home/hunter/.nixos/
             clear
-            exa --icons
+            exa --icons --group-directories-first
+            gh status
+        }
+
+        # Teleport to NixOS configuration directory
+        cdnx () {
+            cd /home/experimental/.nixos/
+            clear
+            exa --icons --group-directories-first
+            gh status
         }
 
         # `gh` wrapper to make listing issues easier
@@ -138,15 +150,21 @@ programs.bash = {
 programs.emacs = {
     enable = true;
     package = pkgs.emacs;
-    extraConfig = "";               # Configure Emacs here
+    extraConfig = builtins.readFile ./cfg/emacs.el;               # Configure Emacs here
+    extraPackages = epkgs: [
+        epkgs.nix-mode
+        epkgs.magit
+    ];
 };
 
-services.emacs = {                  # Run Emacs as a daemon accessible through `emacsclient`
+services.emacs = {                        # Run Emacs as a daemon accessible through `emacsclient`
     enable = true;
-    extraOptions = [];              # (this is the default value for services.emacs.extraOptions)
-    defaultEditor = false;          # whether to set `emacsclient` as default editor
+    socketActivation.enable = true;
+    startWithUserSession.enable = true;   # whether to launch Emacs service with the systemd user session
+    extraOptions = [];                    # (this is the default value for services.emacs.extraOptions)
+    defaultEditor = false;                # whether to set `emacsclient` as default editor
     client = {
-        enable = true;              # enable generation of Emacs client desktop file
+        enable = true;                    # enable generation of Emacs client desktop file
 
         # Arguments to pass to `emacsclient` -- (this is the default value)
         arguments = [
