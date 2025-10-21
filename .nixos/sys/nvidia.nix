@@ -14,11 +14,10 @@ in
 {
 
 services.xserver.videoDrivers = [ "nvidia" ];
-hardware.opengl = {
+hardware.graphics = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
 };
 
@@ -27,10 +26,10 @@ hardware.nvidia = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
         sync.enable = true;
-        sync.allowExternalGpu = true;
     };
     modesetting.enable = true;      # Fix screen tearing w/ Optimus via PRIME
     nvidiaSettings = true;          # Add `nvidia-settings` to system packages
+    open = true;                    # Use open-source kernel modules instead of proprietary
 };
 
 systemd.services.nvidia-control-devices = {

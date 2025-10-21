@@ -64,14 +64,14 @@
                 Virtual    5636 3193
             EndSubSection
         '';
+        displayManager.xserverArgs = [ "-dpi 154" ];
+    };
 
-        displayManager = {
-            sddm = {
-                enable = true;
-                enableHidpi = true;
-                autoNumlock = true;
-            };
-            xserverArgs = [ "-dpi 154" ];
+    services.displayManager = {
+        sddm = {
+            enable = true;
+            enableHidpi = true;
+            autoNumlock = true;
         };
     };
 }

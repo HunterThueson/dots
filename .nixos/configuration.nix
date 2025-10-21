@@ -76,7 +76,6 @@
                     }
                 '';
 
-                version = 2;
                 useOSProber = true;
                 configurationLimit = 10;                                        # Limit the number of GRUB menu entries
             };
@@ -108,18 +107,14 @@
 
     fonts = {
         fontDir.enable = true;                                                  # Enable /nix/var/nix/profiles/system/sw/share/X11/fonts
-        fonts = with pkgs; [
-            (nerdfonts.override {
-                fonts = [
-                    "FiraCode"
-                    "DroidSansMono"
-                    "FiraMono"
-                    "Hack"
-                    "Arimo"
-                    "iA-Writer"                                                 # AKA iM-Writing
-                ]; 
-            })
-        ];
+        packages = with pkgs; [
+            nerd-fonts.fira-code
+            nerd-fonts.droid-sans-mono
+            nerd-fonts.fira-mono
+            nerd-fonts.hack
+            nerd-fonts.arimo
+            nerd-fonts.im-writing
+        ]; 
         fontconfig.defaultFonts = {
             monospace = [ "FiraCode Nerd Font" ];
         };
@@ -136,18 +131,23 @@
         useXkbConfig = true;                                                    # Use X keyboard config in TTY, etc. (for disabling CAPS)
     };
 
-  ######################
-  #  XServer settings  #
-  ######################
+  ##############
+  #  Services  #
+  ##############
 
     services.xserver = {
         enable = true;                                                          # Enable the X11 windowing system
-        layout = "us";                                                          # Configure X11 keymap layout
-        libinput.enable = true;                                                 # Enable touchpad support
-        libinput.mouse.accelProfile = "flat";                                   # Disable pesky mouse acceleration
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
         desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
-        xkbOptions = "ctrl:nocaps";                                             # Disable CAPS Lock & replace with Ctrl
+        xkb = {
+            options = "ctrl:nocaps";                                            # Disable CAPS Lock & replace with Ctrl
+            layout = "us";                                                      # Configure X11 keymap layout
+        };
+    };
+
+    services.libinput = {
+        enable = true;                                                          # enable touchpad support
+        mouse.accelProfile = "flat";                                            # Disable pesky mouse acceleration
     };
 
   ###################
@@ -179,8 +179,7 @@
   #  Sound options  #
   ###################
 
-    sound.enable = true;
-    hardware.pulseaudio.enable = true;
+    # hardware.pulseaudio.enable = true;
 
   #####################
   #  Printer options  #

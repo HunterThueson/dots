@@ -47,13 +47,13 @@
       alacritty                                         # GPU-accelerated terminal emulator
       starship                                          # blazing fast, highly customizable prompt for any shell
       tldr                                              # quickly summarize command usage
-      exa                                               # modern replacement for `ls` written in Rust
+      eza                                               # modern replacement for `ls` written in Rust
       ripgrep                                           # modern replacement for `grep` written in Rust
       killall                                           # kill programs with ease
       fd                                                # modern replacement for `find` written in Rust
       parted                                            # CLI partition management
       unzip                                             # extract stuff / unzip file archive
-      ffmpeg_5-full                                     # video transcoding utility (and a dependency for many other programs)
+      ffmpeg_6-full                                     # video transcoding utility (and a dependency for many other programs)
 
   # System info/monitoring
       neofetch                                          # display system info
@@ -155,7 +155,6 @@
     mailspring
     runelite
     discord
-    kate
     calibre
     gimp-with-plugins
         gimpPlugins.gmic
@@ -171,3 +170,4 @@
   # Enable all bluez plugins
   hardware.bluetooth.package = pkgs.bluezFull;
 
+}
