@@ -40,7 +40,7 @@
             Option        "Primary" "true"
             Option        "DPMS" "true"
             Option        "PreferredMode" "3840x2160_144.00"
-            Option        "Position" "0 200"
+            Option        "Position" "2560 0"
         EndSection
 
         Section "Monitor"
@@ -50,18 +50,18 @@
             Modeline      "2560x1440_144.00"  808.75  2560 2792 3072 3584  1440 1443 1448 1568 -hsync +vsync
             Option        "DPMS" "true"
             Option        "PreferredMode" "2560x1440_144.00"
-            Option        "Position" "3840 0"
+            Option        "Position" "0 0"
        '';
 
     # Screen configuration
         screenSection = ''
-            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+517 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 +3840+0 { Rotation=right, ViewPortIn=1796x3193, ViewPortOut=1440x2560+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
+            Option        "MetaModes" "DPY-EDID-809ecabe-c3d2-29e6-1a2c-7adf94323603: 3840x2160_144 @3840x2160 +0+0 { ViewPortIn=3840x2160, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DPY-EDID-bf730b70-03cb-6513-f349-55323aee38c4: 2560x1440_144 +0+0 { ViewPortIn=3193x1796, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=On, AllowGSYNC=On, }"
             Option        "SLI" "off"
             Option        "MultiGPU" "off"
             Option        "nvidiaXineramaInfo" "true"
             SubSection    "Display"
                 Depth      24
-                Virtual    5636 3193
+                Virtual    6400 2160
             EndSubSection
         '';
 
