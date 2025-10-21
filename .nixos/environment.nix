@@ -86,6 +86,9 @@
       xorriso                                           # dependency for `make iso`
       libsForQt5.qtstyleplugin-kvantum                  # dependency for Kvantum (KDE themes)
 
+  # Emacs
+      emacs
+
   # Neovim configuration
     (neovim.override {
         viAlias = true;
@@ -146,10 +149,25 @@
         };
     })
 
+  # Temporary workaround for home-manager weirdness
+    firefox
+    spotify
+    mailspring
+    runelite
+    discord
+    kate
+    calibre
+    gimp-with-plugins
+        gimpPlugins.gmic
+    cmatrix
+    neo-cowsay
+    mpv
+    imagemagick
+    yt-dlp
+    speedcrunch
+
   ];
 
   # Enable all bluez plugins
   hardware.bluetooth.package = pkgs.bluezFull;
-
-}
 
