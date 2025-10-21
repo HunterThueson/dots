@@ -41,6 +41,7 @@
 #####################
 --retries 50
 --buffer-size 16K                                       # Should help speed up download process
+--cookies-from-browser firefox
 
 # Path
 --paths "home:~/downloads/yt-dlp/"
@@ -57,3 +58,14 @@
 -o "temp:%(title)s_%(height)sp-%(fps)02d.%(ext)s"
 -o "%(uploader_id)s/%(title)s_%(height)sp-%(fps)02d.%(ext)s"
 
+##################
+#  Stealth Mode  #
+##################
+--retry-sleep linear=1::2
+--min-sleep-interval 1
+--max-sleep-interval 4
+
+######################
+#  User Credentials  #
+######################
+--netrc
