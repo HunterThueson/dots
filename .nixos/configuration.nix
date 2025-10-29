@@ -58,13 +58,13 @@
         kernelPackages = pkgs.linuxPackages;                                    # Use the default, stable Linux kernel
         loader = {
             efi = {
-                canTouchEfiVariables = true;
-                efiSysMountPoint = "/boot/efi";
+                efiSysMountPoint = "/boot";
             };
             grub = {                                                            # Use the GRUB 2 boot loader
                 enable = true;
                 device = "nodev";
                 efiSupport = true;
+                efiInstallAsRemovable = true;
 
                 # Enable Memtest86 (unfree) EFI-compatible system diagnostics utility
                 extraFiles = {
