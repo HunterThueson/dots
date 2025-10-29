@@ -1,0 +1,46 @@
+
+[cursor]
+blink_interval = 600
+blink_timeout = 30
+thickness = 0.1
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[cursor.vi_mode_style]
+blinking = "Off"
+shape = "Block"
+
+[font]
+size = 9
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Retina Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Retina Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Retina"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.97
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 5
+y = 4
+
+[general]
+import = ["/home/hunter/.config/alacritty/colors/electro-swing.toml"]
