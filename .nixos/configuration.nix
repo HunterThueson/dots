@@ -10,6 +10,9 @@
 
     # Allow unfree/proprietary software
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.permittedInsecurePackages = [
+        "mbedtls-2.28.10"
+    ];
 
     nix = {
         settings = {
@@ -64,7 +67,6 @@
                 enable = true;
                 device = "nodev";
                 efiSupport = true;
-                efiInstallAsRemovable = true;
 
                 # Enable Memtest86 (unfree) EFI-compatible system diagnostics utility
                 extraFiles = {
