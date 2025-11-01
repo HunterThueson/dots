@@ -16,6 +16,7 @@
 
 # Enable gnome keyring (mailspring dependency)
   services.gnome.gnome-keyring.enable = true;
+  programs.firefox.enable = true;
 
   environment = {
       variables = { EDITOR = "vim"; };
@@ -150,7 +151,6 @@
     })
 
   # Temporary workaround for home-manager weirdness
-    firefox
     spotify
     mailspring
     runelite
