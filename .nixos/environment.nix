@@ -150,6 +150,10 @@
         };
     })
 
+  # Jagex Launcher
+    wineWow64Packages.full
+    bolt-launcher
+
   # Temporary workaround for home-manager weirdness
     spotify
     mailspring
@@ -166,6 +170,15 @@
     speedcrunch
 
   ];
+
+  # Steam
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;                     # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true;                # Open ports in the firewall for Source Dedicated Server
+        localNetworkGameTransfers.openFirewall = true;      # Open ports in the firewall for Steam Local Network Game Transfers
+    };
+
 
   # Enable all bluez plugins
   hardware.bluetooth.package = pkgs.bluezFull;
