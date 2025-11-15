@@ -62,6 +62,7 @@
         loader = {
             efi = {
                 efiSysMountPoint = "/boot";
+                canTouchEfiVariables = true;
             };
             grub = {                                                            # Use the GRUB 2 boot loader
                 enable = true;
