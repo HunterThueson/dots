@@ -169,6 +169,9 @@
     yt-dlp
     speedcrunch
 
+  # Graphics management software
+    nvtopPackages.full
+
   ];
 
   # Steam
