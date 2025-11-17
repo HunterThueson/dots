@@ -153,6 +153,7 @@
   # Jagex Launcher
     wineWow64Packages.full
     bolt-launcher
+    jdk17                                                   # fix dependency issue with bolt launcher
 
   # Temporary workaround for home-manager weirdness
     spotify
