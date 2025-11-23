@@ -38,3 +38,8 @@ cdn () {
     clear
     exa
 }
+
+# Quicker access to `git status`
+ghs () {
+    git status
+}
