@@ -170,6 +170,10 @@
     yt-dlp
     speedcrunch
 
+  # Mouse configuration software
+    libratbag
+    piper
+
   # Graphics management software
     nvtopPackages.full
 
