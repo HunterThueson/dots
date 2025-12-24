@@ -12,21 +12,21 @@ cdd () {
     cd ${HOME}
     clear
     sleep 0.01
-    command exa -xDG --icons
+    command eza -xDG --icons
 }
 
 # Teleport to config directory
 cdc () {
     cd ${XDG_CONFIG_HOME}
     clear
-    command exa -D --icons
+    command eza -D --icons
 }
 
 # Teleport to NixOS configuration directory
 cdn () {
-    cd ${NIXOS_CONFIG_HOME}
+    cd ${HOME}/.nixos
     clear
-    command exa --icons
+    command eza --icons
 }
 
 # `gh` wrapper to make listing issues easier
