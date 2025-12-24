@@ -43,3 +43,13 @@ cdn () {
 ghs () {
     git status
 }
+
+# Quickly transform all images in the current directory into PNG files
+pngify () {
+    if [[ $# = 0 ]]
+    then
+        command mogrify -format png *.jpg *.jpeg *.webp
+    else
+        command mogrify -format png "$@"
+    fi
+}
