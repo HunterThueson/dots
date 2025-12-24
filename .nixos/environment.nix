@@ -55,6 +55,7 @@
       parted                                            # CLI partition management
       unzip                                             # extract stuff / unzip file archive
       ffmpeg_6-full                                     # video transcoding utility (and a dependency for many other programs)
+      instaloader                                       # utility for downloading photos & videos from Instagram
 
   # System info/monitoring
       neofetch                                          # display system info
