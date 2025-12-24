@@ -68,7 +68,8 @@
       pcmanfm                                           # lightweight graphical file manager
       libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu
 
-# the Rust programming language cargo                                             # downloads your Rust project's dependencies and builds your project
+# the Rust programming language 
+      cargo                                             # downloads your Rust project's dependencies and builds your project
       rustup                                            # the Rust toolchain installer
       rustc                                             # the Rust language itself
       rustfmt                                           # a tool for formatting Rust code according to style guidelines
