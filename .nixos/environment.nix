@@ -67,7 +67,6 @@
       polybarFull                                       # a fast and easy-to-use tool for creating status bars
       gparted                                           # GUI partition management
       pcmanfm                                           # lightweight graphical file manager
-      libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu
 
 # the Rust programming language 
       cargo                                             # downloads your Rust project's dependencies and builds your project
@@ -195,3 +194,6 @@
   hardware.bluetooth.package = pkgs.bluezFull;
 
 }
+
+# Removed but may need later:
+# libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu

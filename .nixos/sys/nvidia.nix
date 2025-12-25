@@ -16,9 +16,9 @@ in
 services.xserver.videoDrivers = [ "nvidia" ];
 hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+    extraPackages = with pkgs; [ intel-vaapi-driver libvdpau-va-gl libva-vdpau-driver ];
     enable32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel libvdpau-va-gl vaapiVdpau ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver libvdpau-va-gl libva-vdpau-driver ];
 };
 
 hardware.nvidia = {

@@ -130,7 +130,6 @@
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
         font = "Lat2-Terminus16";
-        #keyMap = "us";
         useXkbConfig = true;                                                    # Use X keyboard config in TTY, etc. (for disabling CAPS)
     };
 
@@ -138,10 +137,11 @@
   #  Services  #
   ##############
 
+    services.desktopManager.plasma6.enable = true;                              # Enable the KDE Plasma 6 desktop environment
+
     services.xserver = {
         enable = true;                                                          # Enable the X11 windowing system
         exportConfiguration = true;                                             # Symlink the X server configuration under /etc/X11/xorg.conf
-        desktopManager.plasma5.enable = true;                                   # Enable the KDE Plasma 5 desktop environment
         xkb = {
             options = "ctrl:nocaps";                                            # Disable CAPS Lock & replace with Ctrl
             layout = "us";                                                      # Configure X11 keymap layout
