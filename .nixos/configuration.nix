@@ -36,7 +36,7 @@
         gc = {
             automatic = true;
             dates = "weekly";
-            options = "--delete-older-than 365d";
+            options = "--delete-older-than 90d";
         };
     };
 
