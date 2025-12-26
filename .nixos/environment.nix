@@ -82,6 +82,8 @@
   # Hardware utilities
       openrgb                                           # open source RGB lighting control utility
       keymapp                                           # configure ZSA keyboards (like my Moonlander)
+      parted
+      cryptsetup
 
   # Misc dependencies
       libsecret                                         # dependency for mailspring
