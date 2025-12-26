@@ -52,6 +52,7 @@
       ripgrep                                           # modern replacement for `grep` written in Rust
       killall                                           # kill programs with ease
       fd                                                # modern replacement for `find` written in Rust
+      parted                                            # CLI partition management
       unzip                                             # extract stuff / unzip file archive
       ffmpeg_6-full                                     # video transcoding utility (and a dependency for many other programs)
       instaloader                                       # utility for downloading photos & videos from Instagram
@@ -81,8 +82,6 @@
   # Hardware utilities
       openrgb                                           # open source RGB lighting control utility
       keymapp                                           # configure ZSA keyboards (like my Moonlander)
-      parted                                            # CLI partition management
-      cryptsetup                                        # allows for LUKS encryption
 
   # Misc dependencies
       libsecret                                         # dependency for mailspring
