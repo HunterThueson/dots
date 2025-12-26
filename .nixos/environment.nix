@@ -96,10 +96,6 @@
     (neovim.override {
         viAlias = true;
         vimAlias = true;
-        runtime = {
-            "after/ftplugin/nix.vim".enable = true;
-            "after/ftplugin/nix.vim".source = ./cfg/vim/nix.vim;
-        };
         configure = {
     
             ###############
