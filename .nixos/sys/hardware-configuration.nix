@@ -18,15 +18,15 @@
       fsType = "ext4";
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/1e3fae3e-a834-4e1b-b933-609305219022";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/65A4-0C28";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/1e3fae3e-a834-4e1b-b933-609305219022";
-      fsType = "ext4";
     };
 
   fileSystems."/home" =
@@ -34,8 +34,18 @@
       fsType = "ext4";
     };
 
+  fileSystems."/media/games" =
+    { device = "/dev/disk/by-uuid/2e52fa98-71ae-4225-86a4-93663a6e9d4a";
+      fsType = "ext4";
+    };
+
   fileSystems."/media/master" =
-    { device = "/dev/disk/by-uuid/42c4e372-48bd-4973-99ea-af8718526293";
+    { device = "/dev/disk/by-uuid/879f2a8e-eec0-40c7-9fb5-a815084c666e";
+      fsType = "ext4";
+    };
+
+  fileSystems."/media/primary" =
+    { device = "/dev/disk/by-uuid/baca06df-55db-4c73-a7cc-177871b93b14";
       fsType = "ext4";
     };
 
@@ -45,25 +55,13 @@
     };
 
   fileSystems."/media/backup" =
-    { device = "/dev/disk/by-uuid/baca06df-55db-4c73-a7cc-177871b93b14";
-      fsType = "ext4";
-    };
-
-  fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/761bac1f-79e0-4e9f-8649-94c82dc4da9f";
+    { device = "/dev/disk/by-uuid/42c4e372-48bd-4973-99ea-af8718526293";
       fsType = "ext4";
     };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/5aa5bdb4-cea1-4df0-a2cb-19afececb667"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
