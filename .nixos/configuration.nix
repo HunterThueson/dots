@@ -138,6 +138,7 @@
   ##############
 
     services.desktopManager.plasma6.enable = true;                              # Enable the KDE Plasma 6 desktop environment
+    services.displayManager.defaultSession = "plasmax11";                       # Launch an X11 session by default (rather than Wayland)
 
     services.xserver = {
         enable = true;                                                          # Enable the X11 windowing system
