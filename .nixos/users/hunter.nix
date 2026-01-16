@@ -3,21 +3,53 @@
 # User configuration file for: Hunter
 #
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-    imports = [ ./common.nix ];
+    home.username = "hunter";
+    home.homeDirectory = "/home/hunter";
 
     ###########################
     ##  Shell Configuration  ##
     ###########################
 
-    programs.bash.enable = true;
+    programs.bash = {
+        enable = true;
+        bashrcExtra = ''
+
+        # Teleport to NixOS configuration directory
+        cdn () {
+            cd /home/hunter/.nixos/
+            clear
+            exa --icons --group-directories-first
+            gh status
+        }
+
+        # Teleport to NixOS configuration directory
+        cdnx () {
+            cd /home/experimental/.nixos/
+            clear
+            exa --icons --group-directories-first
+            gh status
+        }
+
+        '';
+
+    };
 
     home.sessionPath = [                    # Extra directories to add to PATH
         "$HOME/bin/nail-clipper/"
-        "$HOME/lib/bash-tome/"
     ];
+
+    programs.git = {
+        enable = true;
+        settings = {
+            init.defaultBranch = "master";
+            user.name = "Hunter Thueson";
+            user.email = "hunter.thueson@gmail.com";
+            core.editor = "vim";
+        };
+    };
 
     #############################
     ##  Package Configuration  ##
@@ -27,9 +59,7 @@
         firefox                     # web browser
         spotify                     # music
         mailspring                  # email client
-        runelite                    # game for masochists
         discord                     # chat client
-        kate                        # KDE graphical text editor
         calibre                     # ebook client
         gimp-with-plugins           # GNU Image Manipulation Program
             gimpPlugins.gmic        # GIMP plugin for the G'MIC image processing framework
@@ -39,6 +69,10 @@
         imagemagick                 # image editing tools for the command line
         yt-dlp                      # `youtube-dl` fork; download videos from websites like YouTube
         speedcrunch                 # calculator
+        runelite                    # third-party client for Old School Runescape (a game for masochists)
+        wineWow64Packages.full      # fix dependency issue with bolt launcher
+        bolt-launcher               # third-party client for Jagex Launcher on Linux
+        jdk17                       # fix dependency issue with bolt launcher
     ];
     
     ################

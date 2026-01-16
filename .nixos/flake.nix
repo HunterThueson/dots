@@ -30,59 +30,41 @@
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
 
   let
-
       system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;      # Enable proprietary software
-          overlays = [];
-      };
-
       inherit (nixpkgs) lib;
-
-      # util = import ./lib {
-          # inherit system pkgs home-manager lib; overlays = (pkgs.overlays);
-      # };
-      # inherit (util) user;
-      # inherit (util) host;
-
   in 
   {
-      #----------------#
-      #  User Configs  #
-      #----------------#
-
-      homeConfigurations = {
-
-          hunter = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              modules = [
-                  ./users/hunter.nix pkgs
-              ];
-          };
-
-          ash = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              modules = [
-                  ./users/ash.nix pkgs
-              ];
-          };
-
-      };
-
-      #------------------#
-      #  System Configs  #
-      #------------------#
 
       nixosConfigurations = {
 
-      # Desktop PC
+      # My desktop PC
 
           the-glass-tower = lib.nixosSystem {
               inherit system;
-              modules = [
-                  (import ./configuration.nix inputs)
+              modules = [                                                       # but I'll use it later
+
+                  (import ./configuration.nix inputs)                           # Band-aid fix to keep the config working until I modularize
+
+                  ######################
+                  # Home Manager Setup #
+                  ######################
+
+                  home-manager.nixosModules.home-manager
+                  {
+                      home-manager.useGlobalPkgs = true;
+                      home-manager.useUserPackages = true;
+
+                      home-manager.users.hunter.imports = [
+                          ./users/common.nix
+                          ./users/hunter.nix
+                      ];
+
+                      home-manager.users.ash.imports = [
+                          ./users/common.nix
+                          ./users/ash.nix
+                      ];
+
+                  }
               ];
           };
 

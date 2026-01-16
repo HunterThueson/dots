@@ -6,13 +6,29 @@
 { pkgs, ... }:
 
 {
-    imports = [ ./common.nix ];
+
+    home.username = "ash";
+    home.homeDirectory = "/home/ash";
 
     ###########################
     ##  Shell Configuration  ##
     ###########################
 
-    programs.bash.enable = true;
+    programs.bash = {
+        enable = true;
+        # Add .bashrc configuration here if needed
+        bashrcExtra = ''
+        '';
+
+    };
+
+    home.sessionPath = [                    # Extra directories to add to PATH
+        "$HOME/bin/nail-clipper/"
+    ];
+
+    programs.git = {
+        enable = false;
+    };
 
     #############################
     ##  Package Configuration  ##
@@ -22,12 +38,8 @@
         firefox                     # web browser
         spotify                     # music
         mailspring                  # email client
-        kate                        # KDE graphical text editor
-        calibre                     # ebook client
         gimp-with-plugins           # GNU Image Manipulation Program
             gimpPlugins.gmic        # GIMP plugin for the G'MIC image processing framework
-        cmatrix                     # look like freakin' HACKERMAN (so powerful he could hack time itself)
-        neo-cowsay                  # `cowsay` rewritten in Go (with bonus features!)
         mpv                         # video playback
         imagemagick                 # image editing tools for the command line
         yt-dlp                      # `youtube-dl` fork; download videos from websites like YouTube

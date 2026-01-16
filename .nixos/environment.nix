@@ -16,7 +16,6 @@
 
 # Enable gnome keyring (mailspring dependency)
   services.gnome.gnome-keyring.enable = true;
-  programs.firefox.enable = true;
 
   environment = {
       variables = { EDITOR = "vim"; };
@@ -64,11 +63,10 @@
       upower                                            # command line util for monitoring mouse battery life
 
   # GUI
-      polybarFull                                       # a fast and easy-to-use tool for creating status bars
       gparted                                           # GUI partition management
       pcmanfm                                           # lightweight graphical file manager
 
-# the Rust programming language 
+  # the Rust programming language 
       cargo                                             # downloads your Rust project's dependencies and builds your project
       rustup                                            # the Rust toolchain installer
       rustc                                             # the Rust language itself
@@ -153,26 +151,6 @@
             '';
         };
     })
-
-  # Jagex Launcher
-    wineWow64Packages.full
-    bolt-launcher
-    jdk17                                                   # fix dependency issue with bolt launcher
-
-  # Temporary workaround for home-manager weirdness
-    spotify
-    mailspring
-    runelite
-    discord
-    calibre
-    gimp-with-plugins
-        gimpPlugins.gmic
-    cmatrix
-    neo-cowsay
-    mpv
-    imagemagick
-    yt-dlp
-    speedcrunch
 
   # Mouse configuration software
     libratbag

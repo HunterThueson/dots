@@ -191,21 +191,7 @@
 
     services.printing.enable = true;
 
-    
-  ###############
-  #  Unclutter  #
-  ###############
-
-    services.unclutter-xfixes = {
-        enable = true;
-        extraOptions = [ "timeout 1" "ignore-scrolling" ];
-    };
-
-    systemd.services.unclutter-xfixes = {
-        wantedBy = [ "graphical-session.target" ];
-        partOf = [ "graphical-session.target" ];
-    };
-
+ ###############
 # This value determines the NixOS release from which the default
 # settings for stateful data, like file locations and database versions
 # on your system were taken. It‘s perfectly fine and recommended to leave
