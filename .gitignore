@@ -1,7 +1,14 @@
 *
 
 !.config/
-!.config/**
+.config/**
+
+!.config/gh/
+!.config/gh/**
+!.config/home-manager/
+!.config/home-manager/**
+!.config/neofetch/
+!.config/neofetch/config.conf
 
 !.nixos/
 !.nixos/**
