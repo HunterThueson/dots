@@ -20,8 +20,6 @@
         '';
 
     };
-    #xdg.configFile.".bashrc".enable = true;
-    #xdg.configFile.".bashrc".force = true;
 
     home.sessionPath = [                    # Extra directories to add to PATH
         "$HOME/bin/nail-clipper/"

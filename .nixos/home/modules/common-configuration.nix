@@ -20,8 +20,6 @@ home.sessionPath = [
     "$HOME/.cargo/bin/"
 ];
 
-#xdg.enable = true;                                                              # enable management of XDG base directories
-
 ############################
 ## Keyboard Configuration ##
 ############################
