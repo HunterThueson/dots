@@ -84,14 +84,14 @@ programs.bash = {
             cd $HOME
             clear
             sleep 0.01
-            eza -xDG --icons --group-directories-first
+            eza -DG --icons=auto --group-directories-first
         }
 
         # Teleport to config directory
         cdc () {
             cd $XDG_CONFIG_HOME
             clear
-            eza -D --icons --group-directories-first
+            eza -DG --icons=auto --group-directories-first
         }
 
         # `gh` wrapper to make listing issues easier
@@ -110,13 +110,17 @@ programs.bash = {
     #####################
 
     shellAliases = {
+
+        # `ls` quality-of-life improvements
+        ls = "eza -G --color=auto --icons=auto --group-directories-first";      # replace `ls` with `eza` (faster, written in Rust)
+        lsa = "eza -Gau --git --time-style long-iso --color=always --icons";    # more info about hidden files (w/ git status)
+        lsd = "eza -D --color=auto --icons=auto";                               # list only directories
+        lst = "eza -T --color=auto --icons=auto --group-directories-last";      # list recursively through directories and output as a tree
+
         # Drop-in program replacements
-        ls = "exa -G --color=always --icons --group-directories-first";         # replace `ls` with `exa` (faster, written in Rust)
         find = "fd";                                                            # replace `find` with `fd` (faster, written in -- you guessed it -- Rust)
         
         # Navigation
-        lsa = "exa -Gau --git --time-style long-iso --color=always --icons";    # more info about hidden files (w/ git status)
-        lsd = "exa -D --color=always --icons";                                  # list only directories
         ghs = "git status";
         
         # Terminal clearing
