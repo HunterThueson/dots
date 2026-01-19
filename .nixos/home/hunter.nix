@@ -21,16 +21,14 @@
         cdn () {
             cd /home/hunter/.nixos/
             clear
-            exa --icons --group-directories-first
-            gh status
+            exa --icons=auto --group-directories-first
         }
 
-        # Teleport to NixOS configuration directory
-        cdnx () {
-            cd /home/experimental/.nixos/
+        # Teleport to user configuration directory
+        cdc () {
+            cd /home/hunter/.config/
             clear
-            exa --icons --group-directories-first
-            gh status
+            exa --icons=auto --group-directories-first
         }
 
         '';
