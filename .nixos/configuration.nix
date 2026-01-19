@@ -1,7 +1,7 @@
 # ./.nixos/configuration.nix
 
-{ nixpkgs, home-manager, ... }:
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
+
 {
 
   ###############################
@@ -39,19 +39,6 @@
             options = "--delete-older-than 90d";
         };
     };
-
-
-  #############
-  #  Imports  #
-  #############
-
-    imports = 
-        [
-            ./sys/hardware-configuration.nix                                    # include the results of the hardware scan
-            ./sys/xorg.nix                                                      # for managing XRandR & X Server settings
-            ./sys/nvidia.nix                                                    # enable NVIDIA proprietary drivers
-            ./environment.nix                                                   # for system-wide package management and environment configuration
-        ];
 
   ########################
   #  Bootloader options  #

@@ -1,9 +1,9 @@
-# ./users/hunter.nix
+# ./home/hunter.nix
 #
 # User configuration file for: Hunter
 #
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
     home.username = "hunter";
@@ -36,6 +36,8 @@
         '';
 
     };
+    #xdg.configFile.".bashrc".enable = true;
+    #xdg.configFile.".bashrc".force = true;
 
     home.sessionPath = [                    # Extra directories to add to PATH
         "$HOME/bin/nail-clipper/"

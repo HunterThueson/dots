@@ -1,12 +1,11 @@
-# ./users/ash.nix
+# ./home/ash.nix
 #
 # User configuration file for: Ash
 #
 
-{ pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-
     home.username = "ash";
     home.homeDirectory = "/home/ash";
 
@@ -21,6 +20,8 @@
         '';
 
     };
+    #xdg.configFile.".bashrc".enable = true;
+    #xdg.configFile.".bashrc".force = true;
 
     home.sessionPath = [                    # Extra directories to add to PATH
         "$HOME/bin/nail-clipper/"

@@ -37,37 +37,44 @@
 
       nixosConfigurations = {
 
-      # My desktop PC
-
+      # My home desktop PC
           the-glass-tower = lib.nixosSystem {
               inherit system;
-              modules = [                                                       # but I'll use it later
+              specialArgs = { inherit inputs; };                                # pass flake inputs to all submodules
+              modules = [
 
-                  (import ./configuration.nix inputs)                           # Band-aid fix to keep the config working until I modularize
+                  # Quick and dirty fix (WIP)
+                  ./configuration.nix                                           # Band-aid fix to keep the config working until I modularize
+                  ./environment.nix                                             # band-aid #2
 
-                  ######################
-                  # Home Manager Setup #
-                  ######################
+                  # System modules
+                  ./system/hardware/the-glass-tower.nix                         # Hardware config for desktop PC
+                  ./system/display/xorg.nix                                     # X11 configuration
+                  ./system/hardware/GPU/nvidia.nix                              # Nvidia GPU configuration
 
+                  # Home Manager
                   home-manager.nixosModules.home-manager
                   {
-                      home-manager.useGlobalPkgs = true;
-                      home-manager.useUserPackages = true;
+                      home-manager.useGlobalPkgs = true;                        # make sure NixOS and Home Manager are using the same `nixpkgs`
+                      home-manager.useUserPackages = true;                      # enable installation of user packages
+                      home-manager.extraSpecialArgs = { inherit inputs; };      # pass flake inputs to all modules
+                      home-manager.backupFileExtension = "backup";              # move existing files by appending ext. instead of throwing errors
 
+                      home-manager.sharedModules = [
+                          ( import ./home/modules/common-configuration.nix )
+                      ];
+
+                      # User modules
                       home-manager.users.hunter.imports = [
-                          ./users/common.nix
-                          ./users/hunter.nix
+                          ./home/hunter.nix
                       ];
 
                       home-manager.users.ash.imports = [
-                          ./users/common.nix
-                          ./users/ash.nix
+                          ./home/ash.nix
                       ];
-
                   }
               ];
           };
-
       };
   };
 }

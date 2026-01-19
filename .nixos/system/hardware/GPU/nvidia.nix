@@ -7,10 +7,6 @@
 
 { config, pkgs, ... }:
 
-let
-    inherit pkgs;
-in
-
 {
 
 services.xserver.videoDrivers = [ "nvidia" ];

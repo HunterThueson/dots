@@ -3,7 +3,7 @@
 # configuration options to be applied to all users by default
 # 
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -19,6 +19,8 @@ home.sessionPath = [
     "$HOME/bin/"
     "$HOME/.cargo/bin/"
 ];
+
+#xdg.enable = true;                                                              # enable management of XDG base directories
 
 ############################
 ## Keyboard Configuration ##
