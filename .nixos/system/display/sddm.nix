@@ -5,11 +5,11 @@
 { config, pkgs, inputs, ... }:
 
 {
-    services.displayManager = {
-        sddm = {
-            enable = true;
-            enableHidpi = true;
-            autoNumlock = true;
-        };
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      enableHidpi = true;
+      autoNumlock = true;
     };
+  };
 }

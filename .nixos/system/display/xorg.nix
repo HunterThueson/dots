@@ -22,42 +22,42 @@
 
 { config, pkgs, inputs, ... }:
 {
-    services.xserver = {
-        enable = true;
-        verbose = 7;                                                            # increase verbosity of X logs
+  services.xserver = {
+    enable = true;
+    verbose = 7;                                            # increase verbosity of X logs
 
-        # Monitor configuration
-        displayManager.xserverArgs = [ "-dpi 154" ];                            # set screen dpi
-        virtualScreen = {
-            x = 7032;                                                           # strange screen size is due to the way I'm adjusting dpi for different resolution
-            y = 2160;                                                           # monitors in my current setup
-        };
-        screenSection = ''
-            Option        "MetaModes" "DP-4: 3840x2160_144 +0+0 { ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DP-2: 2560x1440_144 +3840+182 { ViewPortIn=3192x1796, ViewPortOut=2560x1440, ForceCompositionPipeline=On, AllowGSYNC=On }"
-        '';
-        xrandrHeads = [
-            # Gigabyte M28U @ 3840x2160
-            {
-                output = "DP-4";
-                primary = true;
-                monitorConfig = ''
-                    Modeline "3840x2160_144.00"  1833.14  3840 4200 4632 5424  2160 2161 2164 2347  -HSync +Vsync
-                    Option "DPMS" "true"
-                    Option "PreferredMode" "3840x2160_144.00"
-                    Option "Position" "0 0"
-                '';
-            }
-            # Dell Ultrasharp S2417DG @ 2560x1440
-            {
-                output = "DP-2";
-                monitorConfig = ''
-                    Modeline "2560x1440_144.00"  807.69  2560 2784 3072 3584  1440 1441 1444 1565  -HSync +Vsync
-                    Option "DPMS" "true"
-                    Option "PreferredMode" "2560x1440_144.00"
-                    Option "Position" "3840 182"
-                '';
-            }
-        ];
+    # Monitor configuration
+    displayManager.xserverArgs = [ "-dpi 154" ];            # set screen dpi
+    virtualScreen = {
+      x = 7032;                                             # strange screen size is due to the way I'm adjusting dpi for different resolution
+      y = 2160;                                             # monitors in my current setup
     };
+    screenSection = ''
+      Option    "MetaModes" "DP-4: 3840x2160_144 +0+0 { ForceCompositionPipeline=On, AllowGSYNCCompatible=On }, DP-2: 2560x1440_144 +3840+182 { ViewPortIn=3192x1796, ViewPortOut=2560x1440, ForceCompositionPipeline=On, AllowGSYNC=On }"
+    '';
+    xrandrHeads = [
+      # Gigabyte M28U @ 3840x2160
+      {
+        output = "DP-4";
+        primary = true;
+        monitorConfig = ''
+          Modeline "3840x2160_144.00"  1833.14  3840 4200 4632 5424  2160 2161 2164 2347  -HSync +Vsync
+          Option "DPMS" "true"
+          Option "PreferredMode" "3840x2160_144.00"
+          Option "Position" "0 0"
+        '';
+      }
+      # Dell Ultrasharp S2417DG @ 2560x1440
+      {
+        output = "DP-2";
+        monitorConfig = ''
+          Modeline "2560x1440_144.00"  807.69  2560 2784 3072 3584  1440 1441 1444 1565  -HSync +Vsync
+          Option "DPMS" "true"
+          Option "PreferredMode" "2560x1440_144.00"
+          Option "Position" "3840 182"
+        '';
+      }
+    ];
+  };
 }
 

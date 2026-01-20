@@ -18,8 +18,8 @@
   services.gnome.gnome-keyring.enable = true;
 
   environment = {
-      variables = { EDITOR = "vim"; };
-      shells = with pkgs; [ bash ];
+    variables = { EDITOR = "vim"; };
+    shells = with pkgs; [ bash ];
   };
 
 ##############
@@ -29,85 +29,85 @@
   environment.systemPackages = with pkgs; [
 
   # Version control
-      git                                               # version control utility
-      gh                                                # GitHub CLI
+    git                                                     # version control utility
+    gh                                                      # GitHub CLI
 
   # NVIDIA driver configuration dependencies
-      pciutils
-      file
-      gnumake
-      gcc
-      cudatoolkit
+    pciutils
+    file
+    gnumake
+    gcc
+    cudatoolkit
 
   # X11 tools
-      xclip                                             # using `xclip -selection c` adds standard input to the clipboard
-      xorg.xdpyinfo                                     # get information about X display(s)
+    xclip                                                   # using `xclip -selection c` adds standard input to the clipboard
+    xorg.xdpyinfo                                           # get information about X display(s)
 
   # Terminal
-      alacritty                                         # GPU-accelerated terminal emulator
-      starship                                          # blazing fast, highly customizable prompt for any shell
-      tldr                                              # quickly summarize command usage
-      eza                                               # modern replacement for `ls` written in Rust
-      ripgrep                                           # modern replacement for `grep` written in Rust
-      killall                                           # kill programs with ease
-      fd                                                # modern replacement for `find` written in Rust
-      parted                                            # CLI partition management
-      unzip                                             # extract stuff / unzip file archive
-      ffmpeg_6-full                                     # video transcoding utility (and a dependency for many other programs)
-      instaloader                                       # utility for downloading photos & videos from Instagram
+    alacritty                                               # GPU-accelerated terminal emulator
+    starship                                                # blazing fast, highly customizable prompt for any shell
+    tldr                                                    # quickly summarize command usage
+    eza                                                     # modern replacement for `ls` written in Rust
+    ripgrep                                                 # modern replacement for `grep` written in Rust
+    killall                                                 # kill programs with ease
+    fd                                                      # modern replacement for `find` written in Rust
+    parted                                                  # CLI partition management
+    unzip                                                   # extract stuff / unzip file archive
+    ffmpeg_6-full                                           # video transcoding utility (and a dependency for many other programs)
+    instaloader                                             # utility for downloading photos & videos from Instagram
 
   # System info/monitoring
-      neofetch                                          # display system info
-      gtop                                              # graphical `top`
-      btop                                              # another fancy `top`
-      upower                                            # command line util for monitoring mouse battery life
+    neofetch                                                # display system info
+    gtop                                                    # graphical `top`
+    btop                                                    # another fancy `top`
+    upower                                                  # command line util for monitoring mouse battery life
 
   # GUI
-      gparted                                           # GUI partition management
-      pcmanfm                                           # lightweight graphical file manager
+    gparted                                                 # GUI partition management
+    pcmanfm                                                 # lightweight graphical file manager
 
   # the Rust programming language 
-      cargo                                             # downloads your Rust project's dependencies and builds your project
-      rustup                                            # the Rust toolchain installer
-      rustc                                             # the Rust language itself
-      rustfmt                                           # a tool for formatting Rust code according to style guidelines
+    cargo                                                   # downloads your Rust project's dependencies and builds your project
+    rustup                                                  # the Rust toolchain installer
+    rustc                                                   # the Rust language itself
+    rustfmt                                                 # a tool for formatting Rust code according to style guidelines
 
   # Networking
-      wget                                              # download files from the command line
-      iw                                                # show & manipulate wireless devices
-      openvpn                                           # connect to VPN
-
+    wget                                                    # download files from the command line
+    iw                                                      # show & manipulate wireless devices
+    openvpn                                                 # connect to VPN
+  
   # Hardware utilities
-      openrgb                                           # open source RGB lighting control utility
-      keymapp                                           # configure ZSA keyboards (like my Moonlander)
-      parted
-      cryptsetup
+    openrgb                                                 # open source RGB lighting control utility
+    keymapp                                                 # configure ZSA keyboards (like my Moonlander)
+    parted
+    cryptsetup
 
   # Misc dependencies
-      libsecret                                         # dependency for mailspring
-      binutils                                          # dependency for `make`
-      xorriso                                           # dependency for `make iso`
-      libsForQt5.qtstyleplugin-kvantum                  # dependency for Kvantum (KDE themes)
+    libsecret                                               # dependency for mailspring
+    binutils                                                # dependency for `make`
+    xorriso                                                 # dependency for `make iso`
+    libsForQt5.qtstyleplugin-kvantum                        # dependency for Kvantum (KDE themes)
 
   # Emacs
-      emacs
+    emacs
 
   # Mouse configuration software
-    libratbag
-    piper
+  libratbag
+  piper
 
   # Graphics management software
-    nvtopPackages.full
+  nvtopPackages.full
 
   ];
 
   # Steam
-    programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true;                     # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = true;                # Open ports in the firewall for Source Dedicated Server
-        localNetworkGameTransfers.openFirewall = true;      # Open ports in the firewall for Steam Local Network Game Transfers
-    };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;                         # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true;                    # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true;          # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
 
   # Enable all bluez plugins
@@ -115,5 +115,3 @@
 
 }
 
-# Removed but may need later:
-# libsForQt5.sddm-kcm                               # add SDDM theme management to KDE Settings Menu
