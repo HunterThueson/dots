@@ -17,8 +17,14 @@
 
   inputs = {
       nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
       home-manager = {
           url = "github:nix-community/home-manager/release-25.11";
+          inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      nixvim = {
+          url = "github:nix-community/nixvim/nixos-25.11";
           inputs.nixpkgs.follows = "nixpkgs";
       };
   };
@@ -27,7 +33,7 @@
 #  Outputs  #
 #############
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, nixvim, ... }:
 
   let
       system = "x86_64-linux";
@@ -62,7 +68,7 @@
                       home-manager.backupFileExtension = "backup";              # move existing files by appending ext. instead of throwing errors
 
                       home-manager.sharedModules = [
-                          ( import ./home/modules/common-configuration.nix )
+                          ( import ./home/standard-config.nix )
                       ];
 
                       # User modules
@@ -73,6 +79,18 @@
                       home-manager.users.ash.imports = [
                           ./home/ash.nix
                       ];
+                  }
+
+                  # Nixvim
+                  nixvim.nixosModules.nixvim
+                  {
+                      programs.nixvim = {
+                          enable = true;
+                          defaultEditor = true;
+                          viAlias = true;
+                          vimAlias = true;
+                          imports = [ ./home/programs/nixvim.nix ];
+                      };
                   }
               ];
           };

@@ -1,4 +1,4 @@
-# ./users/common.nix
+# ./home/standard-config.nix
 #
 # configuration options to be applied to all users by default
 # 
