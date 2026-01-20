@@ -49,8 +49,9 @@
 
                   # System modules
                   ./system/hardware/the-glass-tower.nix                         # Hardware config for desktop PC
-                  ./system/display/xorg.nix                                     # X11 configuration
                   ./system/hardware/GPU/nvidia.nix                              # Nvidia GPU configuration
+                  ./system/display/sddm.nix                                     # SDDM configuration
+                  ./system/display/xorg.nix                                     # Enable dual monitor setup (hopefully)
 
                   # Home Manager
                   home-manager.nixosModules.home-manager
