@@ -67,10 +67,6 @@
     imagemagick                                             # image editing tools for the command line
     yt-dlp                                                  # `youtube-dl` fork; download videos from websites like YouTube
     speedcrunch                                             # calculator
-    runelite                                                # third-party client for Old School Runescape (a game for masochists)
-    wineWow64Packages.full                                  # fix dependency issue with bolt launcher
-    bolt-launcher                                           # third-party client for Jagex Launcher on Linux
-    jdk17                                                   # fix dependency issue with bolt launcher
   ];
   
   ################
