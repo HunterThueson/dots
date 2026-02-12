@@ -88,6 +88,7 @@
 
             home-manager.sharedModules = [
               ( import ./home/standard-config.nix )
+              ( import ./home/programs/alacritty/alacritty.nix )
             ];
 
             # User modules
