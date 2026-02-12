@@ -1,12 +1,11 @@
 #  ~/.nixos/flake.nix
-#
-#  ####################################################
-#  #  Hunter Thueson's NixOS System Configuration(s)  #
-#  ####################################################
-#
+
+   ####################################################
+   #  Hunter Thueson's NixOS System Configuration(s)  #
+   ####################################################
+
 #  for high-level management of my NixOS system configuration(s) and their
 #  dependencies
-#
 
 {
   description = "Hunter Thueson's NixOS System Configuration";
@@ -39,27 +38,47 @@
     system = "x86_64-linux";
     inherit (nixpkgs) lib;
   in 
+
   {
 
-    nixosConfigurations = {
+    ###########
+    #  Hosts  #
+    ###########
 
-    # My home desktop PC
+    nixosConfigurations = {
       the-glass-tower = lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };                            # pass flake inputs to all submodules
         modules = [
 
-          # Quick and dirty fix (WIP)
-          ./configuration.nix                                         # Band-aid fix to keep the config working until I modularize
-          ./environment.nix                                           # band-aid #2
+        #####################
+        #  The Glass Tower  #                                             # my home desktop PC
+        #####################
 
-          # System modules
-          ./system/hardware/the-glass-tower.nix                       # Hardware config for desktop PC
+          ./system/hosts/the-glass-tower.nix                          # Per-host entrypoint for host-specific options
+          ./system/hardware/the-glass-tower.nix                       # Nix-generated hardware config for this host
+
+          ./environment.nix                                           # band-aid
+
+        ##################
+        # System Modules #
+        ##################
+
+          ./system/boot/loader.nix                                    # Bootloader configuration
+
+          ./system/hardware/mouse-and-keyboard.nix                    # Mouse and keyboard configuration
           ./system/hardware/GPU/nvidia.nix                            # Nvidia GPU configuration
+
           ./system/display/sddm.nix                                   # SDDM configuration
           ./system/display/xorg.nix                                   # Enable dual monitor setup (hopefully)
+          ./system/display/fonts.nix                                  # Configure system fonts
 
-          # Home Manager
+          ./system/services/nix-config.nix                            # Nix Language & Nixpkgs configuration options
+
+        ################
+        # Home Manager #
+        ################
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;                        # make sure NixOS and Home Manager are using the same `nixpkgs`
@@ -81,7 +100,10 @@
             ];
           }
 
-          # Nixvim
+        ##########
+        # Nixvim #
+        ##########
+
           nixvim.nixosModules.nixvim
           {
             programs.nixvim = {
@@ -92,6 +114,7 @@
               imports = [ ./home/programs/nixvim.nix ];
             };
           }
+
         ];
       };
     };
