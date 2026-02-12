@@ -3,3 +3,6 @@ tutorial/*
 
 modules/
 modules/**
+
+cfg/
+cfg/**
