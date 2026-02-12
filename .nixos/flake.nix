@@ -73,7 +73,7 @@
           ./system/display/xorg.nix                                   # Enable dual monitor setup (hopefully)
           ./system/display/fonts.nix                                  # Configure system fonts
 
-          ./system/services/nix-config.nix                            # Nix Language & Nixpkgs configuration options
+          ./system/environment/nix-config.nix                         # Nix Language & Nixpkgs configuration options
 
         ################
         # Home Manager #
