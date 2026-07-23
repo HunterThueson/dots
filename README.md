@@ -58,6 +58,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 
 - **wizard** — creates the `wizard` group, manages `/etc/nixos` permissions, auto-enables git, adds the `cdn` shell function for quick navigation to `/etc/nixos/`
 - **gamer** — enables Steam runtime, installs game clients (Discord, Bolt Launcher)
+- **filmmaker** — installs OBS Studio (Nvidia NVENC + PipeWire/Wayland capture, obs-vkcapture game capture, virtual camera) for recording/streaming, plus the Kdenlive and DaVinci Resolve video editors
 
 *Note: the role system is a work in progress. Some roles are defined in the schema but have not yet been implemented on the backend.*
 
@@ -97,6 +98,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 │   ├── dev/                   # Developer tooling - Git config, GitHub CLI, Python/Rust support, etc.
 │   ├── editor/                # Emacs + Org-Roam, Nixvim (dual-export)
 │   ├── games/                 # Steam, OSRS, Discord (dual-export, gated on "gamer" role)
+│   ├── media/                 # OBS Studio (dual-export, gated on "filmmaker" role)
 │   ├── services/              # Firefly III, OpenVPN (currently stubs)
 │   ├── shell/                 # Bash, Starship prompt (dual-export)
 │   ├── terminal/              # Alacritty (HM module)
@@ -266,7 +268,7 @@ This configuration has been my daily driver and learning project since **July 20
 - Make monitor config dynamic instead of hardcoded in hyprland.lua, add monitor presets
 - Create a project wiki for this repository - write extensive & thorough documentation
 - Implement easy-to-use shell wrapper functions for `nixos-rebuild` and `home-manager switch`
-- Implement remaining role modules (gamer, developer, filmmaker, writer) with role-specific defaults
+- Implement remaining role modules (developer, writer) with role-specific defaults
 - Create & deploy a new server host for use as a personal NAS/web server
 - Automate garbage collection, flake updates, and file backups
 - Declaratively configure Firefox preferences - default values for all users & user-specific overrides

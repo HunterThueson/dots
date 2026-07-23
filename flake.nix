@@ -63,7 +63,7 @@
         fullName      = "Hunter Thueson";
         email         = "hunter.thueson@gmail.com";
         administrator = true;
-        role          = [ "wizard" "developer" "gamer" "writer" ];
+        role          = [ "wizard" "developer" "gamer" "filmmaker" "writer" ];
         shell         = "bash";
         editor        = { terminal = "vim"; gui = "emacs"; };
         desktop       = { environment = "hyprland"; colorScheme = "electro-swing"; };
@@ -81,7 +81,7 @@
         fullName      = "Ashley Ellison";
         email         = "ash.ellison@proton.me";
         administrator = true;
-        role          = [ "wizard" "developer" "writer" ];
+        role          = [ "wizard" "developer" "filmmaker" "writer" ];
         shell         = "bash";
         desktop       = { environment = "plasmax11"; colorScheme = "electro-swing"; };
         browser       = { name = "firefox"; declarative = false; };  # keep profile imperative

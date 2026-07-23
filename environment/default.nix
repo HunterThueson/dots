@@ -12,6 +12,7 @@
 
 (import ./browser) ++           # [ firefox ] — HM modules
 (import ./desktop) ++           # [ hyprland, plasma ] — dual-export
+(import ./media) ++             # [ obs ] — dual-export, gated on "filmmaker"
 (import ./services) ++          # [ privacy ] — dual-export
 (import ./terminal) ++          # [ alacritty ] — HM modules
 (import ./themes) ++            # [ fonts, stylix ] — dual-export
