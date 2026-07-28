@@ -52,7 +52,7 @@ in {
         };
 
         font = {
-          size = 9;
+          size = 12;
           bold = {
             family = "FiraCode Nerd Font";
             style = lib.mkForce "Retina Bold";
