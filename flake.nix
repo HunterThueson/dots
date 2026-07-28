@@ -119,7 +119,7 @@
               layout = "qwerty";
               model = keyboardPresets.zsa.moonlander;
             };
-            display = monitorPresets.layouts."m28u-landscape--s2417dg-portrait-right";
+            display = monitorPresets.layouts."m28u-landscape--s2417dg-landscape-right";
           };
         };
       };
