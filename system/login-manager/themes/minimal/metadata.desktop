@@ -1,0 +1,13 @@
+[SddmGreeterTheme]
+Name=Minimal
+Description=Minimal gray greeter: clock, typed login, session picker
+Author=hunter
+License=MIT
+Type=sddm-theme
+Version=1.0
+Screenshot=
+MainScript=Main.qml
+TranslationsDirectory=
+Theme-Id=minimal
+Theme-API=2.0
+QtVersion=6

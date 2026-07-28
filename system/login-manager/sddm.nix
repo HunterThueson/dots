@@ -6,16 +6,25 @@
 
 # Enables SDDM when hostSettings.loginManager = "sddm".
 
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.hostSettings;
+
+  # Self-contained greeter theme — plain QtQuick.Controls.Basic, no SddmComponents. [2]
+  minimalTheme = pkgs.runCommandLocal "sddm-theme-minimal" { } ''
+    mkdir -p $out/share/sddm/themes/minimal
+    cp ${./themes/minimal}/* $out/share/sddm/themes/minimal/
+  '';
 in {
   config = lib.mkIf (cfg.loginManager == "sddm") {
+    environment.systemPackages = [ minimalTheme ];
+
     services.displayManager.sddm = {
       enable = true;
       enableHidpi = true;
       autoNumlock = true;
+      theme = "minimal";                                                        # custom gray/clock/typed-login greeter [2]
       wayland.enable = true;                                                    # Wayland greeter; X11 didn't help and renders tiny [1]
       settings.General.GreeterEnvironment = lib.concatStringsSep "," [          # comma-separated, NOT space [1]
         "QT_WAYLAND_SHELL_INTEGRATION=layer-shell"                              # restate the module default this setting replaces [1]
@@ -63,3 +72,21 @@ in {
 #    service (Jul 8: presented as a freeze after "Starting LACT GPU Control
 #    Daemon"). The generated sddm.conf looks plausible either way — verify the
 #    greeter env took effect via journalctl, not by reading the config.
+#
+# 2: The [1] breakage lives in Breeze's greeter (org.kde.breeze UserList.qml):
+#    on this Qt 6.11 / Plasma 6.6 stack `currentItem as UserDelegate` returns
+#    null, so highlighting any non-remembered user throws and login submits the
+#    wrong user. QV4_GC_TIMELIMIT=0 is confirmed present in the live greeter yet
+#    does NOT fix it (theory falsified, Jul 2026). The stock SddmComponents
+#    themes (elarun/maya/maldives) are NOT the way out either: nixpkgs' sddm
+#    ships an incomplete SddmComponents module (missing e.g. angle-down.png), so
+#    their session ComboBox and inputs render broken here (tried elarun, Jul
+#    2026). Interim: stay on breeze and log in as the remembered user (flip it
+#    with the state.conf sed above). Durable fix (done): the custom `minimal`
+#    greeter theme in ./themes/minimal — plain QtQuick.Controls.Basic (no
+#    SddmComponents assets), with a typed username field so there is no user
+#    list to break. Packaged here as minimalTheme and set as the sddm theme.
+#    Its metadata.desktop MUST set QtVersion=6 — sddm reads that to pick the
+#    greeter binary, and without it selects the (nixpkgs-absent) Qt5 sddm-greeter
+#    and silently falls back to its broken embedded theme (this is also why the
+#    stock elarun/maya/maldives never actually render here).
