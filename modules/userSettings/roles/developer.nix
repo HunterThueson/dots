@@ -31,6 +31,11 @@
     config = lib.mkIf isDeveloper {
       programs.git.enable = lib.mkDefault true;
 
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;   # caches the devShell so re-entry is instant
+      };
+
       programs.bash.bashrcExtra = ''
         # Teleport to $HOME/bin
         cdb () {
