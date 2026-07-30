@@ -78,7 +78,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 │
 ├── modules/                   # Option schemas only (no implementation)
 │   ├── hostSettings/          # Host-level options (type, role, hardware, display)
-│   └── userSettings/          # User-level options (editor, shell, desktop, browser, roles)
+│   └── userSettings/          # User-level options (editor, shell, desktop, browser, fonts, roles)
 │       └── roles/             # Dual-export role modules (wizard, gamer, writer, etc.)
 │
 ├── system/                    # System-level backend implementation via hostSettings + userSettings

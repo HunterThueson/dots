@@ -68,6 +68,7 @@
         editor        = { terminal = "vim"; gui = "emacs"; };
         desktop       = { environment = "hyprland"; colorScheme = "electro-swing"; };
         browser.name  = "firefox";
+        fonts         = { sizes.terminal = 9; };
 
         networking.privacy = {
           vpn     = { enable = true; autostart = false; server = "USA-Denver"; };

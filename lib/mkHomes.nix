@@ -74,6 +74,11 @@ let
               home.homeDirectory = "/home/${username}";
               home.stateVersion = hostConfig.hmStateVersion or hostConfig.stateVersion;
               programs.home-manager.enable = true;
+
+              # HM only defaults this on when built as a NixOS module
+              # (`nixosConfig != null`); opt in so both build paths generate
+              # the same per-user fontconfig wiring.
+              fonts.fontconfig.enable = true;
             }
           ];
         }

@@ -52,6 +52,7 @@
       ];
 
       home.packages = with pkgs; [
+        nh
         sops
         age
         ssh-to-age

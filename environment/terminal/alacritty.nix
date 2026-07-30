@@ -52,7 +52,8 @@ in {
         };
 
         font = {
-          size = lib.mkForce 9;
+          # size intentionally unset — Stylix renders it from fonts.sizes.terminal,
+          # fed per-user by userSettings.fonts.sizes.terminal
           bold = {
             family = "FiraCode Nerd Font";
             style = lib.mkForce "Retina Bold";

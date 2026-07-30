@@ -44,6 +44,28 @@
     default = {};
   };
 
+  # Mirrors Stylix's fonts.sizes so more categories (applications, desktop,
+  # popups) can be added later without reshaping the schema.
+  fonts = lib.mkOption {
+    type = lib.types.submodule {
+      options = {
+        sizes = lib.mkOption {
+          type = lib.types.submodule {
+            options = {
+              terminal = lib.mkOption {
+                type        = lib.types.ints.positive;
+                default     = 9;
+                description = "Terminal font point size (feeds stylix.fonts.sizes.terminal).";
+              };
+            };
+          };
+          default = {};
+        };
+      };
+    };
+    default = {};
+  };
+
   desktop = lib.mkOption {
     type = lib.types.submodule {
       options = {
