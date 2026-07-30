@@ -39,6 +39,11 @@
       url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Fully-declarative Doom Emacs. Deliberately NOT `follows`-ing nixpkgs: it
+    # pins its own emacs-overlay for binary-cache hits, so overriding would
+    # force a local rebuild of every Emacs package.
+    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
   };
 
   #-----------#
