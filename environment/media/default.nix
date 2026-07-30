@@ -4,7 +4,6 @@
 # Each file is a dual-export { nixos; home; }, gated on the "filmmaker" role.
 
 [
-  ./obs.nix
-  ./kdenlive.nix
-  ./davinci-resolve.nix
+  ./screen-capture.nix
+  ./video-editor.nix
 ]
