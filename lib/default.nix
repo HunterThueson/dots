@@ -14,6 +14,7 @@
 {
   mkHosts         = import ./mkHosts.nix { inherit inputs lib flakeRoot; };
   mkHomes         = import ./mkHomes.nix { inherit inputs lib flakeRoot; };
+  sessions        = import ./sessions.nix;
   keyboardPresets = import ./presets/keyboards.nix;
   monitorPresets  = import ./presets/monitors.nix { inherit lib; };
   gpuPresets      = import ./presets/gpus.nix;

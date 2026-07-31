@@ -5,15 +5,18 @@
 #----------------------------#
 
 # The user perceives the full desktop environment.
-# Enabled when any user sets desktop.environment to "plasma" or "plasmax11".
+# Enabled when the host's merged session list (lib/sessions.nix) includes
+# "plasma" or "plasmax11".
 
 {
   nixos = { config, pkgs, lib, ... }:
   let
-    users = lib.attrValues config.userSettings;
-    anyWantsPlasma = lib.any (u:
-      u.desktop.environment == "plasma" || u.desktop.environment == "plasmax11"
-    ) users;
+    sessions = import ../../lib/sessions.nix;
+    enabled = sessions.forHost {
+      inherit (config) hostSettings;
+      users = lib.attrValues config.userSettings;
+    };
+    anyWantsPlasma = lib.elem "plasma" enabled || lib.elem "plasmax11" enabled;
   in {
     config = lib.mkIf anyWantsPlasma {
       services.desktopManager.plasma6.enable = true;
@@ -30,9 +33,10 @@
 
   home = { config, lib, ... }:
   let
-    user = config.userSettings;
+    userSessions = config.userSettings.desktop.environments;
+    wantsPlasma = lib.elem "plasma" userSessions || lib.elem "plasmax11" userSessions;
   in {
-    config = lib.mkIf (user.desktop.environment == "plasma" || user.desktop.environment == "plasmax11") {
+    config = lib.mkIf wantsPlasma {
       # Per-user Plasma config (themes, panel layout, etc.)
     };
   };

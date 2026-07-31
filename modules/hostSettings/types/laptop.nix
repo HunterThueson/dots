@@ -32,6 +32,9 @@
         WIFI_PWR_ON_BAT = 5;                                    # WiFi power save on battery
       };
     };
+    # TLP owns power management; block plasma6's power-profiles-daemon default
+    services.power-profiles-daemon.enable = lib.mkIf config.services.tlp.enable false;
+
     services.logind.settings.Login = {
       HandleLidSwitch = "suspend";
       HandleLidSwitchExternalPower = "lock";

@@ -6,6 +6,9 @@
 
 { lib, pkgs, ... }:
 
+let
+  sessions = import ../../lib/sessions.nix;
+in
 {
   options.hostSettings = lib.mkOption {
     type = lib.types.submodule {
@@ -17,6 +20,16 @@
         loginManager = lib.mkOption {
           type = lib.types.enum [ "greetd" "sddm" ];
           default = "sddm";
+        };
+
+        availableSessions = lib.mkOption {
+          type        = lib.types.listOf (lib.types.enum sessions.all);
+          default     = [];
+          description = ''
+            Desktop sessions always available on this host, regardless of what
+            its users request. Unioned with the users' desktop.environments
+            lists to decide which sessions the host enables.
+          '';
         };
 
         hardware = lib.mkOption { type = lib.types.submodule (import ./hardware-options.nix); };

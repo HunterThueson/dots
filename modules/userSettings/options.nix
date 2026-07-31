@@ -9,6 +9,9 @@
 
 { lib, ... }:
 
+let
+  sessions = import ../../lib/sessions.nix;
+in
 {
   name        = lib.mkOption { type = lib.types.str; default = ""; };
   nickname    = lib.mkOption { type = lib.types.str; default = ""; };
@@ -69,10 +72,14 @@
   desktop = lib.mkOption {
     type = lib.types.submodule {
       options = {
-        environment = lib.mkOption {
-          type        = lib.types.enum [ "hyprland" "niri" "plasma" "plasmax11" ];
-          default     = "hyprland";
-          description = "Set the user's desktop environment";
+        environments = lib.mkOption {
+          type        = lib.types.listOf (lib.types.enum sessions.all);
+          default     = [];
+          description = ''
+            Desktop sessions this user wants selectable at login on any host
+            they're deployed to. Each host enables the union of its users'
+            lists plus its own availableSessions.
+          '';
         };
         theme = lib.mkOption {
           type        = lib.types.nullOr (lib.types.enum [ "default" ]);

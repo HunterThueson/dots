@@ -52,6 +52,10 @@ Some features straddle both layers — Hyprland needs a NixOS module enabled *an
 
 The `modules/` directory contains **option schemas only** — it defines *what* can be configured (GPU type, desktop environment, editor preference, user roles, etc.) but doesn't *do* anything. The actual implementation lives in `system/` and `environment/`, which read the schema values and configure the system accordingly. This separation means you can read `modules/` to understand the interface and `system/`/`environment/` to understand the implementation.
 
+### Desktop sessions
+
+Which desktop sessions a host installs is decided by merging lists: each user declares the sessions they want selectable at login (`desktop.environments`), each host declares sessions that should always be available on it (`availableSessions`), and the host enables the union of all of them. A user's per-session Home Manager config (keybinds, bars, window rules) follows their own list. The canonical session names and merge rule live in `lib/sessions.nix`.
+
 ### Roles
 
 Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `writer`) which automatically enable relevant features. Role modules live in `modules/userSettings/roles/` and use the dual-export pattern:
@@ -74,6 +78,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 │   ├── default.nix            # Single import for all lib utilities (mkHosts, mkHomes, presets)
 │   ├── mkHosts.nix            # Builds nixosSystem for each host; detects dual-export modules
 │   ├── mkHomes.nix            # Builds standalone homeConfigurations for fast HM iteration
+│   ├── sessions.nix           # Desktop session names + host/user availability rules
 │   └── presets/               # Hardware preset attrsets (GPUs, keyboards, monitor layouts)
 │
 ├── modules/                   # Option schemas only (no implementation)
@@ -94,7 +99,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 │
 ├── environment/               # User-level backends (HM modules or dual-export)
 │   ├── browser/               # Firefox (HM module, reads userSettings.browser)
-│   ├── desktop/               # Hyprland (keybinds, window rules, hyprland.conf), Plasma (dual-export)
+│   ├── desktop/               # Hyprland (keybinds, window rules, hyprland.conf), Niri, Plasma (dual-export)
 │   ├── dev/                   # Developer tooling - Git config, GitHub CLI, Python/Rust support, etc.
 │   ├── editor/                # Emacs + Org-Roam, Nixvim (dual-export)
 │   ├── games/                 # Steam, OSRS, Discord (dual-export, gated on "gamer" role)
@@ -132,6 +137,7 @@ hostDefs = {
       type = "laptop";
       role = [ "workstation" ];
       loginManager = "sddm";
+      availableSessions = [ "plasma" ];   # always available, on top of users' lists
       hardware = {
         boot.loader = "systemd-boot";
         gpu = [ gpuPresets."integrated-intel" ];
@@ -190,7 +196,10 @@ userDefs = {
     role        = [ "wizard" "developer" ];
     shell       = "bash";
     editor      = { terminal = "vim"; gui = "emacs"; };
-    desktop     = { environment = "plasmax11"; colorScheme = "electro-swing"; };
+    desktop     = {
+      environments = [ "plasmax11" "plasma" ];
+      colorScheme  = "electro-swing";
+    };
     browser.name = "firefox";
   };
 };

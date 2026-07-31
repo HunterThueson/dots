@@ -71,7 +71,10 @@
         role          = [ "wizard" "developer" "gamer" "filmmaker" "writer" ];
         shell         = "bash";
         editor        = { terminal = "vim"; gui = "emacs"; };
-        desktop       = { environment = "hyprland"; colorScheme = "electro-swing"; };
+        desktop       = {
+          environments = [ "hyprland" "niri" "plasma" ];
+          colorScheme  = "electro-swing";
+        };
         browser.name  = "firefox";
         fonts         = { sizes.terminal = 9; };
 
@@ -89,7 +92,10 @@
         administrator = true;
         role          = [ "wizard" "developer" "filmmaker" "writer" ];
         shell         = "bash";
-        desktop       = { environment = "plasmax11"; colorScheme = "electro-swing"; };
+        desktop       = {
+          environments = [ "hyprland" "plasma" "plasmax11" ];
+          colorScheme  = "electro-swing";
+        };
         browser       = { name = "firefox"; declarative = false; };  # keep profile imperative
 
         networking.privacy = {
@@ -115,6 +121,7 @@
           type = "desktop";
           role = [ "workstation" "writing" ];
           loginManager = "sddm";
+          availableSessions = [ "plasma" ];                                 # always available, on top of users' lists
           hardware = {
             boot = {
               loader = "systemd-boot";
@@ -139,6 +146,7 @@
           type = "laptop";
           role = [ "workstation" "writing" ];
           loginManager = "sddm";
+          availableSessions = [ "plasma" ];                                 # always available, on top of users' lists
           hardware = {
             boot = {
               loader = "systemd-boot";

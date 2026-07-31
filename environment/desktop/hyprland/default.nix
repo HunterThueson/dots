@@ -14,10 +14,13 @@
 {
   nixos = { config, pkgs, lib, inputs, ... }:
   let
-    users = lib.attrValues config.userSettings;
-    anyWantsHyprland = lib.any (u: u.desktop.environment == "hyprland") users;
+    sessions = import ../../../lib/sessions.nix;
+    enabled = sessions.forHost {
+      inherit (config) hostSettings;
+      users = lib.attrValues config.userSettings;
+    };
   in {
-    config = lib.mkIf anyWantsHyprland {
+    config = lib.mkIf (lib.elem "hyprland" enabled) {
 
       programs.hyprland = {
         enable = true;
@@ -53,9 +56,9 @@
 
   home = { config, pkgs, lib, inputs, ... }:
   let
-    user = config.userSettings;
+    userSessions = config.userSettings.desktop.environments;
   in {
-    config = lib.mkIf (user.desktop.environment == "hyprland") {
+    config = lib.mkIf (lib.elem "hyprland" userSessions) {
 
       xdg.portal = {
         config.common.default = "*";
