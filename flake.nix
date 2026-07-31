@@ -77,6 +77,7 @@
         };
         browser.name  = "firefox";
         fonts         = { sizes.terminal = 9; };
+        sync.osrs     = true;
 
         networking.privacy = {
           vpn     = { enable = true; autostart = false; server = "USA-Denver"; };

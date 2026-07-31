@@ -61,7 +61,7 @@ let
       lib.nameValuePair "${username}@${hostname}" (
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs flakeRoot vpnAutostartUsers; };
+          extraSpecialArgs = { inherit inputs flakeRoot vpnAutostartUsers; hostName = hostname; };
           modules = hmModules ++ [
             "${flakeRoot}/users/${username}"
 

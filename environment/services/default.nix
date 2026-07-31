@@ -6,4 +6,5 @@
 
 [
   ./privacy.nix
+  ./syncthing.nix
 ]

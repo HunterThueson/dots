@@ -96,7 +96,7 @@ lib.mapAttrs (hostname: hostConfig:
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "bak";
-          extraSpecialArgs = { inherit inputs flakeRoot vpnAutostartUsers; };
+          extraSpecialArgs = { inherit inputs flakeRoot vpnAutostartUsers; hostName = hostname; };
           users = lib.mapAttrs (username: userData: {
             imports = hmModules ++ [
               "${flakeRoot}/users/${username}"

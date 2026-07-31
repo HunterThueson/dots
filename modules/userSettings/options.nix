@@ -100,6 +100,22 @@ in
     };
   };
 
+  sync = lib.mkOption {
+    type = lib.types.submodule {
+      options = {
+        osrs = lib.mkOption {
+          type        = lib.types.bool;
+          default     = false;
+          description = ''
+            Keep this user's OSRS/RuneLite data (Bolt's RuneLite home) in sync
+            across the hosts listed in environment/services/syncthing.nix.
+          '';
+        };
+      };
+    };
+    default = {};
+  };
+
   networking = lib.mkOption {
     type = lib.types.submodule {
       options = {
