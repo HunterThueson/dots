@@ -116,6 +116,32 @@ in
     default = {};
   };
 
+  kdeconnect = lib.mkOption {
+    type = lib.types.submodule {
+      options = {
+        enable = lib.mkOption {
+          type        = lib.types.bool;
+          default     = true;
+          description = ''
+            Run KDE Connect (phone integration: notifications, clipboard,
+            file transfer, media control) in this user's graphical sessions.
+            Applies to every session not listed in exceptSessions.
+          '';
+        };
+        exceptSessions = lib.mkOption {
+          type        = lib.types.listOf (lib.types.enum sessions.all);
+          default     = [];
+          description = ''
+            Sessions where `enable` is inverted: with enable = true, the
+            sessions that skip KDE Connect; with enable = false, the only
+            sessions that run it.
+          '';
+        };
+      };
+    };
+    default = {};
+  };
+
   networking = lib.mkOption {
     type = lib.types.submodule {
       options = {

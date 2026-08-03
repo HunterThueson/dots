@@ -5,6 +5,7 @@
 # { nixos; home; } attrset.
 
 [
+  ./kdeconnect.nix
   ./privacy.nix
   ./syncthing.nix
 ]

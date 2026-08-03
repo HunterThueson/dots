@@ -104,7 +104,7 @@ Users can be assigned roles (`wizard`, `developer`, `gamer`, `filmmaker`, `write
 │   ├── editor/                # Emacs + Org-Roam, Nixvim (dual-export)
 │   ├── games/                 # Steam, OSRS, Discord (dual-export, gated on "gamer" role)
 │   ├── media/                 # OBS Studio (dual-export, gated on "filmmaker" role)
-│   ├── services/              # Privacy (VPN/Tor), Syncthing (OSRS sync); Firefly III, OpenVPN stubs
+│   ├── services/              # Privacy (VPN/Tor), Syncthing (OSRS sync), KDE Connect; Firefly III, OpenVPN stubs
 │   ├── shell/                 # Bash, Starship prompt (dual-export)
 │   ├── terminal/              # Alacritty (HM module)
 │   └── themes/                # Colors, fonts, Stylix, wallpaper management, etc. (dual-export)
