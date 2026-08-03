@@ -6,12 +6,29 @@
 
 # Pure HM module — works in both NixOS-managed and standalone HM.
 # Runs a fully-declarative Doom Emacs (nix-doom-emacs-unstraightened) when
-# userSettings.editor.gui == "emacs". The Doom config itself lives in ./doom.
+# userSettings.editor.gui == "emacs". The Doom config itself lives in ./doom;
+# users with the "writer" role additionally get the prose setup in ./doom-writer.
 
 { config, lib, pkgs, inputs, ... }:
 
 let
   user = config.userSettings;
+  isWriter = builtins.elem "writer" user.role;
+
+  # Writers get an extended doomDir: the base ./doom config plus the prose
+  # module from ./doom-writer. doomDir must be a single path, so the merge
+  # happens at build time — packages.el gains the writer packages and prose.el
+  # appears alongside config.el (which `load!`s it with NOERROR, so non-writer
+  # builds simply skip it).
+  doomDir =
+    if isWriter then
+      pkgs.runCommandLocal "doom-config-writer" {} ''
+        mkdir -p $out
+        cp --no-preserve=mode ${./doom}/* $out/
+        cp --no-preserve=mode ${./doom-writer}/prose.el $out/
+        cat ${./doom-writer}/packages.el >> $out/packages.el
+      ''
+    else ./doom;
 
   # A base16 theme generated from the active Stylix palette, so Emacs matches
   # the rest of the system (same approach as the nixvim mini.base16 target).
@@ -57,7 +74,7 @@ in {
     programs.doom-emacs = {
       enable = true;
       emacs = pkgs.emacs-pgtk;                                      # native Wayland (Hyprland)
-      doomDir = ./doom;                                             # static, git-tracked config
+      inherit doomDir;                                              # ./doom, plus ./doom-writer for the writer role
       doomLocalDir = "${config.home.homeDirectory}/.local/share/doom";
 
       # Build the Stylix theme in both HM paths. environment/themes/stylix.nix
@@ -79,6 +96,8 @@ in {
       graphviz                                  # org-roam graph visualization
       fd                                        # faster find (projectile, etc.)
       (aspellWithDicts (ds: [ ds.en ds.en-computers ds.en-science ]))  # spell checking
+    ] ++ lib.optionals isWriter [
+      literata                                  # variable-pitch serif for prose (doom-writer/prose.el)
     ];
 
     # Ensure org-roam directory exists

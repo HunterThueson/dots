@@ -64,3 +64,12 @@
   (global-set-key (kbd "C-c n i") #'org-roam-node-insert)
   (global-set-key (kbd "C-c n c") #'org-roam-capture)
   (define-key global-map (kbd "C-c n d") org-roam-dailies-map))
+
+;;  ----------------------
+;;  |  Writer Role       |
+;;  ----------------------
+
+;; prose.el is merged into the doomDir by Nix only when userSettings.role
+;; includes "writer" (see ../default.nix and ../doom-writer/); NOERROR makes
+;; this a no-op for everyone else.
+(load! "prose" nil t)
