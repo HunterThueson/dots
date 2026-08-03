@@ -76,7 +76,7 @@
           colorScheme  = "electro-swing";
         };
         browser.name  = "firefox";
-        fonts         = { sizes.terminal = 9; };
+        fonts         = { sizes.terminal = 10; };
         sync.osrs     = true;
 
         networking.privacy = {
