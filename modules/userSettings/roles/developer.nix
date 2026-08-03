@@ -36,6 +36,12 @@
         nix-direnv.enable = true;   # caches the devShell so re-entry is instant
       };
 
+      # Silence direnv's "loading/export" chatter so it doesn't clutter the
+      # clean terminal produced by the cd* helpers (clear + eza).
+      home.sessionVariables = {
+        DIRENV_LOG_FORMAT = "";
+      };
+
       programs.bash.bashrcExtra = ''
         # Teleport to $HOME/bin
         cdb () {
