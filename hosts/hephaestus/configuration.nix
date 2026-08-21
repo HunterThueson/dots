@@ -10,14 +10,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  #----------------------------#
-  #  Time/clock configuration  #
-  #----------------------------#
-
-  time = {
-    timeZone = "America/Denver";
-    hardwareClockInLocalTime = true;  # For Windows dual boot compatibility
-  };
+  time.timeZone = "America/Denver";
 
   #----------------------#
   #  Networking options  #
