@@ -122,7 +122,7 @@
           type = "desktop";
           role = [ "workstation" "writing" ];
           loginManager = "sddm";
-          availableSessions = [ "plasma" ];                                 # always available, on top of users' lists
+          availableSessions = [ "plasma" ];
           hardware = {
             boot = {
               loader = "systemd-boot";
@@ -147,7 +147,7 @@
           type = "laptop";
           role = [ "workstation" "writing" ];
           loginManager = "sddm";
-          availableSessions = [ "plasma" ];                                 # always available, on top of users' lists
+          availableSessions = [ "plasma" ];
           hardware = {
             boot = {
               loader = "systemd-boot";
