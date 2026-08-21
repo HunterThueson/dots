@@ -11,5 +11,6 @@
     ./packages.nix
     ./services.nix
     ./firefox.nix
+    ./claude-code.nix
   ];
 }

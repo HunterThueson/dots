@@ -101,6 +101,22 @@
         "type": "github"
       }
     },
+    "claude-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786084413,
+        "narHash": "sha256-3TEsciGBIGeKChCkCtjlBAq90yVf9SGNXv9UUyXPhqg=",
+        "ref": "refs/heads/master",
+        "rev": "e9c6ed5101520ff905f1cf1dbd7a66a4b5725a4b",
+        "revCount": 1,
+        "type": "git",
+        "url": "file:///home/hunter/projects/claude-config"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/hunter/projects/claude-config"
+      }
+    },
     "doomdir": {
       "flake": false,
       "locked": {
@@ -760,6 +776,7 @@
     },
     "root": {
       "inputs": {
+        "claude-config": "claude-config",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",

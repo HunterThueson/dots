@@ -44,6 +44,13 @@
     # pins its own emacs-overlay for binary-cache hits, so overriding would
     # force a local rebuild of every Emacs package.
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+
+    # Personal Claude Code config (settings, keybindings, skills), kept private
+    # and out of this public repo; wired in by users/hunter/claude-code.nix.
+    claude-config = {
+      url = "git+file:///home/hunter/projects/claude-config";
+      flake = false;
+    };
   };
 
   #-----------#

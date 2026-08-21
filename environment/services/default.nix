@@ -5,6 +5,7 @@
 # { nixos; home; } attrset.
 
 [
+  ./claude-code.nix
   ./kdeconnect.nix
   ./privacy.nix
   ./syncthing.nix
