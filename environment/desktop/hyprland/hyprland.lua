@@ -36,10 +36,10 @@ hl.monitor({
 })
 
 hl.monitor({
-    output   = "HDMI-A-5",
+    output   = "",
     mode     = "2560x1440@60",
     position = "auto-right",
-    scale    = "1",
+    scale    = "1.2",
 })
 
 -- Fallback for any hotplugged monitor
@@ -68,8 +68,9 @@ local fileManager = "dolphin"
 -- Monitor orientations: change to "portrait" when a monitor is rotated.
 -- Wallpapers are picked randomly from ~/images/wallpapers/<orientation>/
 local monitor_wallpapers = {
-    { output = "DP-5",     orientation = "landscape" },
-    { output = "HDMI-A-5", orientation = "landscape" },
+    { output = "DP-5", orientation = "landscape" },     -- Gigabyte M28U 4K 144hz
+    { output = "DP-4", orientation = "landscape" },     -- Dell S2417DG 1440p 165hz
+    { output = "",     orientation = "landscape" },     -- Catch-all for any other monitor(s) detected
 }
 
 hl.on("hyprland.start", function()
