@@ -8,7 +8,7 @@
 # running browser are overwritten on the next switch. Leave a block commented
 # until you're ready to hand it over, so in-browser setup isn't wiped mid-rebuild.
 
-{ config, lib, ... }:
+{ config, lib, hostName, ... }:
 
 let
   browser = config.userSettings.browser;
@@ -48,6 +48,15 @@ in {
 
       # -- Chrome CSS (uncomment when ready) -------------------------------
       # userChrome = '''';
+
+      # -- Display scaling -------------------------------------------------
+      # hephaestus forces Firefox onto XWayland (see its configuration.nix),
+      # where the 4K M28U hands Firefox a 1.0 device-pixel ratio and the UI
+      # renders tiny; nudge it back up. Host-scoped so artemis (native Wayland,
+      # its own scale) stays untouched.
+      settings = lib.mkIf (hostName == "hephaestus") {
+        "layout.css.devPixelsPerPx" = "1.1";
+      };
 
     };
   };

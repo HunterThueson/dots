@@ -51,4 +51,9 @@
   #  Environment  #
   #---------------#
 
+  # Firefox 153's native-Wayland fractional scaling renders micro on this host's
+  # 4K M28U (KWin scale 1.25); force Mozilla apps to XWayland until upstream
+  # fixes it. Hunter's profile bumps devPixelsPerPx to offset XWayland's 1.0.
+  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
+
 }
