@@ -81,7 +81,7 @@
 
         networking.privacy = {
           vpn     = { enable = true; autostart = false; server = "USA-Denver"; };
-          torrent = { enable = true; autostart = false; portForward = false; };
+          torrent = { enable = true; autostart = true;  server = "USA-Las_Vegas"; portForward = true; };
           tor     = { enable = true; autostart = false; };
         };
       };
@@ -100,8 +100,8 @@
         browser       = { name = "firefox"; declarative = false; };  # keep profile imperative
 
         networking.privacy = {
-          vpn     = { enable = true; autostart = true;  server = "USA-Denver"; };
-          torrent = { enable = true; autostart = false; portForward = false; };
+          vpn     = { enable = true; autostart = true;  server = "USA-Denver";  };
+          torrent = { enable = true; autostart = true;  server = "USA-Phoenix"; portForward = true; };
           tor     = { enable = true; autostart = false; };
         };
       };
