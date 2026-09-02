@@ -88,7 +88,7 @@
 
         networking.privacy = {
           vpn     = { enable = true; autostart = false; server = "USA-Denver"; };
-          torrent = { enable = true; autostart = true;  server = "USA-Las_Vegas"; portForward = true; };
+          torrent = { enable = true; autostart = false;  server = "USA-Las_Vegas"; portForward = true; };
           tor     = { enable = true; autostart = false; };
         };
       };
